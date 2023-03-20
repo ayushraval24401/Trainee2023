@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Standardizer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href=" https://fonts.googleapis.com/icon?family=Material+Icons " rel="stylesheet">
+    <!-- Bootstrap 5  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS  -->
+    <link href="coa.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="navbar">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #efeff0">
+
+            <img src="Images/logo.png" class="mx-4" width="150px" height="50px" alt="" style="cursor: pointer;">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-5">
+                    <li class="nav-item">
+                        <a class="nav-link active"><b class="active">CoA</b> </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav navbar-nav: mx-5">
+                    <li class="nav-item">
+                        <img alt="profile-image" class="rounded-circle" src="Images/user.jfif"
+                            style="width: 35px; height: 35px; border: 1px solid #EEF0F7;" />
+                </ul>
+            </div>
+        </nav>
+
+        <div class="account_type p-4" id="account_type_buttons" aria-label="Basic radio toggle button group">
+
+            <input type="radio" data-type="Assets" class="form-control btn btn-check Assets destination_source active"
+                checked name="account_type" id="Assets" data-active-type="assets" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="Assets">Assets</label>
+
+            <input type="radio" data-type="Liabilities" class="btn btn-check Liability destination_source"
+                name="account_type" data-active-type="Liability" id="Liability" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="Liability">Liability</label>
+
+            <input type="radio" data-type="Equity" class="btn btn-check EquityCapital destination_source"
+                name="account_type" data-active-type="EquityCapital" id="EquityCapital" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="EquityCapital">Equity/Capital</label>
+
+            <input type="radio" data-type="Revenue" class="btn btn-check Revenue destination_source" name="account_type"
+                data-active-type="Revenue" id="Revenue" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="Revenue">Revenue</label>
+
+            <input type="radio" data-type="COGS" class="btn     btn-check CoGS destination_source" name="account_type"
+                data-active-type="CoGS" id="CoGS" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="CoGS">CoGS</label>
+
+            <input type="radio" data-type="Expense" class="btn btn-check GA_Expenses destination_source"
+                name="account_type" data-active-type="GA_Expenses" id="GA_Expenses" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="GA_Expenses">G&A Expenses</label>
+
+            <input type="radio" data-type="Other Rev & Exp" class="btn btn-check OtherRE destination_source"
+                name="account_type" data-active-type="OtherRE" id="OtherRE" autocomplete="off">
+            <label class="btn b1 btn-outline-primary" for="OtherRE">Other Revenue & Expenses</label>
+
+            <button type="button" onclick="return submit()" class="btn float-end submit" id="Submit">Submit</button>
+            <p id="lastupdated"></p>
+        </div>
+
+        <div class="form-check m-4">
+            <i class="fa-regular fa-circle human_updated"></i>&nbsp;<label class="form-check-label human_updated"
+                for="human_updated">Human Updated</label>
+        </div>
+
+        <div class="row p-4">
+            <div class="col-sm-3">
+
+                <h5 class="fw-bold">Source Account Structure</h5>
+
+                <div class="list-group">
+                    <div class="bh btn mt-4"> Balance Sheet Accounts </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <h5 class="fw-bold">Likely Destination Account</h5>
+
+                <ul class="list-group list-group-horizontal">
+
+                    <div class="col-4">
+                        <div class="mostlikely b2 btn mt-4"> Most Likely </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="likely b2 btn  mt-4 mx-1"> Likely </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="possible b2 btn  mt-4 mx-2"> Possible </div>
+                    </div>
+                </ul>
+
+            </div>
+            <div class="col-sm-3">
+
+                <h5 class="fw-bold">Destination Account Structure</h5>
+
+                <div class="list-group">
+                    <div class="destination btn btn-success mt-4" aria-current="true"> Balance Sheet
+                        Accounts </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row p-4">
+            <div class="col-sm-3 mt-2">
+                <ul class="list-group" id="source"> </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul class="list-group list-group-horizontal">
+                    <div class="col-4">
+                        <ul class="list-group" id="mostlikely">
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul class="list-group mx-1" id="likely">
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul class="list-group mx-2" id="possible">
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-sm-3 mt-2">
+
+                <section class="fullwidth mt-2" style="border: 1px solid lightgray;">
+
+                    <div class="nav-scroller-wrapper">
+                        <nav class="nav-scroller">
+
+                            <div class="destination-nav nav-scroller-content" id="actives">
+                                <a href="#" id="all" class="nav-scroller-item all">All</a>
+                                <a href="#" data-type="ASSETS" data-active-type="assets"
+                                    class="nav-scroller-item Assets active">Assets</a>
+                                <a href="#" data-type="LIABILITIES" data-active-type="Liability"
+                                    class="nav-scroller-item Liability">Liability</a>
+                                <a href="#" data-type="EQUITY/CAPITAL" data-active-type="EquityCapital"
+                                    class="nav-scroller-item EquityCapital">Equity/Capital</a>
+                                <a href="#" data-type="Professional Services Revenue" data-active-type="Revenue"
+                                    class="nav-scroller-item Revenue">Revenue</a>
+                                <a href="#" class="nav-scroller-item CoGS" data-active-type="CoGS">CoGS</a>
+                                <a href="#" class="nav-scroller-item GA_Expenses" data-active-type="GA_Expenses">G&A
+                                    Expenses</a>
+                                <a href="#" data-type="Labor Expense" class="nav-scroller-item OtherRE"
+                                    data-active-type="OtherRE">Other Revenue & Expenses</a>
+                            </div>
+                        </nav>
+                        <span class="btn btn-sm nav-scroller-btn nav-scroller-btn--left">
+                            < </span> <span class="btn btn-sm nav-scroller-btn nav-scroller-btn--right"> >
+                        </span>
+                    </div>
+                    <input class="form-control search ps-4" type="search" placeholder="Search Account here..."
+                        id="search" />
+                </section>
+                <div class="destinationclass">
+                    <ul class="list-group" id="destination"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <!-- Sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Sortable JS Drag and Drop -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+        integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/12df35c901.js" crossorigin="anonymous"></script>
+
+    <script src="coa.js"></script>
+</body>
+
+</html>

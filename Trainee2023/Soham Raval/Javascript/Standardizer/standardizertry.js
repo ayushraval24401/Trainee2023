@@ -55,34 +55,7 @@ function csvJSON(csv) {
      });
 
      var masterdataType="";
-     if(type=="Assets")
-     {
-      masterdataType="ASSETS";
-     }
-     if(type=="Liabilities")
-     {
-      masterdataType="LIABILITIES";
-     }
-     if(type=="Equity")
-     {
-      masterdataType="EQUITY/CAPITAL";
-     }
-     if(type=="Revenue")
-     {
-      masterdataType="Professional Services Revenue";
-     }
-     if(type=="COGS")
-     {
-      masterdataType="Product Revenue";
-     }
-     if(type=="Expense")
-     {
-      masterdataType='"Outside (or ""1099"") Professional Services Costs"';
-     }
-     if(type=="Other Rev & Exp")
-     {
-      masterdataType="Product Costs";
-     }
+     
      $("#masterdata").html('');
      mastercaccount.forEach((element) => {      // var name=element.Name;
       
@@ -195,38 +168,7 @@ function mastercsvtojson(csv) {
     var masternavbarmatch;
     var navbarvalue= $(this).data("value");
    
-    if(navbarvalue=="Assets")
-     {
-      masternavbarmatch="ASSETS";
-     }
-     if(navbarvalue=="Liabilities")
-     {
-      masternavbarmatch="LIABILITIES";
-     }
-     if(navbarvalue=="Liabilities")
-     {
-      masternavbarmatch="LIABILITIES";
-     }
-     if(navbarvalue=="Equity/Capital")
-     {
-      masternavbarmatch="EQUITY/CAPITAL";
-     }
-     if(navbarvalue=="Revenue")
-     {
-      masternavbarmatch="Professional Services Revenue";
-     }
-     if(navbarvalue=="CoGS")
-     {
-      masternavbarmatch="Product Revenue";
-     }
-     if(navbarvalue=="Expense")
-     {
-      masternavbarmatch='"Outside (or ""1099"") Professional Services Costs"';
-     }
-     if(navbarvalue=="other")
-     {
-      masternavbarmatch="Product Costs";
-     }
+   
     $("#masterdata").html('');
     mastercaccount.forEach((element) => {      // var name=element.Name;
      if(element.AccountTypeName== masternavbarmatch){
