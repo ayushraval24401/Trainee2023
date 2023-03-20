@@ -47,21 +47,6 @@ console.log("Alok", destinationData);
 // Global element
 var htmlD = "";
 $(document).ready(function () {
-  // console.log(destinationData);
-  // destinationData.forEach((item) => {
-  //   htmlD +=
-  //     "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'  data-atr='" +item.AccountCode + "' >" +
-  //     "⠿ " +
-  //     item.AccountCode +
-  //     "--" +
-  //     item.AccountName +
-  //     "</div>";
-  // });
-
-  // $("#DestinationAccount").html(htmlD);
-
-  // ------------------------------------------------------------------------------------------------------
-
   // btn color
   $(".btnActive").click(function () {
     // remove "active" class from all buttons
@@ -562,6 +547,7 @@ $(".MostLikely").each(function () {
     animation: 150,
 
     onAdd: function (evt) {
+      debugger
       var Mostid = this.el.id;
 
       var Likely = Mostid.replace("ML", "L");
@@ -570,46 +556,71 @@ $(".MostLikely").each(function () {
       var mostLikelyAttr1;
       var mostLikelyAttr2;
 
-      // duplicate in self
+      // to get dropped class 
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "likely" || element === "possible" || element === "destinationScroll");
+      console.log("ee", Classfound)
 
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
 
+      var LikelyDIV = document.getElementById(Likely);
+      console.log("likely", LikelyDIV)
+
+      var PossibleDIV = document.getElementById(PossibledivID);
       // when nothing is there
       var emptyLikely = document.getElementById(Likely).children[0]
       emptyLikely = $(emptyLikely).attr("data-atr")
 
       var emptyPossible = document.getElementById(PossibledivID).children[0]
       emptyPossible = $(emptyPossible).attr("data-atr")
-      
+
       var emptyMostlikely = $(evt.item).attr("data-atr")
 
-      if (emptyLikely == emptyMostlikely || emptyMostlikely == emptyPossible ) {
+      if (Classfound != "destinationScroll") {
+        debugger
+        if (Classfound == "likely" || Classfound == "possible") {
+          if (evt.to.children.length > 1) {
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
+
+      }
+      if (emptyLikely == emptyMostlikely || emptyMostlikely == emptyPossible) {
         Swal.fire('Duplicate Data is Found')
         evt.to.removeChild(evt.item)
       }
       else {
         if (evt.to.children.length > 1) {
+          console.log("P", evt.to.children.length)
+          console.log("P", evt.to.children[0])
+          console.log("P", evt.to.children[1])
+
+
           mostLikelyAttr1 = evt.to.children[0].getAttribute("data-atr");
           mostLikelyAttr2 = evt.to.children[1].getAttribute("data-atr");
+
+          console.log("P", mostLikelyAttr1)
+          console.log("P", mostLikelyAttr2)
 
           if (mostLikelyAttr1 == mostLikelyAttr2) {
             Swal.fire('Duplicate Data is Found')
             evt.to.removeChild(evt.to.children[1]);
           }
+          else {
+            LikelyDIV.appendChild(evt.to.children[1]);
+          }
         }
 
       }
 
-      var Mostid = this.el.id;
-      var Likely = Mostid.replace("ML", "L");
-      var PossibledivID = Mostid.replace("ML", "P");
-
-      var LikelyDIV = document.getElementById(Likely);
-      var PossibleDIV = document.getElementById(PossibledivID);
-
-      if (evt.to.children.length > 1) {
-        var oldMostLikelyitem = evt.to.children[1];
-        LikelyDIV.appendChild(oldMostLikelyitem);
-      }
       if (LikelyDIV.children.length > 1) {
         var oldLikelyitem = LikelyDIV.children[0];
         PossibleDIV.appendChild(oldLikelyitem);
@@ -617,6 +628,8 @@ $(".MostLikely").each(function () {
       if (PossibleDIV.children.length > 1) {
         PossibleDIV.removeChild(PossibleDIV.children[0]);
       }
+
+
     },
     ghostClass: "ghost",
   });
@@ -638,8 +651,31 @@ $(".likely").each(function () {
       var likelyAtr1;
       var likelyAtr2;
 
+      // to get dropped class 
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "MostLikely" || element === "possible" || element === "destinationScroll");
+      console.log("ee", Classfound)
 
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
 
+      if (Classfound != "destinationScroll") {
+        if (Classfound == "MostLikely" || Classfound == "possible") {
+          if (evt.to.children.length > 1) {
+            debugger
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
+
+      }
+      // else {
       // when nothing is there
       var emptyMLikely = document.getElementById(MLikelyid).children[0]
       emptyMLikely = $(emptyMLikely).attr("data-atr")
@@ -649,11 +685,11 @@ $(".likely").each(function () {
 
       var emptylikely = $(evt.item).attr("data-atr")
 
-      if (emptyMLikely == emptylikely || emptylikely == EmptyPossible ) {
+      if (emptyMLikely == emptylikely || emptylikely == EmptyPossible) {
         Swal.fire('Duplicate Data is Found')
 
         evt.to.removeChild(evt.item)
-      }else{
+      } else {
         if (evt.to.children.length > 1) {
           likelyAtr1 = evt.to.children[0].getAttribute("data-atr");
           likelyAtr2 = evt.to.children[1].getAttribute("data-atr");
@@ -675,6 +711,8 @@ $(".likely").each(function () {
       if (PossibleDIV.children.length > 1) {
         PossibleDIV.removeChild(PossibleDIV.children[0]);
       }
+      // }
+
     },
     ghostClass: "ghost",
   });
@@ -694,7 +732,30 @@ $(".possible").each(function () {
       var PossibleAtr1;
       var PossibleAtr2;
 
+      // to get dropped class 
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "MostLikely" || element === "likely" || element === "destinationScroll");
+      console.log("ee", Classfound)
 
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
+
+      if (Classfound != "destinationScroll") {
+        if (Classfound == "MostLikely" || Classfound == "likely") {
+          if (evt.to.children.length > 1) {
+            debugger
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
+
+      }
 
       // when nothing is there
       var EmptyMLikely = document.getElementById(MostLikelyid).children[0]
@@ -704,23 +765,31 @@ $(".possible").each(function () {
       EmptyLikely = $(EmptyLikely).attr("data-atr")
 
       var emptyPoss = $(evt.item).attr("data-atr")
-     
-      if (EmptyMLikely == emptyPoss || emptyPoss == EmptyLikely ) {
+
+      if (EmptyMLikely == emptyPoss || emptyPoss == EmptyLikely) {
         Swal.fire('Duplicate Data is Found')
 
         evt.to.removeChild(evt.item)
-      }else{
+      } else {
         if (evt.to.children.length > 1) {
+          debugger
           PossibleAtr1 = evt.to.children[0].getAttribute("data-atr");
           PossibleAtr2 = evt.to.children[1].getAttribute("data-atr");
-      
+
           if (PossibleAtr1 == PossibleAtr2) {
             Swal.fire('Duplicate Data is Found')
-        
+
             evt.to.removeChild(evt.to.children[1]);
+          } else {
+            debugger
+            evt.to.removeChild(evt.to.children[1]);
+
           }
+
         }
       }
+
+      // }
 
     },
     ghostClass: "ghost",
@@ -835,6 +904,16 @@ var Time = formatDate(new Date());
 
 var Lastupdate = document.getElementById("Submit");
 Lastupdate.addEventListener("click", function () {
+  Swal.fire({
+    // position: 'top-end',
+    icon: 'success',
+    title: 'Data is submitted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+  
   SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
   document.getElementById("LastSubmited").innerHTML = "Last Updated On " + SourceDataJson[0].LastUpdated;
 });
+
+// --------------------------------------------------------------------------------------------------------

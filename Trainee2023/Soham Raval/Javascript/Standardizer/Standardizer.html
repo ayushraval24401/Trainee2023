@@ -88,8 +88,10 @@
                     <button type="button" class=" source_btn px-3 py-1 mx-1" value="OTHER REVENUE& EXPENSE" data-value="Other Rev & Exp">Other Revenue &amp; Expense</button>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <button type="button" class="btn_submit border-0 px-3 py-1 rounded-2">Submit</button>
+                    <button type="button" class="btn_submit border-0 px-3 py-1 rounded-2" onclick="submit()">Submit</button>
                 </div>
+                <p id="date_and_time_show" class="d-flex justify-content-end"></p>
+
                 </div>
                 </div>
     <div class="container-fluid freeze_humanupdated">
@@ -204,7 +206,7 @@
                     <div class="row mt-3">
                         <div class="container-fluid">
                         <div class="col-md-3 destination_account_structure">
-                            <ul class="list-group mt-2 destination_account " id="mastersheet_list" >
+                            <ul class="list-group mt-2 destination_account " id="mastersheet_list">
                             </ul>
                         </div>
                       </div>

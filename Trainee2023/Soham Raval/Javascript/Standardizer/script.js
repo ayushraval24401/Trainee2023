@@ -1,6 +1,8 @@
 
 var getvalueofcsv = [];
 var getvalueofmasterdata = [];
+let mostlikelysDroppedNumbers = [];
+
 $(document).ready(function () {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -31,14 +33,38 @@ $(document).ready(function () {
                 $("#likelys").append("<li id='likely_" + columndata.Number + "' class='list-group-item mostlike likelydrag'>");
                 $("#possible").append("<li id='possible_" + columndata.Number + "' class='list-group-item mostlike possibledrag'>");
             }
-        });
-        $('.mostlikedrag').each(function () {
+        }); 
+        // $('.mostlikedrag').each(function () {
       
+        //     new Sortable(this, {
+        //         group: 'shared',
+        //         animation: 150,
+        //     })
+        // })
+          
+        $('.mostlikedrag').each(function () {
             new Sortable(this, {
                 group: 'shared',
                 animation: 150,
+                onAdd: function (evt) {
+                    console.log("evt",evt)
+                    debugger
+                    // check if the item was dropped into the mostlikelys list
+                    // if (evt.to.id === 'mostlikelys') {
+                    //     let itemNumber = evt.item.id.split('_')[1];
+                    //     // check if the item has already been dropped into the mostlikelys list
+                    //     if (mostlikelysDroppedNumbers.includes(itemNumber)) {
+                    //         console.log("mostlikelysDroppedNumbers",mostlikelysDroppedNumbers)
+                    //         // remove the item from the mostlikelys list and add it to the likelys list
+                    //         evt.from.insertBefore(evt.item, evt.from.children[evt.oldIndex]);
+                    //         $('#likelys').append(evt.item);
+                    //     } else {
+                    //         mostlikelysDroppedNumbers.push(itemNumber);
+                    //     }
+                    // }
+                }
             })
-        })
+        });
         $('.likelydrag').each(function () {
                        new Sortable(this, {
                 group: 'shared',
@@ -46,27 +72,28 @@ $(document).ready(function () {
             })
         })
         $('.possibledrag').each(function () {
-           
             new Sortable(this, {
                 group: 'shared',
                 animation: 150,
             })
         })
+ 
+        let str = $("#mostlikelys").find("li").attr("id");
+        let mostlikelyValue = str.substring(str.indexOf("mostlikely_")); 
+        console.log(mostlikelyValue);
+
         debugger
         $(".source_btn").click(function () {
-        
             var type = $(this).data("value");
-
             var mostlikelys = $("#mostlikelys");
             var likelys = $("#likelys");
             var possible = $("#possible");
-            var type = $(this).data("value");
+            // var type = $(this).data("value");
             
             $("#Balancesheet_list li").hide();
             mostlikelys.find("li").hide();
             likelys.find("li").hide();
             possible.find("li").hide();
-        
             result.forEach((columndata) => {
                 if (columndata.Type == type) {
                     if (columndata.Number != "") {
@@ -85,7 +112,6 @@ $(document).ready(function () {
                 })
             })
 
-          
             const MasterDataMap = {
                 "Assets": "ASSETS",
                 "Liabilities": "LIABILITIES",
@@ -133,13 +159,11 @@ $(document).ready(function () {
             getvalueofmasterdata.push(obj);
         }
     }
-
     var html = '';
     getvalueofmasterdata.forEach((columndata) => {
         if (columndata.Number != "") {
             // $("#mastersheet_list").append("<li class='list-group-item'>" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
-            html += "<li class='list-group-item'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>"
-
+            html += "<li class='list-group-item' data-value='" + columndata.AccountCode + "'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>";
         }
         $("#mastersheet_list").html(html)
     });
@@ -240,6 +264,7 @@ new Sortable(mastersheet_list, {
     // sort: false 
 });
 
+
 // new Sortable(document.getElementsByClassName('mostlikelys_list'), {
 //     group: 'shared',
 //     animation: 150,
@@ -281,3 +306,8 @@ buttons.forEach((button) => {
         });
     });
 });
+function submit() {
+    var currentDateTime = new Date();
+    var formattedDateTime = currentDateTime.toLocaleString();
+    document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
+  }
