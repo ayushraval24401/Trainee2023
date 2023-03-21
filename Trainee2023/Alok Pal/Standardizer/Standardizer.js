@@ -598,25 +598,26 @@ $(".MostLikely").each(function () {
         evt.to.removeChild(evt.item)
       }
       else {
-        if (evt.to.children.length > 1) {
-          console.log("P", evt.to.children.length)
-          console.log("P", evt.to.children[0])
-          console.log("P", evt.to.children[1])
+        try {
 
+          if (evt.to.children.length > 1) {
+            mostLikelyAttr1 = evt.to.children[0].getAttribute("data-atr");
+            mostLikelyAttr2 = evt.to.children[1].getAttribute("data-atr");
 
-          mostLikelyAttr1 = evt.to.children[0].getAttribute("data-atr");
-          mostLikelyAttr2 = evt.to.children[1].getAttribute("data-atr");
+            console.log("P", mostLikelyAttr1)
+            console.log("P", mostLikelyAttr2)
 
-          console.log("P", mostLikelyAttr1)
-          console.log("P", mostLikelyAttr2)
-
-          if (mostLikelyAttr1 == mostLikelyAttr2) {
-            Swal.fire('Duplicate Data is Found')
-            evt.to.removeChild(evt.to.children[1]);
+            if (mostLikelyAttr1 == mostLikelyAttr2) {
+              Swal.fire('Duplicate Data is Found')
+              evt.to.removeChild(evt.to.children[1]);
+            }
+            else {
+              LikelyDIV.appendChild(evt.to.children[1]);
+            }
           }
-          else {
-            LikelyDIV.appendChild(evt.to.children[1]);
-          }
+        }
+        catch (err) {
+          console.log("err")
         }
 
       }
@@ -812,30 +813,16 @@ function AddDataLocalStorage() {
   var SourceID;
   divs.forEach(function (div) {
     SourceID = div.id;
-    if (localStorage.getItem("SourceAccount") == null) {
-      SourceAccount = [];
-      var sourceAccountObj = {
-        LastUpdated: Time,
-        SourceId: SourceID,
-        MostLikely: $("#" + SourceID + "ML").html(),
-        Likely: $("#" + SourceID + "L").html(),
-        Possible: $("#" + SourceID + "P").html(),
-      };
-      SourceAccount.push(sourceAccountObj);
-
-    } else {
-      var sourceAccountObj = {
-        LastUpdated: Time,
-        SourceId: SourceID,
-        MostLikely: $("#" + SourceID + "ML").html(),
-        Likely: $("#" + SourceID + "L").html(),
-        Possible: $("#" + SourceID + "P").html(),
-      };
-    }
+    var sourceAccountObj = {
+      LastUpdated: Time,
+      SourceId: SourceID,
+      MostLikely: $("#" + SourceID + "ML").html(),
+      Likely: $("#" + SourceID + "L").html(),
+      Possible: $("#" + SourceID + "P").html(),
+    };
 
     SourceAccount.push(sourceAccountObj);
 
-    // localStorage.setItem("SourceAccount", JSON.stringify(SourceAccount));
   });
   localStorage.setItem("SourceAccount", JSON.stringify(SourceAccount));
 }
@@ -911,9 +898,14 @@ Lastupdate.addEventListener("click", function () {
     showConfirmButton: false,
     timer: 1500
   })
-  
+
   SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
   document.getElementById("LastSubmited").innerHTML = "Last Updated On " + SourceDataJson[0].LastUpdated;
 });
+
+window.onload = (event) => {
+  SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
+  (document.getElementById("LastSubmited").innerHTML = "Last Updated On " + SourceDataJson[0].LastUpdated);
+};
 
 // --------------------------------------------------------------------------------------------------------
