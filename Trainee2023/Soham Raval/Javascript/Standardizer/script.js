@@ -5,7 +5,7 @@ let mostlikelysDroppedNumbers = [];
 var result = [];
 
 $(document).ready(function () {
-    showdata();
+    // showdata();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -63,6 +63,8 @@ $(document).ready(function () {
                         console.log(mostlikelycontent.firstChild.textContent.trim())
                         if (firstChild.textContent.trim() == likely_shift.textContent.trim()) {
                             swal("same value does not exist!");
+                            // firstChild.children[0].remove();
+
                         }
                         // if (firstChild.textContent.trim() === likely_shift.textContent.trim()) 
                         // {
@@ -271,6 +273,7 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    showdata();
     $('#btn-nav-previous').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
     });
@@ -295,6 +298,33 @@ $(document).ready(function () {
         // add the active class to the clicked link
         $(this).addClass('active');
     });
+    var dataget = getvalueofmasterdata;  //Done
+    var storedData = localStorage.getItem("Data");
+    let storearray = JSON.parse(storedData);  
+    console.log("LIKELY Data",storearray);
+    console.log("Destination data",dataget);;
+    console.log(dataget.AccountCode)
+    
+
+    dataget.forEach((list) => {
+
+    //   console.log(list.AccountCode)
+    })
+    storearray.forEach(() =>{
+        // console.log(list.ID)
+        var dataValuesmostlikely = $('#mostlikely li.list-group-item').map(function() {
+            return $(this).data('value');
+          }).get();
+          console.log(dataValuesmostlikely)
+
+
+    });
+
+      
+    // if()
+
+
+
 });
 // new Sortable(document.getElementById('mostlikelys'), {
 //     group: 'shared',
@@ -373,12 +403,9 @@ buttons.forEach((button) => {
 function submit() {
     debugger
     var array = new Array;
-    var currentDateTime = new Date();
-    var formattedDateTime = currentDateTime.toLocaleString();
-    document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
+   
 
     result.forEach((li) => {
-        debugger
 
         //let Data = li.AccountCode
         //   console.log(Data)
@@ -392,9 +419,8 @@ function submit() {
         array.push(datatostore);
         localStorage.setItem("Data", JSON.stringify(array));
 
-
     })
-    showdata();
+    // showdata();
 
 }
 function showdata() {
@@ -404,12 +430,11 @@ function showdata() {
     console.log(storearray)
     if (storearray) {
         storearray.forEach(li => {
-            var id = li.ID;
-            var mostlike = li.mostlikelys;
-            var likelys = li.likelys;
-            var possible = li.possible;
+            // var id = li.ID;
+            // var mostlike = li.mostlikelys;
+            // var likelys = li.likelys;
+            // var possible = li.possible;  
             // console.log("ytryutyu",mostlike)
-
 
             $(`#mostlikely_${li.ID}`).html(li.mostlikelys);
                 $(`#likely_${li.ID}`).html(li.likelys);
@@ -420,6 +445,9 @@ function showdata() {
     }
 
 }
+var currentDateTime = new Date();
+var formattedDateTime = currentDateTime.toLocaleString();
+document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
 // window.addEventListener("load", (event) => {
 //     console.log("page is fully loaded");
 //     // Retrieve the data from localStorage
