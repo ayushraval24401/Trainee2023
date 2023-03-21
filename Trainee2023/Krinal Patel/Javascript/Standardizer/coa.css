@@ -2,15 +2,6 @@
 .active {
   color: #61c3e8;
 }
-/* #navbar{
-  position: fixed;
-  width: 100%;
-}
-#content{
-  margin-top: 30% !important;
-}  */
-
-
 
 .navbar-nav .nav-link {
   position: relative;
@@ -47,6 +38,10 @@ div.destinationclass {
   left: -5px;
   border: none;
   display: block !important;
+  margin: -6px !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+
 }
 
 /* List item */
@@ -198,7 +193,7 @@ li {
 .b1 {
   color: gray;
   border-color: lightgray;
-  background-color: lightgray;
+  background-color: #f2f2f2;
   height: 30px;
   padding-top: 2px;
   padding-bottom: 2px;

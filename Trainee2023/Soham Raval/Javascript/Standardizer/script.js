@@ -2,8 +2,10 @@
 var getvalueofcsv = [];
 var getvalueofmasterdata = [];
 let mostlikelysDroppedNumbers = [];
+var result = [];
 
 $(document).ready(function () {
+    showdata();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -16,7 +18,7 @@ $(document).ready(function () {
     xhttp.send();
     function csvJSON(csv) {
         var lines = csv.split("\n");
-        var result = [];
+
         var headers = lines[0].split(",");
         for (var i = 1; i < lines.length; i++) {
             var obj = {};
@@ -33,53 +35,114 @@ $(document).ready(function () {
                 $("#likelys").append("<li id='likely_" + columndata.Number + "' class='list-group-item mostlike likelydrag'>");
                 $("#possible").append("<li id='possible_" + columndata.Number + "' class='list-group-item mostlike possibledrag'>");
             }
-        }); 
+        });
         // $('.mostlikedrag').each(function () {
-      
+
         //     new Sortable(this, {
         //         group: 'shared',
         //         animation: 150,
         //     })
         // })
-          
+
         $('.mostlikedrag').each(function () {
             new Sortable(this, {
                 group: 'shared',
                 animation: 150,
                 onAdd: function (evt) {
-                    console.log("evt",evt)
+                    console.log("evt", evt)
                     debugger
-                    // check if the item was dropped into the mostlikelys list
-                    // if (evt.to.id === 'mostlikelys') {
-                    //     let itemNumber = evt.item.id.split('_')[1];
-                    //     // check if the item has already been dropped into the mostlikelys list
-                    //     if (mostlikelysDroppedNumbers.includes(itemNumber)) {
-                    //         console.log("mostlikelysDroppedNumbers",mostlikelysDroppedNumbers)
-                    //         // remove the item from the mostlikelys list and add it to the likelys list
-                    //         evt.from.insertBefore(evt.item, evt.from.children[evt.oldIndex]);
-                    //         $('#likelys').append(evt.item);
-                    //     } else {
-                    //         mostlikelysDroppedNumbers.push(itemNumber);
-                    //     }
-                    // }
+                    var mostlikelycontent = evt.item.parentNode;
+                    console.log(mostlikelycontent)
+                    // var firstChild = mostlikelycontent.children[0];
+                    // console.log(firstChild)
+                    // console.log(mostlikelycontent)
+                    if (mostlikelycontent.children.length > 1) {
+                        var firstChild = mostlikelycontent.children[0];
+                        var likely_shift = mostlikelycontent.children[1];
+                        console.log(firstChild.textContent.trim());
+                        console.log(mostlikelycontent.firstChild.textContent.trim())
+                        if (firstChild.textContent.trim() == likely_shift.textContent.trim()) {
+                            swal("same value does not exist!");
+                        }
+                        // if (firstChild.textContent.trim() === likely_shift.textContent.trim()) 
+                        // {
+                        //     swal("same value does not exist!");                    
+                        // }
+                        else {
+                            var compareandget_id = mostlikelycontent.getAttribute('id').substring(mostlikelycontent.getAttribute('id').indexOf('_'));
+                            var possible = document.getElementById('possible' + compareandget_id);
+                            var likely = document.getElementById('likely' + compareandget_id);
+
+                            if (likely.children.length == 0) {
+                                likely.appendChild(likely_shift);
+                            }
+                            else if (likely.children.length == 1) {
+
+                                likely.appendChild(likely_shift);
+                                if (possible.children.length == 0) {
+                                    var secondlikelychild = likely.children[0];
+                                    possible.appendChild(secondlikelychild)
+                                }
+                                else if (possible.children.length == 1) {
+                                    possible.children[0].remove();
+                                    var secondlikelychild = likely.children[0];
+                                    possible.appendChild(secondlikelychild)
+                                }
+
+
+
+                            }
+                        }
+
+                    }
+
                 }
             })
         });
         $('.likelydrag').each(function () {
-                       new Sortable(this, {
+            new Sortable(this, {
                 group: 'shared',
                 animation: 150,
+                onAdd: function (evt) {
+
+                    var likelycontent = evt.item.parentNode;
+                    if (likelycontent.children.length > 1) {
+                        var firstChild = likelycontent.children[0];
+                        var possible_shift = likelycontent.children[1];
+                        if (firstChild.textContent.trim() == possible_shift.textContent.trim()) {
+                            swal("same value does not exist!");
+                        }
+                        else {
+                            var compareandget_id = likelycontent.getAttribute('id').substring(likelycontent.getAttribute('id').indexOf('_'));
+                            var possible = document.getElementById('possible' + compareandget_id);
+                            if (possible.children.length == 0) {
+                                possible.appendChild(possible_shift);
+                            }
+                            else if (possible.children.length == 1) {
+                                possible.appendChild(possible_shift);
+                                var possiblechild = possible.children[0];
+                                possiblechild.remove();
+                            }
+                        }
+                    }
+                }
             })
         })
         $('.possibledrag').each(function () {
             new Sortable(this, {
                 group: 'shared',
                 animation: 150,
+                onAdd: function (evt) {
+                    var possiblecontent = evt.item.parentNode;
+                    if (possiblecontent.children.length > 1) {
+                        possiblecontent.children[1].remove();
+                    }
+                }
             })
         })
- 
+
         let str = $("#mostlikelys").find("li").attr("id");
-        let mostlikelyValue = str.substring(str.indexOf("mostlikely_")); 
+        let mostlikelyValue = str.substring(str.indexOf("mostlikely_"));
         console.log(mostlikelyValue);
 
         debugger
@@ -89,7 +152,7 @@ $(document).ready(function () {
             var likelys = $("#likelys");
             var possible = $("#possible");
             // var type = $(this).data("value");
-            
+
             $("#Balancesheet_list li").hide();
             mostlikelys.find("li").hide();
             likelys.find("li").hide();
@@ -104,13 +167,13 @@ $(document).ready(function () {
                     }
                 }
             });
-            $('.btndrag').each(function () {
-                debugger
-                new Sortable(this, {
-                    group: 'shared',
-                    animation: 150,
-                })
-            })
+            // $('.btndrag').each(function () {
+            //     debugger
+            //     new Sortable(this, {
+            //         group: 'shared',
+            //         animation: 150,
+            //     })
+            // })
 
             const MasterDataMap = {
                 "Assets": "ASSETS",
@@ -261,7 +324,7 @@ new Sortable(mastersheet_list, {
         put: false
     },
     animation: 150,
-    // sort: false 
+    sort: false
 });
 
 
@@ -306,8 +369,67 @@ buttons.forEach((button) => {
         });
     });
 });
+
 function submit() {
+    debugger
+    var array = new Array;
     var currentDateTime = new Date();
     var formattedDateTime = currentDateTime.toLocaleString();
     document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
-  }
+
+    result.forEach((li) => {
+        debugger
+
+        //let Data = li.AccountCode
+        //   console.log(Data)
+        let datatostore = {
+            ID: li.Number,
+            mostlikelys: $(`#mostlikely_${li.Number}`).html(),
+            likelys: $(`#likely_${li.Number}`).html(),
+            possible: $(`#possible_${li.Number}`).html(),
+            //Data_store: Data
+        };
+        array.push(datatostore);
+        localStorage.setItem("Data", JSON.stringify(array));
+
+
+    })
+    showdata();
+
+}
+function showdata() {
+    debugger
+    var storedData = localStorage.getItem("Data");
+    let storearray = JSON.parse(storedData);
+    console.log(storearray)
+    if (storearray) {
+        storearray.forEach(li => {
+            var id = li.ID;
+            var mostlike = li.mostlikelys;
+            var likelys = li.likelys;
+            var possible = li.possible;
+            // console.log("ytryutyu",mostlike)
+
+
+            $(`#mostlikely_${li.ID}`).html(li.mostlikelys);
+                $(`#likely_${li.ID}`).html(li.likelys);
+                $(`#possible_${li.ID}`).html(li.possible);
+
+
+        })
+    }
+
+}
+// window.addEventListener("load", (event) => {
+//     console.log("page is fully loaded");
+//     // Retrieve the data from localStorage
+// let storedData = JSON.parse(localStorage.getItem("Data"));
+
+// // Use the data as needed
+// $("#mostlikelys").html(storedData.mostlikelys);
+// $("#likelys").html(storedData.likelys);
+// $("#possible").html(storedData.possible);
+// let getvalueofmasterdata = storedData.getvalueofmasterdata;
+
+//   });
+
