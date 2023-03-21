@@ -1,5 +1,5 @@
 /* Active nav-link */
-.active {
+.actives {
   color: #61c3e8;
 }
 
@@ -154,7 +154,10 @@ div.destinationclass {
   border-color: #3cb7e7;
 
 }
+.human{
+  color: #00961f;
 
+}
 .bh {
   background-color: #00a5e5;
   border-color: #00a5e5;
@@ -176,7 +179,7 @@ div.destinationclass {
   right: 50%;
   transform: translate(50%, -50%);
   background-color: #61c3e8;
-  visibility: hidden;
+  visibility:visible;
   color: #61c3e8;
 }
 
@@ -300,7 +303,8 @@ li {
   display: block;
   min-height: 1.5rem;
   padding-left: 0.5em;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0 !important ;
+
 }
 
 /* search bar */
@@ -363,7 +367,7 @@ li {
   transition: transform .4s ease-in-out;
 }
 
-.active {
+.actives {
   color: #61c3e8;
 
 }
