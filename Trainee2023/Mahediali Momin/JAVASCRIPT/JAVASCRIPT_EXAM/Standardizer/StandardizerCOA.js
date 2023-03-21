@@ -1,51 +1,3 @@
-// Destination 
-const destinationdata = new XMLHttpRequest();
-destinationdata.open("GET", "MasterChartOfAcounts - Sheet1.csv", false);
-
-var masterChartAccountDataString;
-var masterChartAccountObject;
-var masterChartAccountData = [];
-destinationdata.onreadystatechange = function () {
-    if (destinationdata.readyState === XMLHttpRequest.DONE && destinationdata.status === 200) {
-        const csv = destinationdata.responseText;
-
-        const rows = csv.split("\n");
-        const headers = rows[0].split(",");
-
-        masterChartAccountData = [];
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i].split(",");
-            const obj = {};
-            for (let j = 0; j < headers.length; j++) {
-                obj[headers[j]] = row[j];
-            }
-            masterChartAccountData.push(obj);
-        }
-        console.log(masterChartAccountData)
-
-        masterChartAccountDataString = JSON.stringify(masterChartAccountData);
-        masterChartAccountObject = JSON.parse(masterChartAccountDataString);
-    }
-};
-destinationdata.send();
-
-var destinationData = JSON.parse(masterChartAccountDataString);
-const parentElement = document.getElementById('DestinationAccount');
-
-destinationData.forEach((item) => {
-    var liElement = document.createElement('li');
-    liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
-    liElement.classList.add('list-group-item')
-    parentElement.appendChild(liElement);
-
-
-});
-
-
-
-
-
-
 
 const buttons = document.querySelectorAll('.header-button');
 const links = document.querySelectorAll('.menu-inner-box a');
@@ -101,63 +53,59 @@ $('#all').click(function () {
 
 
 
+// Destination 
+const destinationdata = new XMLHttpRequest();
+destinationdata.open("GET", "MasterChartOfAcounts - Sheet1.csv", false);
 
-// document.querySelector('.submit').addEventListener('click', function() {
-//     const liElements = document.querySelectorAll('.destinations');
-//     const data = [];
+var masterChartAccountDataString;
+var masterChartAccountObject;
+var masterChartAccountData = [];
+destinationdata.onreadystatechange = function () {
+    if (destinationdata.readyState === XMLHttpRequest.DONE && destinationdata.status === 200) {
+        const csv = destinationdata.responseText;
 
-//     liElements.forEach(function(li) {
-//     const customValue = li.getAttribute('data-custom-attribute');
-//     const textContent = li.textContent;
-//     data.push({
-//         customValue: customValue,
-//         textContent: textContent
-//     });
-//     });
+        const rows = csv.split("\n");
+        const headers = rows[0].split(",");
 
-//     // Save the data to local storage
-//     localStorage.setItem('draggedLiData', JSON.stringify(data));
-// });
+        masterChartAccountData = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i].split(",");
+            const obj = {};
+            for (let j = 0; j < headers.length; j++) {
+                obj[headers[j]] = row[j];
+            }
+            masterChartAccountData.push(obj);
+        }
+        console.log(masterChartAccountData)
 
+        masterChartAccountDataString = JSON.stringify(masterChartAccountData);
+        masterChartAccountObject = JSON.parse(masterChartAccountDataString);
+    }
+};
+destinationdata.send();
 
-// $('.destinations').each(function () {
-//     new Sortable(this, {
-//         group: 'shared',
-//         animation: 150,
-//         dragClass: 'dragged-item', // add a class to the dragged item
-//         onEnd: function (evt) {
-//             // remove the class when dragging ends
-//             evt.item.classList.remove('list-group-item');
-//         },
-//         accept: function (el) {
-//             // only allow dropping onto elements with the class "target"
-//             return el.classList.contains('target');
-//         }
-//     })
-// })
+var destinationData = JSON.parse(masterChartAccountDataString);
+const parentElement = document.getElementById('DestinationAccount');
 
-// var dest = document.getElementById("DestinationAccount");
-// new Sortable(dest, {
-//     group: {
-//         name: 'shared',
-//         pull: 'clone',
-//         put: false // Do not allow items to be put into this list
-//     },
-//     animation: 150,
-//     sort: false // To disable sorting: set sort to false
-// });
+destinationData.forEach((item) => {
+    var liElement = document.createElement('li');
+    liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
+    liElement.classList.add('list-group-item')
+    parentElement.appendChild(liElement);
 
 
+});
 
 
 
 //for searchbar
 $(document).ready(function () {
-    debugger
+
+    
     //Source data
     var sourcedata = new XMLHttpRequest();
     sourcedata.open("GET", "Standard CofA.csv", false);
-    debugger
+    
 
     var standardcofstring;
     var standardcofobject;
@@ -181,7 +129,6 @@ $(document).ready(function () {
             standardcofstring = JSON.stringify(standardcofData);
             standardcofobject = JSON.parse(standardcofstring);
 
-
         }
 
     };
@@ -190,7 +137,6 @@ $(document).ready(function () {
 
     var sourcedata = JSON.parse(standardcofstring);
     const parent = document.getElementById('SourceAccount');
-
 
     sourcedata.forEach((item) => {
         if (item.Number != "") {
@@ -209,15 +155,12 @@ $(document).ready(function () {
 
     });
 
-  
 
-    
 
 
     ///Filtering with buttons
-
     $('.header-button').click(function () {
-        debugger
+        
         var button = $(this).data("btn-type");
         var mostlikely = $("#mostlikely");
         var likely = $("#likely");
@@ -228,7 +171,7 @@ $(document).ready(function () {
         likely.find("li").hide();
         possible.find("li").hide();
 
-        debugger
+        
         sourcedata.forEach((item) => {
             if (item.Type == button) {
                 if (item.Number != "") {
@@ -247,11 +190,11 @@ $(document).ready(function () {
                     $("#Possible_" + item.Number).show();
 
                 }
-                
+
             }
-            
+
         });
-        
+
 
         var Destination = "";
         if (button == "Assets") {
@@ -282,9 +225,6 @@ $(document).ready(function () {
     });
 
 
-
-   
-
     $('.search').on('keyup search', function () {
         var query = $(this).val().toLowerCase();
         $('#DestinationAccount li').each(function () {
@@ -300,60 +240,28 @@ $(document).ready(function () {
         $('.header-button').removeClass('active');
         $(this).addClass('active');
     });
+
     $('.submit').on('click', function () {
         $('.submit').removeClass('active');
         $(this).addClass('active');
     });
+
     $('#btn-nav-previous').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
     });
 
+
     $('#btn-nav-next').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
     });
+
+});
+$(document).ready(function () {
+    draggable();
+
 });
 
-$(document).ready(function (){
- $('.destinations').each(function () {
-        new Sortable(this, {
-            group: 'shared',
-            animation: 150,
-            dragClass: 'dragged-item', // add a class to the dragged item
-            onEnd: function (evt) {
-                // remove the class when dragging ends
-                evt.item.classList.remove('list-group-item');
-            },
-            accept: function (el) {
-                // only allow dropping onto elements with the class "target"
-                return el.classList.contains('target');
-            }
-        })
-    })
 
-    var dest = document.getElementById("DestinationAccount");
-    new Sortable(dest, {
-        group: {
-            name: 'shared',
-            pull: 'clone',
-            put: false // Do not allow items to be put into this list
-        },
-        animation: 150,
-        sort: false // To disable sorting: set sort to false
-    });
-})
-
-
-// // header buttons
-// $(document).ready(function () {
-//     $('.header-button').on('click', function () {
-//         $('.header-button').removeClass('active');
-//         $(this).addClass('active');
-//     });
-//     $('.submit').on('click', function () {
-//         $('.submit').removeClass('active');
-//         $(this).addClass('active');
-//     });
-// });
 
 
 document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
@@ -367,16 +275,6 @@ document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
 });
 
 
-// $(document).ready(function () {
-//     $('#btn-nav-previous').click(function () {
-//         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
-//     });
-
-//     $('#btn-nav-next').click(function () {
-//         $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
-//     });
-// });
-
 //date and time
 function showDateTime() {
     var now = new Date();
@@ -385,79 +283,177 @@ function showDateTime() {
 }
 
 
+document.querySelector('.submit').addEventListener('click', function () {
+    
+    const liElements = document.querySelectorAll('.destinations');
+    var data = new Array;
 
-// $(".MostLikelyList").each(function () {
+    liElements.forEach(function (li) {
+        let datatostore = {
+            ID: li.Number,
+            mostlikelys: $(`#Most_likely${li.Number}`).html(),
+            likelys: $(`#Likley_${li.Number}`).html(),
+            possible: $(`#Possible_${li.Number}`).html(),
+            //Data_store: Data
+        };
+        // const customValue = li.getAttribute('data-custom-attribute');
+        // const textContent = li.textContent;
+        data.push(datatostore)
+    });
+
+    // Save the data to local storage
+    localStorage.setItem('draggedLiData', JSON.stringify(data));
+});
+
+
+// $('.destinations').each(function () {
 //     new Sortable(this, {
-//         group: "shared",
+//         group: 'shared',
 //         animation: 150,
-//         onAdd: function (evt) {
-//             evt.item.classList = "sort";
-//             var parentContainer = evt.item.parentNode;
-//             if (parentContainer = parentContainer.children > 1) {
-//                 var secondItem = parentContainer.children[1];
-//                 var destination = parentContainer.getAttribute('id').substring(parentContainer.getAttribute('id').indexOf('_'));
-//                 var possible = document.getElementById('possible' + destination);
-//                 var likely = document.getElementById('likely' + destination);
-
-
-//                 if (likely.children.length == 0) {
-//                     likely.appendChild(secondItem);
-//                 }
-//                 else if (likely.children.length == 1) {
-//                     likely.appendChild(secondItem);
-
-//                     if (possible.children.length == 0) {
-//                         var secondlikelychild = likely.children[0];
-//                         possible.appendChild(secondlikelychild)
-//                     }
-//                     else if (possible.children.length == 1) {
-//                         possible.children[0].remove();
-//                         var secondlikelychild = likely.children[0];
-//                         possible.appendChild(secondlikelychild)
-//                     }
-//                 }
-//             }
+//         dragClass: 'dragged-item', // add a class to the dragged item
+//         onEnd: function (evt) {
+//             // remove the class when dragging ends
+//             evt.item.classList.remove('list-group-item');
+//         },
+//         accept: function (el) {
+//             // only allow dropping onto elements with the class "target"
+//             return el.classList.contains('target');
 //         }
 //     })
+// })
+
+// var dest = document.getElementById("DestinationAccount");
+// new Sortable(dest, {
+//     group: {
+//         name: 'shared',
+//         pull: 'clone',
+//         put: false // Do not allow items to be put into this list
+//     },
+//     animation: 150,
+//     sort: false // To disable sorting: set sort to false
 // });
-$(".LikelyList").each(function () {
-    new Sortable(this, {
-        group: "shared",
-        animation: 150,
-        onAdd: function (evt) {
-            evt.item.classList = "sort";
-            var parentContainer = evt.item.parentNode;
-            if (parentContainer.children.length > 1) {
-                var secondItem = parentContainer.children[1];
-                var destination = parentContainer.getAttribute('id').substring(parentContainer.getAttribute('id').indexOf('_'))
-                var possible = document.getElementById('possible' + destination);
 
-                if (possible.children.length == 0) {
-                    possible.appendChild(secondItem);
-                }
-                else if (possible.children.length == 1) {
-                    possible.appendChild(secondItem);
-                    var possibleschild = possible.children[0];
-                    possibleschild.remove();
+
+function draggable() {
+    $(".destinations").each(function () {
+        new Sortable(this, {
+            group: "shared",
+            animation: 150,
+        });
+    });
+
+    var destinationacc = document.getElementById("DestinationAccount")
+
+    new Sortable(destinationacc, {
+        group: {
+            name: "shared",
+            pull: "clone",
+            put: false,
+        },
+        animation: 150,
+        sort: false,
+    });
+
+    $(".MostLikelyList").each(function () {
+    
+        new Sortable(this, {
+            group: "shared",
+            put: false,
+            animation: 150,
+            onAdd: function (evt) {
+                evt.item.classList = "sort";
+                var master = evt.item.parentNode;
+                if (master.children.length > 1) {
+
+                    var old_data = master.children[0];
+                    var new_data = master.children[1];
+
+                    if (old_data.textContent.trim() == new_data.textContent.trim()) {
+
+
+                    }
+                    else {
+                        
+                        var destination = master.getAttribute("id").substring(master.getAttribute("id").indexOf('y') + 1);
+                        console.log(destination)
+                        var possible = document.getElementById("Possible_" + destination);
+                        var likely = document.getElementById("Likely_" + destination);
+
+                        if (likely.children.length == 0) {
+                            likely.appendChild(new_data);
+                        }
+                        else if (likely.children.length == 1) {
+
+                            likely.appendChild(new_data);
+                            if (possible.children.length == 0) {
+                                var newchildlikely = likely.children[0];
+                                possible.appendChild(newchildlikely);
+                            }
+                            else if (possible.children.length == 1) {
+                                possible.children[0].remove();
+                                var newchildlikely = likely.children[0];
+
+                                possible.appendChild(newchildlikely);
+
+
+                            }
+                        }
+                    }
                 }
             }
-        }
+        });
     });
-});
 
-$(".PossibleList").each(function () {
-    new Sortable(this, {
-        group: "shared",
-        animation: 150,
-        onAdd: function (evt) {
-            evt.item.classList = "sort";
-            var parentContainer = evt.item.parentNode;
-            if (parentContainer = parentContainer.children > 1) {
-                parentContainer.children[1].remove();
+
+    $(".LikelyList").each(function () {
+        new Sortable(this, {
+            group: "shared",
+            animation: 150,
+            onAdd: function (evt) {
+                evt.item.classList = "sort";
+                var master = evt.item.parentNode;
+                if (master.children.length > 1) {
+                    var new_data = master.children[1];
+                    var old_data = master.children[0];
+
+                    if (old_data.textContent.trim() == new_data.textContent.trim()) {
+
+                    }
+                    else {
+
+                        var destination = master.getAttribute("id").substring(master.getAttribute("id").indexOf('_'));
+                        var possible = document.getElementById("Possible" + destination);
+
+                        if (possible.children.length == 0) {
+                            possible.appendChild(new_data);
+                        } else if (possible.children.length == 1) {
+                            possible.appendChild(new_data);
+                            var possiblechild = possible.children[0];
+                            possiblechild.remove();
+                        }
+                    }
+                }
             }
-        }
+        });
     });
-});
+
+    $(".PossibleList").each(function () {
+        new Sortable(this, {
+            group: "shared",
+            animation: 150,
+            onAdd: function (evt) {
+                
+                evt.item.classList = "sort";
+                var master = evt.item.parentNode;
+                if (master.children.length > 1) {
+
+                    master.children[1].remove();
+                }
+            }
+        });
+    });
+
+}
 
 
 
