@@ -133,15 +133,14 @@ SourceData.forEach((Element, index) => {
       Element.Number +
       " " +
       Element.Name +
-      "<i class='fa-sharp fa-solid fa-clock-rotate-left float-end'></i> <i class='bi bi-check2-all text-end float-end ps-2'></i></div>";
+      "<i class='fa-sharp fa-solid fa-clock-rotate-left float-end'></i><i class='bi bi-check2-all text-end float-end ps-2' id='" + Element.Number + "i' ></i></div>";
     divhtml +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight MostLikely ps-2' id='" +
       Element.Number +
       "ML'></div>";
     likelyHtml +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight likely ps-2' id='" +
-      Element.Number +
-      "L'></div>";
+      Element.Number + "L'></div>";
     possible +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight possible ps-2' id='" +
       Element.Number +
@@ -191,7 +190,7 @@ function getAllData() {
     html1 +=
       "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
       element.AccountCode +
-      "'>" +
+      "' id='" + element.AccountCode + "d'>" +
       "⠿ " +
       element.AccountCode +
       "--" +
@@ -209,7 +208,7 @@ function getAssetData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "'  id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -228,7 +227,7 @@ function getliabilityData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -247,7 +246,7 @@ function getEquityData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -266,7 +265,7 @@ function getRevenueData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -285,7 +284,7 @@ function CogsData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -304,7 +303,7 @@ function ExpensesData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -323,7 +322,7 @@ function OtherRevenueData() {
       html +=
         "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
         element.AccountCode +
-        "'>" +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -547,16 +546,39 @@ $(".MostLikely").each(function () {
     animation: 150,
 
     onAdd: function (evt) {
-      debugger
-      var Mostid = this.el.id;
+      // it gives the id of the div in which data is dropped 
+      var Mostlikeid = this.el.id;
+      console.log("Mostlikeid", Mostlikeid)
 
-      var Likely = Mostid.replace("ML", "L");
-      var PossibledivID = Mostid.replace("ML", "P");
+
+      //  for double check color change
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Mostlikeid.replace("ML", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
+
+
+      // for destination color change
+      var destinationAtr = evt.to.children[0].getAttribute("data-atr")
+      console.log(destinationAtr)
+      var destinationColor=$('[data-atr="'+destinationAtr+'"]')
+      console.log($('[data-atr="'+destinationAtr+'"]'))
+
+      // destinationColor.style.color = "green"
+
+
+      var Likely = Mostlikeid.replace("ML", "L");
+      console.log("Likely", Likely)
+
+      var PossibledivID = Mostlikeid.replace("ML", "P");
 
       var mostLikelyAttr1;
       var mostLikelyAttr2;
 
       // to get dropped class 
+
       var droppingDataClass = $(evt.from).attr("class").split(" ")
       var Classfound = droppingDataClass.find(element => element === "likely" || element === "possible" || element === "destinationScroll");
       console.log("ee", Classfound)
@@ -568,6 +590,7 @@ $(".MostLikely").each(function () {
       console.log("likely", LikelyDIV)
 
       var PossibleDIV = document.getElementById(PossibledivID);
+
       // when nothing is there
       var emptyLikely = document.getElementById(Likely).children[0]
       emptyLikely = $(emptyLikely).attr("data-atr")
@@ -576,6 +599,7 @@ $(".MostLikely").each(function () {
       emptyPossible = $(emptyPossible).attr("data-atr")
 
       var emptyMostlikely = $(evt.item).attr("data-atr")
+
 
       if (Classfound != "destinationScroll") {
         debugger
@@ -651,6 +675,16 @@ $(".likely").each(function () {
 
       var likelyAtr1;
       var likelyAtr2;
+
+      // Color change in the double check
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Likeid.replace("L", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
+
+
 
       // to get dropped class 
       var droppingDataClass = $(evt.from).attr("class").split(" ")
@@ -732,6 +766,14 @@ $(".possible").each(function () {
 
       var PossibleAtr1;
       var PossibleAtr2;
+
+      // Color change in the double check
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Possibleid.replace("P", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
 
       // to get dropped class 
       var droppingDataClass = $(evt.from).attr("class").split(" ")
