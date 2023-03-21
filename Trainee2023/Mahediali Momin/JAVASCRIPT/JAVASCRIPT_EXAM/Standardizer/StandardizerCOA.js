@@ -1,146 +1,48 @@
-var data = [];
+// Destination 
+const destinationdata = new XMLHttpRequest();
+destinationdata.open("GET", "MasterChartOfAcounts - Sheet1.csv", false);
 
+var masterChartAccountDataString;
+var masterChartAccountObject;
+var masterChartAccountData = [];
+destinationdata.onreadystatechange = function () {
+    if (destinationdata.readyState === XMLHttpRequest.DONE && destinationdata.status === 200) {
+        const csv = destinationdata.responseText;
 
-var request = new XMLHttpRequest();
+        const rows = csv.split("\n");
+        const headers = rows[0].split(",");
 
-// GET and the file URL
-request.open('GET', 'MasterChartOfAcounts - Sheet1.csv', true);
-
-// set the responseType to text to receive the file contents as a string
-request.responseType = 'text';
-
-// set a callback function to handle the file data once it's loaded
-request.onload = function () {
-  // check that the request was successful
-  if (request.status === 200) {
-    // split the file contents into an array of lines
-    var lines = request.response.split('\n');
-
-    // remove the first line (header) of the file
-    var headers = lines.shift().split(',');
-
-    // map the remaining lines into an array of objects
-    data = lines.map(function (line) {
-      var values = line.split(',');
-      var object = {};
-
-      // loop through all the columns in the row
-      for (var i = 0; i < headers.length; i++) {
-        // set the key-value pair in the object
-        object[headers[i]] = values[i];
-      }
-      return object;
-
-    });
-
-    // do something with the data
-    console.log(data);
-    // create a new ul element
-    var ul = document.getElementById("section2");
-    for (var i = 0; i < data.length; i++) {
-      var li = document.createElement("li");
-      li.className = "list-group-item border";
-      li.innerHTML = '<i class="fa-regular fa-grip-dots-vertical"></i> ' + data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-
-      ul.appendChild(li);
-    }
-  }
-};
-// send the request
-request.send();
-
-
-var request1 = new XMLHttpRequest();
-// GET and the file URL
-request1.open('GET', 'Standard CofA.csv', true);
-
-// set the responseType to text to receive the file contents as a string
-request1.responseType = 'text';
-
-// set a callback function to handle the file data once it's loaded
-request1.onload = function () {
-  // check that the request was successful
-  if (request1.status === 200) {
-    // split the file contents into an array of lines
-    var lines = request1.response.split('\n');
-
-    // remove the first line (header) of the file
-    var headers = lines.shift().split(',');
-
-    // map the remaining lines into an array of objects
-    data = lines.map(function (line) {
-      var values = line.split(',');
-      var object = {};
-
-      // loop through all the columns in the row
-      for (var i = 0; i < headers.length; i++) {
-        // set the key-value pair in the object
-        object[headers[i]] = values[i];
-      }
-      return object;
-    });
-
-    // create a new ul element
-    var ul1 = document.getElementById("section1");
-    
-    for (var i = 0; i < data.length; i++) {
-      if(data[i]["Number"]!=""){
-      var li = document.createElement("li");
-      li.className = "list-group-item border";
-      li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-      ul1.appendChild(li);}
-    }
-  }
-};
-// send the request
-request1.send();
-
-
-
-let parsedData = [];
-
-function parseCSVData() {
-  var request1 = new XMLHttpRequest();
-  // GET and the file URL
-  request1.open('GET', 'Standard CofA.csv', true);
-
-  // set the responseType to text to receive the file contents as a string
-  request1.responseType = 'text';
-
-  // set a callback function to handle the file data once it's loaded
-  request1.onload = function () {
-    // check that the request was successful
-    if (request1.status === 200) {
-      // split the file contents into an array of lines
-      var lines = request1.response.split('\n');
-
-      // remove the first line (header) of the file
-      var headers = lines.shift().split(',');
-
-      // map the remaining lines into an array of objects
-      parsedData = lines.map(function (line) {
-        var values = line.split(',');
-        var object = {};
-
-        // loop through all the columns in the row
-        for (var i = 0; i < headers.length; i++) {
-          // set the key-value pair in the object
-          object[headers[i]] = values[i];
+        masterChartAccountData = [];
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i].split(",");
+            const obj = {};
+            for (let j = 0; j < headers.length; j++) {
+                obj[headers[j]] = row[j];
+            }
+            masterChartAccountData.push(obj);
         }
-        return object;
-      });
+        console.log(masterChartAccountData)
 
-      // do something with the parsed data, if needed
-      console.log("Parsed data:", parsedData);
+        masterChartAccountDataString = JSON.stringify(masterChartAccountData);
+        masterChartAccountObject = JSON.parse(masterChartAccountDataString);
     }
-  };
+};
+destinationdata.send();
 
-  // send the request
-  request1.send();
-}
+var destinationData = JSON.parse(masterChartAccountDataString);
+const parentElement = document.getElementById('DestinationAccount');
 
-// call the parseCSVData function once on page load
-parseCSVData();
+destinationData.forEach((item) => {
+    var liElement = document.createElement('li');
+    liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
+    liElement.classList.add('list-group-item')
+    parentElement.appendChild(liElement);
+
+
+});
+
+
+
 
 
 
@@ -149,466 +51,416 @@ const buttons = document.querySelectorAll('.header-button');
 const links = document.querySelectorAll('.menu-inner-box a');
 
 buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    buttons.forEach(button => {
-      button.classList.remove('active');
-    });
-    button.classList.add('active');
+    button.addEventListener('click', () => {
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+        button.classList.add('active');
 
-    const btnType = button.getAttribute('data-btn-type');
-    links.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-btn-type') === btnType) {
-        link.classList.add('active');
-        if (link.classList.contains('active')) {
-          link.click();
-        }
-      }
+        const btnType = button.getAttribute('data-link-value');
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-link-value') === btnType) {
+                link.classList.add('active');
+                link.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                if (link.classList.contains('active')) {
+                    link.click();
+                }
+            }
+        });
     });
-
-    // filter the parsedData array to only show objects with a "Type" key that matches the button's custom attribute
-    const filteredData = parsedData.filter(obj => obj.Type === btnType);
-
-    // update the list to display the name and number of each matching object
-    const ul1 = document.getElementById("section1");
-    ul1.innerHTML = '';
-    filteredData.forEach(obj => {
-      if(obj.Number!=""){
-      var li = document.createElement("li");
-      li.className = "list-group-item border";
-      li.innerHTML = obj.Number + " -- " + obj.Name;
-      ul1.appendChild(li);
-      }
-    });
-  });
 });
 
 
-
-// When a menu link is clicked
 $('.menu-inner-box a').click(function () {
-  // Remove the "active" class from all links
-  $('.menu-inner-box a').removeClass('active');
-  // Add the "active" class to the clicked link
-  $(this).addClass('active');
-
-  var linkValue = $(this).attr('data-link-value').toLowerCase();
-
-  var request = new XMLHttpRequest();
-
-  // GET and the file URL
-  request.open('GET', 'MasterChartOfAcounts - Sheet1.csv', true);
-
-  // set the responseType to text to receive the file contents as a string
-  request.responseType = 'text';
-
-  // set a callback function to handle the file data once it's loaded
-  request.onload = function () {
-    // check that the request was successful
-    if (request.status === 200) {
-      // split the file contents into an array of lines
-      var lines = request.response.split('\n');
-
-      // remove the first line (header) of the file
-      var headers = lines.shift().split(',');
-
-      // map the remaining lines into an array of objects
-      data = lines.map(function (line) {
-        var values = line.split(',');
-        var object = {};
-
-        // loop through all the columns in the row
-        for (var i = 0; i < headers.length; i++) {
-          // set the key-value pair in the object
-          object[headers[i]] = values[i];
+    var button = $(this).data("link-value");
+    console.log(button);
+    document.getElementById('DestinationAccount').innerHTML = ""
+    destinationData.forEach((item) => {
+        if (item.AccountTypeName == button) {
+            var liElement = document.createElement('li');
+            liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
+            liElement.classList.add('list-group-item')
+            parentElement.appendChild(liElement);
         }
-        return object;
+    });
+});
 
-      });
-      // create a new ul element
-      var ul = document.getElementById("section2");
-      ul.innerHTML = '';
-      for (var i = 0; i < data.length; i++) {
-        if (((data[i].AccountTypeName).toLowerCase()).includes(linkValue)) {
-          var li = document.createElement("li");
-          li.className = "list-group-item border";
-          li.innerHTML = '<i class="fa-regular fa-grip-dots-vertical"></i> ' + data[i].AccountCode + " -- " + data[i].AccountName;
-          ul.appendChild(li);
-        }
-      }
-    }
-  };
-  // send the request
-  request.send();
+
+$('#all').click(function () {
+    destinationData.forEach((item) => {
+        // if(item.AccountTypeName==button){
+        var liElement = document.createElement('li');
+        liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
+        liElement.classList.add('list-group-item')
+        parentElement.appendChild(liElement);
+        // } 
+    });
 });
 
 
 
-// select the "mostlikely" list
-var mostlikelyList = $("#mostlikely");
-var mostlikelyList = $("#likely");
-var mostlikelyList = $("#possible");
-
-// create a new list item with some text
-var newItem = $("<li>").text("");
-
-// append the new item to the list
-mostlikelyList.append(newItem);
 
 
+// document.querySelector('.submit').addEventListener('click', function() {
+//     const liElements = document.querySelectorAll('.destinations');
+//     const data = [];
+
+//     liElements.forEach(function(li) {
+//     const customValue = li.getAttribute('data-custom-attribute');
+//     const textContent = li.textContent;
+//     data.push({
+//         customValue: customValue,
+//         textContent: textContent
+//     });
+//     });
+
+//     // Save the data to local storage
+//     localStorage.setItem('draggedLiData', JSON.stringify(data));
+// });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $(".header-button").click(function () {
-//     var btnType = $(this).data("btn-type"); // Get the data attribute of the button that was clicked
-
-//     // Clear both sections and set up new lists
-//     var ul1 = document.getElementById("section1");
-//     ul1.innerHTML = "";
-
-//     var ul2 = document.getElementById("section2");
-//     ul2.innerHTML = "";
-
-//     var filteredData1 = data.filter(function(item) {
-//         switch (btnType) {
-//           case "assets":
-//             return item.Type === "Assets";
-//           case "liability":
-//             return item.Type === "Liabilities";
-//           case "equity":
-//             return item.Type === "Equity";
-//           case "revenue":
-//             return item.Type === "Revenue";
-//           case "cogs":
-//             return item.Type === "COGS";
-//           case "expenses":
-//             return item.Type === "Expense";
-//           case "other":
-//             return item.Type === "Other Rev & Exp";
+// $('.destinations').each(function () {
+//     new Sortable(this, {
+//         group: 'shared',
+//         animation: 150,
+//         dragClass: 'dragged-item', // add a class to the dragged item
+//         onEnd: function (evt) {
+//             // remove the class when dragging ends
+//             evt.item.classList.remove('list-group-item');
+//         },
+//         accept: function (el) {
+//             // only allow dropping onto elements with the class "target"
+//             return el.classList.contains('target');
 //         }
-//       });
+//     })
+// })
 
-//     var filteredData2 = data.filter(function(item) {
-//         switch (btnType) {
-//           case "assets":
-//             return item.AccountTypeName === "ASSETS";
-//           case "liability":
-//             return item.AccountTypeName === "LIABILITIES";
-//           case "equity":
-//             return item.AccountTypeName === "EQUITY/CAPITAL";
-//           case "revenue":
-//             return item.AccountTypeName === "Professional Services Revenue";
-//           case "cogs":
-//             return item.AccountTypeName === "";
-//           case "expenses":
-//             return item.AccountTypeName === "Labor Expense";
-//           case "other":
-//             return item.AccountTypeName === "Product Costs";
-//         }
-//       });
-
-
-//       filteredData1.forEach(function(item) {
-//         var li = document.createElement("li");
-//         li.className = "list-group-item border";
-//         li.innerHTML = item["Number"] + " -- " + item["Name"];
-//         ul1.appendChild(li);
-//       });
-
-//       filteredData2.forEach(function(item) {
-//         var li = document.createElement("li");
-//         li.className = "list-group-item border";
-//         li.innerHTML = item["AccountCode"] + " -- " + item["AccountName"];
-//         ul2.appendChild(li);
-//       });
-
+// var dest = document.getElementById("DestinationAccount");
+// new Sortable(dest, {
+//     group: {
+//         name: 'shared',
+//         pull: 'clone',
+//         put: false // Do not allow items to be put into this list
+//     },
+//     animation: 150,
+//     sort: false // To disable sorting: set sort to false
 // });
 
 
 
-
-
-
-
-// $(".header-button").click(function () {
-//     var btnType = $(this).data("btn-type"); // Get the data attribute of the button that was clicked
-//     // Clear section 2 and set up a new list
-//     var ul = document.getElementById("section2");
-//     ul.innerHTML = "";
-
-//     var filteredData = data.filter(function(item) {
-//         switch (btnType) {
-//           case "assets":
-//             return item.AccountTypeName === "ASSETS";
-//           case "liability":
-//             return item.AccountTypeName === "LIABILITIES";
-//           case "equity":
-//             return item.AccountTypeName === "EQUITY/CAPITAL";
-//           case "revenue":
-//             return item.AccountTypeName === "Professional Services Revenue";
-//           case "cogs":
-//             return item.AccountTypeName === "";
-//           case "expenses":
-//             return item.AccountTypeName === "Labor Expense";
-//           case "other":
-//             return item.AccountTypeName === "Product Costs";
-//         }
-//       });
-
-//     //   var ul = document.getElementById("section2");
-//     //   ul.innerHTML = "";
-
-//       filteredData.forEach(function(item) {
-//         var li = document.createElement("li");
-//         li.className = "list-group-item border";
-//         li.innerHTML = item["AccountCode"] + " -- " + item["AccountName"];
-//         ul.appendChild(li);
-//       });
-
-// });
-
-
-// $(".header-button").click(function () {
-//     debugger
-//     var btnType = $(this).data("btn-type"); // Get the data attribute of the button that was clicked
-//     // Clear section 2 and set up a new list
-//     var ul = document.getElementById("section1");
-//     // ul.innerHTML = "";
-//     console.log("mydata",data)
-//     var filteredData = data.filter(function(item) {
-//         switch (btnType) {
-//           case "assets":
-//             return item.Type === "Assets";
-//           case "liability":
-//             return item.Type === "Liabilities";
-//           case "equity":
-//             return item.Type === "Equity";
-//           case "revenue":
-//             return item.Type === "Revenue";
-//           case "cogs":
-//             return item.Type === "COGS";
-//           case "expenses":
-//             return item.Type === "Expense";
-//           case "other":
-//             return item.Type === "Other Rev & Exp";
-//         }
-//       });
-
-//     //   var ul = document.getElementById("section1");
-//     //   ul.innerHTML = "";
-
-//       filteredData.forEach(function(item) {
-//         var li = document.createElement("li");
-//         li.className = "list-group-item border";
-//         li.innerHTML = item["Number"] + " -- " + item["Name"];
-//         ul.appendChild(li);
-//       });
-
-// });
 
 
 //for searchbar
 $(document).ready(function () {
-  $('.search').on('keyup search', function () {
-    var query = $(this).val().toLowerCase();
-    $('#section2 li').each(function () {
-      var text = $(this).text().toLowerCase();
-      if (text.indexOf(query) === -1) {
-        $(this).hide();
-      } else {
-        $(this).show();
-      }
+    debugger
+    //Source data
+    var sourcedata = new XMLHttpRequest();
+    sourcedata.open("GET", "Standard CofA.csv", false);
+    debugger
+
+    var standardcofstring;
+    var standardcofobject;
+    var standardcofData = [];
+    sourcedata.onreadystatechange = function () {
+        if (sourcedata.readyState === XMLHttpRequest.DONE && sourcedata.status === 200) {
+            const csv = sourcedata.responseText;
+
+            const rows = csv.split("\n");
+            const headers = rows[0].split(",");
+
+            standardcofData = [];
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i].split(",");
+                const obj = {};
+                for (let j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = row[j];
+                }
+                standardcofData.push(obj);
+            }
+            standardcofstring = JSON.stringify(standardcofData);
+            standardcofobject = JSON.parse(standardcofstring);
+
+
+        }
+
+    };
+    sourcedata.send();
+
+
+    var sourcedata = JSON.parse(standardcofstring);
+    const parent = document.getElementById('SourceAccount');
+
+
+    sourcedata.forEach((item) => {
+        if (item.Number != "") {
+            // var liElement = document.createElement('li');
+            $("#SourceAccount").append("<li id='num" + item.Number + "' class='list-group-item'>" + item.Number + " -- " + item.Name + "<i class='material-icons float-end'>done_all history</i>");
+            // liElement.classList.add('list-group-item')
+            // parent.appendChild(liElement);
+
+            $("#mostlikely").append("<li id='Most_likely" + item.Number + "' <li class='list-group-item destinations MostLikelyList'></li>")
+                .attr("data-custom-attribute", "custom-value");
+            $("#likely").append("<li id='Likely_" + item.Number + "' <li class='list-group-item destinations LikelyList'></li>")
+                .attr("data-custom-attribute", "custom-value");
+            $("#possible").append("<li id='Possible_" + item.Number + "' <li class='list-group-item destinations PossibleList'></li>")
+                .attr("data-custom-attribute", "custom-value");
+        }
+
     });
-  });
-  $('.search').on('search', function () {
-    if ($(this).val() === '') {
-      $('#section2 li').show();
-    }
-  });
+
+  
+
+    
+
+
+    ///Filtering with buttons
+
+    $('.header-button').click(function () {
+        debugger
+        var button = $(this).data("btn-type");
+        var mostlikely = $("#mostlikely");
+        var likely = $("#likely");
+        var possible = $("#possible");
+
+        $("#SourceAccount li").hide();
+        mostlikely.find("li").hide();
+        likely.find("li").hide();
+        possible.find("li").hide();
+
+        debugger
+        sourcedata.forEach((item) => {
+            if (item.Type == button) {
+                if (item.Number != "") {
+                    // var liElement = document.createElement('li');
+                    // liElement.innerHTML = `${item.Number} ${'--'} ${item.Name} ` + `<i class='material-icons float-end'>done_all history</i>`;
+                    // liElement.classList.add('list-group-item')
+                    // parent.appendChild(liElement);
+
+                    // $("#mostlikely").append("<li class='list-group-item destinations'></li>");
+                    // $("#likely").append("<li class='list-group-item destinations'></li>");
+                    // $("#possible").append("<li class='list-group-item destinations'></li>");
+
+                    $("#num" + item.Number).show();
+                    $("#Most_likely" + item.Number).show();
+                    $("#Likely_" + item.Number).show();
+                    $("#Possible_" + item.Number).show();
+
+                }
+                
+            }
+            
+        });
+        
+
+        var Destination = "";
+        if (button == "Assets") {
+            Destination = "ASSETS"
+        }
+        if (button == "Liabilities") {
+            Destination = "LIABILITIES"
+        }
+        if (button == "Equity") {
+            Destination = "EQUITY/CAPITAL"
+        }
+        if (button == "Revenue") {
+            Destination = "Revenue"
+        }
+        if (button == "Other Rev & Exp") {
+            Destination = "Labor Expense"
+        }
+
+
+        destinationData.forEach((item) => {
+            if (item.AccountTypeName == Destination) {
+                var liElement = document.createElement('li');
+                liElement.textContent = `⠿ ${item.AccountCode} ${'--'} ${item.AccountName}`;
+                liElement.classList.add('list-group-item')
+                parentElement.appendChild(liElement);
+            }
+        });
+    });
+
+
+
+   
+
+    $('.search').on('keyup search', function () {
+        var query = $(this).val().toLowerCase();
+        $('#DestinationAccount li').each(function () {
+            var text = $(this).text().toLowerCase();
+            if (text.indexOf(query) === -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+    $('.header-button').on('click', function () {
+        $('.header-button').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('.submit').on('click', function () {
+        $('.submit').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('#btn-nav-previous').click(function () {
+        $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
+    });
+
+    $('#btn-nav-next').click(function () {
+        $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
+    });
 });
 
+$(document).ready(function (){
+ $('.destinations').each(function () {
+        new Sortable(this, {
+            group: 'shared',
+            animation: 150,
+            dragClass: 'dragged-item', // add a class to the dragged item
+            onEnd: function (evt) {
+                // remove the class when dragging ends
+                evt.item.classList.remove('list-group-item');
+            },
+            accept: function (el) {
+                // only allow dropping onto elements with the class "target"
+                return el.classList.contains('target');
+            }
+        })
+    })
+
+    var dest = document.getElementById("DestinationAccount");
+    new Sortable(dest, {
+        group: {
+            name: 'shared',
+            pull: 'clone',
+            put: false // Do not allow items to be put into this list
+        },
+        animation: 150,
+        sort: false // To disable sorting: set sort to false
+    });
+})
 
 
-// header buttons
-$(document).ready(function () {
-  // Add click event listener to all buttons
-  $('.header-button').on('click', function () {
-    // Remove active class from all buttons
-    $('.header-button').removeClass('active');
-    // Add active class to clicked button
-    $(this).addClass('active');
-  });
-});
+// // header buttons
+// $(document).ready(function () {
+//     $('.header-button').on('click', function () {
+//         $('.header-button').removeClass('active');
+//         $(this).addClass('active');
+//     });
+//     $('.submit').on('click', function () {
+//         $('.submit').removeClass('active');
+//         $(this).addClass('active');
+//     });
+// });
 
 
 document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
-  link.addEventListener('click', function (event) {
-    event.preventDefault();
-    document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
-      link.classList.remove('active');
+    link.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
+            link.classList.remove('active');
+        });
+        this.classList.add('active');
     });
-    this.classList.add('active');
-  });
 });
 
 
-dragula([document.getElementById('section1'), document.getElementById('section2')], {
-  copy: function (el, source) {
-    return source === document.getElementById('section1')
-  },
-  accepts: function (el, target) {
-    return target !== document.getElementById('section1')
-  }
+// $(document).ready(function () {
+//     $('#btn-nav-previous').click(function () {
+//         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
+//     });
+
+//     $('#btn-nav-next').click(function () {
+//         $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
+//     });
+// });
+
+//date and time
+function showDateTime() {
+    var now = new Date();
+    var dateTime = "Last updated on " + now.toLocaleDateString() + " at " + now.toLocaleTimeString();
+    document.getElementById("updatetxt").innerHTML = dateTime;
+}
+
+
+
+// $(".MostLikelyList").each(function () {
+//     new Sortable(this, {
+//         group: "shared",
+//         animation: 150,
+//         onAdd: function (evt) {
+//             evt.item.classList = "sort";
+//             var parentContainer = evt.item.parentNode;
+//             if (parentContainer = parentContainer.children > 1) {
+//                 var secondItem = parentContainer.children[1];
+//                 var destination = parentContainer.getAttribute('id').substring(parentContainer.getAttribute('id').indexOf('_'));
+//                 var possible = document.getElementById('possible' + destination);
+//                 var likely = document.getElementById('likely' + destination);
+
+
+//                 if (likely.children.length == 0) {
+//                     likely.appendChild(secondItem);
+//                 }
+//                 else if (likely.children.length == 1) {
+//                     likely.appendChild(secondItem);
+
+//                     if (possible.children.length == 0) {
+//                         var secondlikelychild = likely.children[0];
+//                         possible.appendChild(secondlikelychild)
+//                     }
+//                     else if (possible.children.length == 1) {
+//                         possible.children[0].remove();
+//                         var secondlikelychild = likely.children[0];
+//                         possible.appendChild(secondlikelychild)
+//                     }
+//                 }
+//             }
+//         }
+//     })
+// });
+$(".LikelyList").each(function () {
+    new Sortable(this, {
+        group: "shared",
+        animation: 150,
+        onAdd: function (evt) {
+            evt.item.classList = "sort";
+            var parentContainer = evt.item.parentNode;
+            if (parentContainer.children.length > 1) {
+                var secondItem = parentContainer.children[1];
+                var destination = parentContainer.getAttribute('id').substring(parentContainer.getAttribute('id').indexOf('_'))
+                var possible = document.getElementById('possible' + destination);
+
+                if (possible.children.length == 0) {
+                    possible.appendChild(secondItem);
+                }
+                else if (possible.children.length == 1) {
+                    possible.appendChild(secondItem);
+                    var possibleschild = possible.children[0];
+                    possibleschild.remove();
+                }
+            }
+        }
+    });
+});
+
+$(".PossibleList").each(function () {
+    new Sortable(this, {
+        group: "shared",
+        animation: 150,
+        onAdd: function (evt) {
+            evt.item.classList = "sort";
+            var parentContainer = evt.item.parentNode;
+            if (parentContainer = parentContainer.children > 1) {
+                parentContainer.children[1].remove();
+            }
+        }
+    });
 });
 
 
-$(document).ready(function () {
-  $('#btn-nav-previous').click(function () {
-    $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
-  });
-
-  $('#btn-nav-next').click(function () {
-    $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
-  });
-});
-
-// // Click event for all the buttons
-// $(".header-button").click(function () {
-//     // Get the AccountTypeName from the button's class name
-//     var accountType = $(this).attr("class").split(" ")[1];
-
-//     // Clear the section2 list
-//     $("#section2").empty();
-
-//     // Iterate through the data and add the matching accounts to the list
-//     for (var i = 0; i < data.length; i++) {
-//         if (data[i].AccountTypeName == accountType) {
-//             console.log("Matched account: ", data[i]);
-//             var li = $("<li>", {class: "list-group-item border"});
-//             li.text(data[i]["AccountCode"] + " -- " + data[i]["AccountName"]);
-//             $("#section2").append(li);
-//         }
-//     }
-
-// });
-
-// $(".header-button").click(function () {
-//     debugger
-//     var btnType = $(this).data("btn-type"); // Get the data attribute of the button that was clicked
-
-//     // Clear section 2 and set up a new list
-//     var ul = document.getElementById("section1");
-//     ul.innerHTML = "";
-
-//     // Loop through the data array and add list items based on the button that was clicked
-//     for (var i = 0; i < data.length; i++) {
-//         if (btnType === "assets" && data[i].Type === "Assets") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "liability" && data[i].Type === "Liabilities") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "equity" && data[i].Type === "EQUITY/CAPITAL") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "revenue" && data[i].Type === "Professional Services Revenue") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "cogs" && data[i].Type === "") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "expenses" && data[i].Type === "Labor Expense") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         } else if (btnType === "other" && data[i].Type === "Product Costs") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["Number"] + " -- " + data[i]["Name"];
-//             ul.appendChild(li);
-//         }
-//     }
-
-// });
 
 
 
 
-// $(".btn1").click(function () {
-//     var btnType = $(this).data("btn-type"); // Get the data attribute of the button that was clicked
-
-//     // Clear section 2 and set up a new list
-//     var ul = document.getElementById("section2");
-//     ul.innerHTML = "";
-
-//     // Loop through the data array and add list items based on the button that was clicked
-//     for (var i = 0; i < data.length; i++) {
-//         if (btnType === "assets" && data[i].AccountTypeName === "ASSETS") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "liability" && data[i].AccountTypeName === "LIABILITIES") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "equity" && data[i].AccountTypeName === "EQUITY/CAPITAL") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "revenue" && data[i].AccountTypeName === "Professional Services Revenue") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "cogs" && data[i].AccountTypeName === "") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "expenses" && data[i].AccountTypeName === "Labor Expense") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         } else if (btnType === "other" && data[i].AccountTypeName === "Product Costs") {
-//             var li = document.createElement("li");
-//             li.className = "list-group-item border";
-//             li.innerHTML = data[i]["AccountCode"] + " -- " + data[i]["AccountName"];
-//             ul.appendChild(li);
-//         }
-//     }
-// });
