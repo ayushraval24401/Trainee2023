@@ -1,5 +1,15 @@
 $(document).ready(function () {
   draggable();
+    // var ml = $("#mostlikely").textContent;
+  //  var ml= document.getElementsByClassName('destinations');
+  let lis = document.getElementById('mostlikely').innerHTML;
+
+  var currentDateTime = new Date();
+  var formattedDateTime = currentDateTime.toLocaleString();
+  document.getElementById("lastupdated").innerHTML = "Last Updated on " + formattedDateTime;
+  //  var test = ml(li)
+  // console.log(lis.
+  //   );
 });
 
 // Filter mapping
@@ -20,7 +30,7 @@ buttons.forEach(button => {
         if (link.classList.contains('active')) {
           link.click();
           link.scrollIntoView({
-            behavior: "smooth",
+            // behavior: "smooth",
             block: "end",
             inline: "end"
           });
@@ -221,6 +231,8 @@ function draggable() {
       put: false,
       animation: 150,
       onAdd: function (evt) {
+
+        console.log(evt);
         evt.item.classList = "sort";
         var master = evt.item.parentNode;
         if (master.children.length > 1) {
@@ -313,6 +325,8 @@ function draggable() {
       }
       });
   });
+
+
 
 }
 
