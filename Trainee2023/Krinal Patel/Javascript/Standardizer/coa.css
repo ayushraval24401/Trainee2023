@@ -1,14 +1,22 @@
 /* Active nav-link */
-.active {
+.actives {
   color: #61c3e8;
 }
 
 .navbar-nav .nav-link {
   position: relative;
 }
-
+.alignSource{
+ 
+  margin-left: 0 !important;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 79% !important;
+}
+  
 p{
-  margin-left: 82%;
+  margin-left: 81%;
   font-size: small;
   margin-bottom: 1rem;
   font-weight: 500;
@@ -23,15 +31,12 @@ div.destinationclass {
   text-align: justify;
   margin-top: 1%;
 }
-
-.material-icons {
+ .material-icons {
   font-size: 18px;
   padding: inherit;
-  margin-right: 0 !important;
+  right: 0 !important;
   padding-right: 0 !important;
-  position: relative;
 }
-
 .destinations:has(li) li {
   padding: 0px !important;
   top: -10px;
@@ -117,7 +122,7 @@ div.destinationclass {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -2px;
   width: 100%;
   height: 2px;
   background-color: #0d9d66;
@@ -154,7 +159,10 @@ div.destinationclass {
   border-color: #3cb7e7;
 
 }
+.human{
+  color: #00961f;
 
+}
 .bh {
   background-color: #00a5e5;
   border-color: #00a5e5;
@@ -172,11 +180,11 @@ div.destinationclass {
   position: absolute;
   width: 33%;
   height: 2px;
-  bottom: -15px;
+  bottom: -13px;
   right: 50%;
   transform: translate(50%, -50%);
   background-color: #61c3e8;
-  visibility: hidden;
+  visibility:visible;
   color: #61c3e8;
 }
 
@@ -300,7 +308,8 @@ li {
   display: block;
   min-height: 1.5rem;
   padding-left: 0.5em;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0 !important ;
+
 }
 
 /* search bar */
@@ -316,7 +325,6 @@ li {
   font-size: smaller;
   font-weight: 600;
 }
-
 
 #content {
   margin-top: 7%;
@@ -363,7 +371,7 @@ li {
   transition: transform .4s ease-in-out;
 }
 
-.active {
+.actives {
   color: #61c3e8;
 
 }
