@@ -1,3 +1,4 @@
+var sourcedata = [];
 
 const buttons = document.querySelectorAll('.header-button');
 const links = document.querySelectorAll('.menu-inner-box a');
@@ -100,12 +101,11 @@ destinationData.forEach((item) => {
 
 //for searchbar
 $(document).ready(function () {
-
     
     //Source data
     var sourcedata = new XMLHttpRequest();
     sourcedata.open("GET", "Standard CofA.csv", false);
-    
+
 
     var standardcofstring;
     var standardcofobject;
@@ -152,15 +152,38 @@ $(document).ready(function () {
             $("#possible").append("<li id='Possible_" + item.Number + "' <li class='list-group-item destinations PossibleList'></li>")
                 .attr("data-custom-attribute", "custom-value");
         }
+        // console.log("adasd",sourcedata);
 
     });
 
 
+    document.querySelector('.submit').addEventListener('click', function () {
+        // Get the data from the list items and create an array of objects
+        var data = [];
+ 
+        for (var i = 0; i < sourcedata.length; i++) {
+            var item = sourcedata[i];
+            var mostlikelys = $(`#Most_likely${item.Number}`).html();
+            var likelys = $(`#Likely_${item.Number}`).html();
+            var possible = $(`#Possible_${item.Number}`).html();
+
+            var datatostore = {
+                ID: item.Number,
+                mostlikelys: mostlikelys,
+                likelys: likelys,
+                possible: possible
+            };
+            data.push(datatostore);
+
+        }
+        // Store the data in local storage
+        localStorage.setItem('draggedData', JSON.stringify(data));
+    });
 
 
     ///Filtering with buttons
     $('.header-button').click(function () {
-        
+
         var button = $(this).data("btn-type");
         var mostlikely = $("#mostlikely");
         var likely = $("#likely");
@@ -171,7 +194,7 @@ $(document).ready(function () {
         likely.find("li").hide();
         possible.find("li").hide();
 
-        
+
         sourcedata.forEach((item) => {
             if (item.Type == button) {
                 if (item.Number != "") {
@@ -195,7 +218,6 @@ $(document).ready(function () {
 
         });
 
-
         var Destination = "";
         if (button == "Assets") {
             Destination = "ASSETS"
@@ -212,7 +234,6 @@ $(document).ready(function () {
         if (button == "Other Rev & Exp") {
             Destination = "Labor Expense"
         }
-
 
         destinationData.forEach((item) => {
             if (item.AccountTypeName == Destination) {
@@ -244,7 +265,25 @@ $(document).ready(function () {
     $('.submit').on('click', function () {
         $('.submit').removeClass('active');
         $(this).addClass('active');
+    
+        swal({
+            title: 'Submit',
+            text: 'Are you sure you want to submit?',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((willSubmit) => {
+            if (willSubmit) {
+                // User clicked submit
+                console.log("Submitting form...");
+                $('form').submit();
+            } else {
+                // User clicked cancel
+                console.log("Form submission canceled.");
+            }
+        });
     });
+    
 
     $('#btn-nav-previous').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
@@ -256,12 +295,12 @@ $(document).ready(function () {
     });
 
 });
+
+
 $(document).ready(function () {
     draggable();
-
+    getData();
 });
-
-
 
 
 document.querySelectorAll('.menu-inner-box a').forEach(function (link) {
@@ -283,56 +322,19 @@ function showDateTime() {
 }
 
 
-document.querySelector('.submit').addEventListener('click', function () {
-    
-    const liElements = document.querySelectorAll('.destinations');
-    var data = new Array;
+function getData() {
+    debugger
+    var datastore = localStorage.getItem("draggedData");
+    var arraystore = JSON.parse(datastore);
+    if(arraystore){
+        arraystore.forEach(li => {
+            $(`#Most_likely${li.ID}`).html(li.mostlikelys);
+            $(`#Likely_${li.ID}`).html(li.likelys);
+            $(`#Possible_${li.ID}`).html(li.possible);
 
-    liElements.forEach(function (li) {
-        let datatostore = {
-            ID: li.Number,
-            mostlikelys: $(`#Most_likely${li.Number}`).html(),
-            likelys: $(`#Likley_${li.Number}`).html(),
-            possible: $(`#Possible_${li.Number}`).html(),
-            //Data_store: Data
-        };
-        // const customValue = li.getAttribute('data-custom-attribute');
-        // const textContent = li.textContent;
-        data.push(datatostore)
-    });
-
-    // Save the data to local storage
-    localStorage.setItem('draggedLiData', JSON.stringify(data));
-});
-
-
-// $('.destinations').each(function () {
-//     new Sortable(this, {
-//         group: 'shared',
-//         animation: 150,
-//         dragClass: 'dragged-item', // add a class to the dragged item
-//         onEnd: function (evt) {
-//             // remove the class when dragging ends
-//             evt.item.classList.remove('list-group-item');
-//         },
-//         accept: function (el) {
-//             // only allow dropping onto elements with the class "target"
-//             return el.classList.contains('target');
-//         }
-//     })
-// })
-
-// var dest = document.getElementById("DestinationAccount");
-// new Sortable(dest, {
-//     group: {
-//         name: 'shared',
-//         pull: 'clone',
-//         put: false // Do not allow items to be put into this list
-//     },
-//     animation: 150,
-//     sort: false // To disable sorting: set sort to false
-// });
-
+        })
+    }
+}
 
 function draggable() {
     $(".destinations").each(function () {
@@ -355,7 +357,7 @@ function draggable() {
     });
 
     $(".MostLikelyList").each(function () {
-    
+
         new Sortable(this, {
             group: "shared",
             put: false,
@@ -369,11 +371,11 @@ function draggable() {
                     var new_data = master.children[1];
 
                     if (old_data.textContent.trim() == new_data.textContent.trim()) {
-
-
+                        swal("Oops!", "You cannot add the same item twice!", "warning");
+                        master.removeChild(new_data);
                     }
                     else {
-                        
+
                         var destination = master.getAttribute("id").substring(master.getAttribute("id").indexOf('y') + 1);
                         console.log(destination)
                         var possible = document.getElementById("Possible_" + destination);
@@ -417,7 +419,8 @@ function draggable() {
                     var old_data = master.children[0];
 
                     if (old_data.textContent.trim() == new_data.textContent.trim()) {
-
+                        swal("Oops!", "You cannot add the same item twice!", "warning");
+                        master.removeChild(new_data);
                     }
                     else {
 
@@ -442,11 +445,12 @@ function draggable() {
             group: "shared",
             animation: 150,
             onAdd: function (evt) {
-                
+
                 evt.item.classList = "sort";
                 var master = evt.item.parentNode;
                 if (master.children.length > 1) {
-
+                    swal("Oops!", "You cannot add the same item twice!", "warning");
+                    master.removeChild(new_data);
                     master.children[1].remove();
                 }
             }
