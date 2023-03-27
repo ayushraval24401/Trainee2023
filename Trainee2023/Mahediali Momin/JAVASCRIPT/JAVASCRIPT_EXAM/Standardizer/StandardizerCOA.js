@@ -319,7 +319,9 @@ function showDateTime() {
     var now = new Date();
     var dateTime = "Last updated on " + now.toLocaleDateString() + " at " + now.toLocaleTimeString();
     document.getElementById("updatetxt").innerHTML = dateTime;
-}
+  }
+  
+  
 
 
 function getData() {
