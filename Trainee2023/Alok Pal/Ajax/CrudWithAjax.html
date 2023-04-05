@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax_Crud</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="crud.css">
+</head>
+
+
+<body>
+
+    <h2 class="text-center mt-2"><b>API crud Operation</b></h2>
+    <div class="container">
+        <form>
+            <div class="row mb-3">
+                <div class="col-sm">
+
+                    <div class="form-group">
+                        <label for="startDate">start Date</label>
+                        <input class="form-control" id="startDate" type="date">
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input class="form-control" id="endDate" type="date">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary" 
+           id="getdata">GetData</button>
+
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            <h2><b> Event Details</b></h2>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-3 offset-md-7 text-center pe-5">
+                <input type="search" placeholder="Search account here..." class="form-control">
+            </div>
+            <div class="col-md-1 mx-4">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddApiModal"
+                    id="AddApiData">ADD&nbspNEW&nbspDATA</button>
+            </div>
+
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">S no.</th>
+                    <th scope="col">Event Title</th>
+                    <th scope="col">StartDate</th>
+                    <th scope="col">EndDate</th>
+                    <th scope="col">EventDescription</th>
+                    <th scope="col">EventPriority</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="root">
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+
+
+    <form action="post" method="">
+        <div class="modal" id="AddApiModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Api Modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row ">
+                            <div class="form-group">
+                                <label for="eventTitle" class="ps-0">Event Title</label>
+                                <input type="text" id="eventTitle" class="form-control  ps-2"
+                                    placeholder="Please Enter Event title">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="startDate">Start Date</label>
+                                <input class="form-control" id="StartDate" type="date">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="startDate">End Date</label>
+                                <input class="form-control" id="EndDate" type="date">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group mt-2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="eventTitle" class="ps-0">Event Description</label>
+                                        <input type="text" id="eventDec" class="form-control ps-2"
+                                            placeholder="Please Enter Event title">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="eventTitle" class="ps-0">Event Priority</label>
+                                        <input type="text" id="eventPrior" class="form-control ps-2"
+                                            placeholder="Please Enter Event title">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="target">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="jquery/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="crud.js"></script>
+</body>
+
+</html>
