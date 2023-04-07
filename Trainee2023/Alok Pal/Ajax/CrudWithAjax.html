@@ -44,7 +44,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-3 offset-md-7 text-center pe-5">
-                <input type="search" placeholder="Search account here..." class="form-control">
+                <input type="search" id="searchInput"  placeholder="Search account here..." class="form-control">
             </div>
             <div class="col-md-1 mx-4">
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddApiModal"
@@ -52,10 +52,10 @@
             </div>
 
         </div>
-        <table class="table">
+        <table class="table" id="myTable">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">S no.</th>
+                    <!-- <th scope="col">S no.</th> -->
                     <th scope="col">Event Title</th>
                     <th scope="col">StartDate</th>
                     <th scope="col">EndDate</th>
@@ -76,7 +76,7 @@
 
 
     <form action="post" method="">
-        <div class="modal" id="AddApiModal" aria-hidden="true">
+        <div class="modal " id="AddApiModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -86,18 +86,18 @@
                     <div class="modal-body">
                         <div class="row ">
                             <div class="form-group">
-                                <label for="eventTitle" class="ps-0">Event Title</label>
+                                <label for="eventTitle" class="ps-0"><b> Event Title</b></label>
                                 <input type="text" id="eventTitle" class="form-control  ps-2"
                                     placeholder="Please Enter Event title">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <label for="startDate">Start Date</label>
+                                <label for="startDate"><b> Start Date </b></label>
                                 <input class="form-control" id="StartDate" type="date">
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="startDate">End Date</label>
+                                <label for="startDate"> <b> End Date </b></label>
                                 <input class="form-control" id="EndDate" type="date">
                             </div>
                         </div>
@@ -105,12 +105,12 @@
                             <div class="form-group mt-2">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="eventTitle" class="ps-0">Event Description</label>
+                                        <label for="eventTitle" class="ps-0"><b> Event Description </b></label>
                                         <input type="text" id="eventDec" class="form-control ps-2"
-                                            placeholder="Please Enter Event title">
+                                            placeholder="Please Enter Event Description">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="eventTitle" class="ps-0">Event Priority</label>
+                                        <label for="eventTitle" class="ps-0"><b> Event Priority </b></label>
                                         <input type="text" id="eventPrior" class="form-control ps-2"
                                             placeholder="Please Enter Event title">
                                     </div>
@@ -119,8 +119,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="target">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-primary" id="Save">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="Update">Update</button>
                     </div>
                 </div>
             </div>
