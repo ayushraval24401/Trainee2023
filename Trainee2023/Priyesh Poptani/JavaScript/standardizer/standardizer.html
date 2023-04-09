@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
@@ -7,62 +7,153 @@
     <title>Standardizer</title>
     <link rel="stylesheet" href="./Bootstrap_setup/css/bootstrap.min.css">
     <link rel="stylesheet" href="./standardizer.css">
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+</head>
+<body >
+
+
+
+   
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/Standardizer_logo.png" alt="" id="standardizerlogoid">  
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarstandardizer"
+                    aria-controls="navbarstandardizer" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarstandardizer">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="">CoA</a>
+                    </div>
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item me-3">
+                                <img id="adminimage" class="rounded" src="./images/admin.png">
+                              </li>
+                      
+                        </ul>
+                
+                </div>
+            </div>
+        </nav>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="./images/Standardizer_logo.png" alt="" >
-              </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="">CoA</a>
-                    <img src="./images/admin.png">
-                    </a>
+        <!-- 7-buttons -->
+        <div class="row">
+            <div class="col-8">
+                <div class="btngroup">
+                    <button type="button" class="btn active" id="assetsBtn">Assets</button>
+                    <button type="button" class="btn" id="liabilityBtn">Liability</button>
+                    <button type="button" class="btn" id="equityBtn">Equity/Capital</button>
+                    <button type="button" class="btn" id="revenueBtn">Revenue</button>
+                    <button type="button" class="btn" id="cogsBtn">CoGS</button>
+                    <button type="button" class="btn" id="gAndAExpensesBtn">G&A Expenses</button>
+                    <button type="button" class="btn" id="otherRevenueExpensesBtn">Other Revenue & Expense</button>
+            
+                   
+                </div>
+            </div>
+                <div class="col-4">
+                    <button type="button" class="mt-4" id="submit">Submit</button>
+                    <p class="content">Last Updated on 08-07-2023 at 10:45am</p>
+                </div>
+           
+        </div>
+    </div>
+     
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <i class="fa fa-circle-o mt-3" style="color: orange;"> Human Updated</i>
+    
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 info">
+                    Source Account Structure
+                    <div class="BSA">Balance Sheet Accounts</div>
+                    <div id="SAStable"></div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
+                    Likely Destination Account
+                    <div class="mostlikely">Most Likely</div>
+                    <div id="mostlikelyid"></div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
+                    <div class="likely">Likely</div>
+                    <div id="likelyid"></div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
+                    <div class="possible">Possible</div>
+                    <div id="Possibleid"></div>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 info">
+                    Destination Account Structure
+                    <div class="BSAA">Balance Sheet Accounts</div>
+    
+                    <!-- navbar -->
+                    <div class="container" id="destinationMenuNavbar">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <a href="#" class="btn-left btn-link p-2 toggle text-dark"><i class="fa fa-arrow-left"></i></a>
+                            </div>
+                            <div class="flex-grow-1 w-100 o-hidden">
+                                <ul class="nav nav-fill  small position-relative flex-nowrap">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">All</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Assets</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Liability</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Equity/Capital</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Revenue</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">CoGS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link text-nowrap">G&A Expenses</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link text-nowrap">Other Revenue & Expense</a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <a href="#" class="btn-right btn-link toggle p-2 text-dark"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div> 
+    
+    
+                    <!-- <i class="fa fa-search"></i>  -->
+                    <input id="searchid" type="text" placeholder="Search Account Here..." >
+                 
+                  
+                    <!-- <table id="mastertable">
+                    <tbody>
+                       
+                    </tbody>
+                  </table> -->
+                  <div id="mastertable"></div>
+              
+          
                 </div>
             </div>
         </div>
-    </nav>
+  
 
-    <!-- 7-buttons -->
-    <div class="btngroup"> 
-    <button type="button" class="btn active" id="assetsBtn">Assets</button>
-    <button type="button" class="btn" id="liabilityBtn">Liability</button>
-    <button type="button" class="btn" id="equityBtn">Equity/Capital</button>
-    <button type="button" class="btn" id="revenueBtn">Revenue</button>
-    <button type="button" class="btn" id="cogsBtn">CoGS</button>
-    <button type="button" class="btn" id="gAndAExpensesBtn">G&A Expenses</button>
-    <button type="button" class="btn" id="otherRevenueExpensesBtn">Other Revenue & Expense</button>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
-                Source Account Structure
-                <div class="BSA">Balance Sheet Accounts</div>
-            </div>
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
-                Likely Destination Account
-                <div class="mostlikely">Most Likely</div>
-            </div>
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
-                <div class="likely">Likely</div>
-            </div>
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 info">
-                <div class="possible">Possible</div>
-            </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 info">
-                Destination Account Structure
-                <div class="BSAA">Balance Sheet Accounts</div>
-            </div>
-        </div>
-    </div>
 </body>
 <script src="./Bootstrap_setup/jquery-3.6.3.min.js"></script>
 <script src="./Bootstrap_setup/js/bootstrap.min.js"></script>

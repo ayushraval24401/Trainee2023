@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Standardizer</title>
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+         crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="./index.css" />
+
+      <!-- jquery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+   </head>
+
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-light navColor">
+         <div class="container-fluid ps-4">
+            <img src="./images/logo.png" />
+            <button
+               class="navbar-toggler d-lg-none"
+               type="button"
+               data-bs-toggle="Navbar"
+               data-bs-target="#NavId"
+               aria-controls="NavId"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+            >
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="Navbar navbar-collapse d-flex" id="NavId">
+               <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                  <li class="nav-item ps-5">
+                     <a class="nav-link active" aria-current="page"
+                        ><a href="JavaScript:void(0);" class="navbarOption"><b> CoA </b></a><span class="visually-hidden">(current)</span></a
+                     >
+                  </li>
+               </ul>
+            </div>
+            <div>
+               <li class="nav-item d-flex mx-4">
+                  <img src="./images/person1.jfif" class="imgIcon" alt="" />
+               </li>
+            </div>
+         </div>
+      </nav>
+
+      <div class="container-fluid d-flex mt-4 ps-4">
+         <div class="container-fluid p-0">
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue btn-active" value="Assets">Assets</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue"  value="Liabilities">Liability</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue" value="Equity" >Equity/Capital</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue"  value="Revenue">Revenue</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue" value="COGS" >CoGS</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue" value="Expense" >G&A Expenses</button>
+            <button type="button" class="btn btnActive filterbtn getAccountBtnValue"  value="Other Rev & Exp">Other Revenue & Expense</button>
+         </div>
+         <div>
+            <button type="submit" class="btn mx-2 btn-success submitBtn">Submit</button>
+            <div><small class="SubmitUpdate">Last Updated on 24-02-2023 at 06:30pm</small></div>
+         </div>
+      </div>
+      <div class="mx-4 mt-4" style="color: orangered">
+         <span class="bi bi-circle"></span><span><b> Human Updated</b></span>
+      </div>
+      <section>
+         <div class="container-fluid d-flex mt-3">
+            <div class="container SourceAccountDiv">
+               <h6><b> Source Account Structure </b></h6>
+               <div class="BalanceSheet ps-2 p-2">Balance Sheet Accounts</div>
+               <ul class="list-group mt-1" id="SourceAccount"></ul>
+            </div>
+            <div class="container">
+               <h6><b>Likely Destination Account </b></h6>
+               <div class="container d-flex MostLikely">
+                  <div class="container MostLikelycontainer">
+                     <div class="MostLikelyHeading ps-2 p-2 px-0">Most Likely</div>
+                     <div class="list-group mt-1" id="MostLikelyDrop"></div>
+                  </div>
+                  <div class="container">
+                     <div class="LikelyHeading ps-2 p-2">Likely</div>
+                     <div class="list-group mt-1" id="LikelyDrop"></div>
+                  </div>
+                  <div class="container">
+                     <div class="PossibleHeading ps-2 p-2">Possible</div>
+                     <div class="list-group mt-1" id="PossibleDrop"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="container DestinationDiv">
+               <h6><b>Destination Account Structure </b></h6>
+               <div class="DestinationAcc ps-2 p-2 bg-success">Balance Sheet Accounts</div>
+               <div class="scroll">
+                  <button id="scroll-Left-btn"><i class="bi bi-chevron-right"></i></button>
+               </div>
+               <div class="scroll">
+                  <button id="scroll-right-btn"><i class="bi bi-chevron-left"></i></button>
+               </div>
+               <div class="scrollmenu border mt-1" id="masterNavBar">
+                  <a class="ps-5  masterMenu" id="allData">All</a>
+                  <a class=" masterMenu"  value="ASSETS" >Assets</a>
+                  <a class=" masterMenu" value="LIABILITIES" >Liability</a>
+                  <a class=" masterMenu" value="EQUITY/CAPITAL">Equity/Capital</a>
+                  <a class=" masterMenu" value="Product Revenue" >Revenue</a>
+                  <a class=" masterMenu" value="Product Costs" >CoGS</a>
+                  <a class=" masterMenu" value="Labor Expense">G&A Expenses</a>
+                  <a class=" masterMenu" value="Outside (or '1099') Professional Services Costs" >Other Revenue & Expense</a>
+               </div>
+               <div>
+                  <i class="bi-search searchIcon"></i>
+                  <input type="search" id="search" class="form-control ps-5 searchInput" placeholder="Search Account Here..." />
+               </div>
+               <div class="list-group" id="DestinationAccount"></div>
+            </div>
+         </div>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+         crossorigin="anonymous"
+      ></script>
+      <script src="./index.js"></script>
+   </body>
+</html>

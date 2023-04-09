@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax_api</title>
+    <Style>
+        thead {
+            background-color: black;
+            color: white;
+        }
+        .error{
+            color: red;
+            font-size: small;
+        }
+        .Loader{
+            margin-left: 40% !important;
+        }
+    </Style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+
+<body>
+
+    <h2 class="text-center"><b>API crud Operation</b></h2>
+    <div class="container-fluid">
+        <form>
+            <div class="row mb-3">
+                <div class="col-sm">
+
+                    <div class="form-group">
+                        <label for="startDate">start Date</label>
+                        <input class="form-control" id="startDate" type="date">
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input class="form-control" id="endDate" type="date">
+                        <input type="hidden" id="hidden">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary">GetData</button>
+    </div>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <h2><b> Event Details</b></h2>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4 offset-md-6 text-center pe-5">
+                <input type="text" id="searchData" placeholder="Search account here..." class="form-control">
+            </div>
+            <div class="col-md-2 text-center"> <button type="button" class="btn btn-primary "
+                    id="AddApiData">ADD&nbspNEW&nbspDATA</button></div>
+        </div>
+        <div class="Loader">
+            <img id="loadergif" src="./Spinner-1s-200px (1).gif" alt="loader">
+        </div>
+        <table class="table" id="apilisttable">
+            
+            
+        </table>
+
+    </div>
+
+
+   
+
+    <div class="modal fade" id="AddApiModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ApiModalLabel">Add Api Modal</h5>
+                    <button type="button" class="btn-close closebutton" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="apidataform">
+                    <div class="row mb-3">
+                        <label for="eventTitle" class="ps-0">Event Title</label>
+                        <input type="text" id="eventTitle" class="form-control ps-2"
+                            placeholder="Please Enter Event title" name="eventTitle">
+                    </div>
+                    <div class="row ps-0 mb-3">
+                        <div class="col-6 ps-0">
+                            <label for="StartDate" class="ps-0">Start Date</label>
+                        <input type="date" id="StartDate" class="form-control " name="StartDate" >
+                        </div>
+                        <div class="col-6 ps-0">
+                            <label for="EndDate" class="ps-0">Start Date</label>
+                        <input type="date" id="EndDate" class="form-control " name="EndDate">
+                        </div>
+                        
+                    </div>
+                    <div class="row ps-0 ">
+                        <div class="col-6 ps-0">
+                            <label for="EventDes" class="ps-0">Event Description</label>
+                        <input type="text" id="EventDes" class="form-control " name="EventDes" placeholder="Please Enter Event Description">
+                        </div>
+                        <div class="col-6 ps-0">
+                            <label for="EventPriority" class="ps-0">Event Priority</label>
+                        <input type="text" id="EventPriority" class="form-control " name="EventPriority" placeholder="Please Enter Event Prioriry">
+                        </div>
+                        
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary saveapiData" id="addEvent">Add Event</button>
+                    <button type="button" class="btn btn-outline-secondary closebutton" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <button class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </button>
+          </li>
+          <li class="page-item"><button class="page-link pageindex" value="1" href="#">1</button></li>
+          <li class="page-item"><button class="page-link pageindex" value="2" href="#">2</button></li>
+          <li class="page-item"><button class="page-link pageindex" value="3" href="#">3</button></li>
+          <li class="page-item">
+            <button class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="task2_ApiCrud.js"></script>
+</body>
+
+</html>

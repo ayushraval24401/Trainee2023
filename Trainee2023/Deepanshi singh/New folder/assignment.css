@@ -1,4 +1,24 @@
 
+  .navbar{
+    height:70px;
+    background-color: white;
+  }
+  .navbar a.active{
+    border-bottom: 3px solid #000000;
+  }
+  #name{
+    margin-top:20px;
+    margin-right:120px;
+  }
+  #welcome{
+    color:gray;
+    font-size:12px;
+  }
+  #logouticon{
+    color:gray;
+    font-size:15px;
+  }
+  
   .container-fluid{
     margin-top:20px;
   }
@@ -8,11 +28,6 @@
   .navbar{
     height:70px;
 }
-
-.navbar a.active{
-    border-bottom: 3px solid #000000;
-
-  }
 #p1{
     text-transform: capitalize;
     font-weight: bolder;
@@ -38,9 +53,43 @@ table{
   border-radius: 10px; 
   overflow: hidden;
 }
-.thead{
+#thead{
   background-color: #000000;
-  color:white !important;
   height:40px;
   margin-top:50px;
+  color:white;
+}
+#new{
+  margin-top: 30px;
+ background-color:#1188FF;
+ color:white;
+}
+.dataTables_length{
+  display:none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: black;
+  /* background: ; */
+  /* background: -webkit-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -moz-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -ms-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -o-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%); */
+  background: linear-gradient(to bottom, #111 0%, #212529 100%);
+}
+table.dataTable td.dt-control:before
+{
+   color:#326C96;
+   background-color: white;
+   border:1px solid #326C96;
+}
+.dataTables_info{
+margin-left:1100px;
+}
+.dataTables_filter{
+  margin-top:-4% !important;
+}
+.select2-container.select2-container--default.select2-container--open{
+  z-index: 51021;
 }

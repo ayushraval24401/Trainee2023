@@ -1,55 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>csv file read</title>
-    <link rel="stylesheet" href="/Standardizer/style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
-    <!-- <link href='dist/dragula.css' rel='stylesheet' type='text/css' /> -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
-    <script type="text/javascript" src="/bootstrap-5.3.0-alpha1-dist/Jquery/jquery-3.6.3.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.css" /> -->
-    <!-- <link rel="stylesheet" href="node_modules/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="node_modules/move-js/move.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.css" /> -->
     <link href="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.css" rel="stylesheet">
-   <script src="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light  p-0" style="background-color: #EFEFF0;">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#"> <img src="./Assets/Standardizer_logo.jpg" style="height:50px" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#StandardizerNavbar"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse  navbar_list" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse  navbar_list" id="StandardizerNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link nav-item  mx-3 fw-bolder active">COA</a>
+                        <a class="nav-link nav-item  mx-3 fw-bolder active">CoA</a>
                     </li>
                 </ul>
             </div>
             <div class="d-flex align-items-center justify-content-between flex-row-reverse" style="height: 80px; width:200px;">
-               
-                <!-- <div class="row "> -->
-                    <!-- <div class="col-3"> -->
+
                         <img src="./Assets/1.jpeg" class="rounded-circle" id="logo" height="40px" width="40px" alt="">
-                    <!-- </div>
-             -->
-                <!-- </div> -->
             </div>
         </div>
     </nav>
-
-
       <!-- <div class="container-fluid"> 
     <div class="button_group mt-2 btn-group btn-group-justified">
         <div class="row">
-
             <div class="col-sm-12 col-md-1 col-lg-1 ">
         <div class="btn-group p-1">
             <button type="button" class="btn btn-primary btn-block" style="background-color: #3CB7E7;border: none;">Assets</button>
@@ -88,10 +75,198 @@
     </div>
 </div>
     <div>
-
     </div>
     </div> -->
+    <div class="container-fluid mt-2 freeze_buttons">
+        <div class="row">
+            <div class="col-md-10">
+                    <button type="button" class="source_btn ASSETS px-3 py-1 mx-1 active" value="ASSETS" data-value="Assets">Assets</button>
+                    <button type="button" class="source_btn px-3 py-1 mx-1" value="LIABILITY" data-value="Liabilities">Liability</button>
+                    <button type="button" class=" source_btn px-3 py-1 mx-1" value="EQUITY/CAPITAL" data-value="Equity">Equity/Capital</button>
+                    <button type="button" class=" source_btn px-3 py-1 mx-1" value="REVENUE" data-value="Revenue">Revenue</button>
+                    <button type="button" class=" source_btn px-3 py-1 mx-1" value="COGS" data-value="COGS">CoGS</button>
+                    <button type="button" class=" source_btn px-3 py-1 mx-1" value="G&A Expenses" data-value="Expense">G&amp;A Expenses</button>
+                    <button type="button" class=" source_btn px-3 py-1 mx-1" value="OTHER REVENUE& EXPENSE" data-value="Other Rev & Exp">Other Revenue &amp; Expense</button>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <button type="button" class="btn_submit border-0 px-3 py-1 rounded-2" onclick="submit()">Submit</button>
+                </div>
+                <p id="date_and_time_show" class="d-flex justify-content-end"></p>
 
+                </div>
+                </div>
+    <div class="container-fluid freeze_humanupdated">
+    <div class="row p-3">
+        <div class="col-sm-12 col-md-12 col-lg-12 p-0 mt-3">
+            <i class="fa fa-circle-o ">&nbsp;<b>Human Updated</b></i>
+        </div>
+    </div>
+    </div>
+        <div class="section">
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="source_account_structure freeze_source_account_structure">
+                    <h6>Source Account Structure</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item border" style="background-color: #00A5E5;color: white;">Balance Sheet Accounts</li>
+                    </ul>
+                </div>
+                    <ul class="list-group mt-2" id="Balancesheet_list">
+                    </ul>
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="row">
+                        <h6>Likely Destination Account</h6>
+                        <div class="col-md-4">
+                    <ul class="list-group" id="mostlikely_sortable">
+                        <li class="list-group-item border"  style="background-color: #00C0CD;color: white;">Most Likely</li>
+                        <li class="list-group-item border" >Most Likely</li>
+                        <li class="list-group-item border" >Most Likely</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group" id="likely_sortable">
+                        <li class="list-group-item border" style="background-color: #00C0CD;color: white;">Likely</li>
+                        <li class="list-group-item border">Likely</li>
+                        <li class="list-group-item border">Likely</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group" id="possible_sortable">
+                        <li class="list-group-item border" style="background-color: #7FDFE6;color: white;">Possible</li>
+                        <li class="list-group-item border">Possible</li>
+                        <li class="list-group-item border">Possible</li>
+                    </ul>
+                </div>
+                </div>
+            </div> -->
+            <div class="col-md-6">
+                <div class="row">
+                    <h6>Likely Destination Account</h6>
+                    <div class="col-md-4">
+                        <ul class="list-group" id="mostlikely_sortable">
+                            <li class="list-group-item border" id="most_likely" style="background-color: #00C0CD;color: white;">Most Likely</li>
+                          
+                        </ul>
+                        <ul class="list-group mostlikelys_list" id="mostlikelys" >
+                          
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-group" id="likely_sortable">
+                            <li class="list-group-item border" style="background-color: #00C0CD;color: white;">Likely</li>
+                      
+                        </ul>
+                        <ul class="list-group likelys_list" id="likelys" >
+                          
+                        </ul>
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-group" id="possible_sortable">
+                            <li class="list-group-item border" style="background-color: #7FDFE6;color: white;">Possible</li>
+                          
+                        </ul>
+                        <ul class="list-group possible_list" id="possible" >
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-3 ">
+                        <h6>Destination Account Structure</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item border" style="background-color: #0D9D66;color: white;">Balance Sheet Accounts</li>
+                        </ul>
+                            <nav id="menu-container" class="arrow">
+                                <div id="btn-nav-previous">
+                                    <i class="fa fa-chevron-left mx-2" aria-hidden="true"></i>
+                                </div>
+                                <div id="btn-nav-next">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="menu-container">
+                                <div class="menu-inner-box">
+                                <a class="menu-item navbar_btn "  data-value="All" id="all_data" >All</a>  
+                                <a class="menu-item navbar_btn ASSETS active"   id="" data-value="Assets">Assets</a>
+                                <a class="menu-item navbar_btn"  id=""  data-value="Liabilities">Liability</a>
+                                <a class="menu-item navbar_btn"  id="" data-value="Equity">Equity/Capital</a>
+                                <a class="menu-item navbar_btn"  id="" data-value="Revenue">Revenue</a>
+                                <a class="menu-item navbar_btn"  id="" data-value="COGS">CoGS</a>
+                                <a class="menu-item navbar_btn"  id="" data-value="Expense">G&A Expenses</a>
+                                <a class="menu-item navbar_btn"  id="" data-value="Other Rev & Exp">Other Revenue & Expense</a>
+                                </div>
+                                </div>
+                              </nav>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="search" class="form-control search" placeholder="&#xF002;     Search Account Here..." style="font-family: Arial,FontAwesome;font-size: 12px;">
+                                </div>
+                            </div>
+                    <div class="row mt-3">
+                        <div class="container-fluid">
+                        <div class="col-md-3 destination_account_structure">
+                            <ul class="list-group mt-2 destination_account " id="mastersheet_list">
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/bootstrap-5.3.0-alpha1-dist/Jquery/jquery-3.6.3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.js"></script>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js" integrity="sha512-RxjKCh+1zZcAOLJF+HCOsJ0Q2Pj3GDR9ef9I0M+14D8Jg+TmuU/PCVH0wroRb7VUxf+6vm9NfjxJzZ3QDYv+3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+    <!-- <script src="node_modules/move-js/move.min.js"></script> -->
+    <script src="./script.js"></script>
+
+    <script src="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.js"></script>
+
+
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js"></script> -->
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csv file read</title>
+    <link rel="stylesheet" href="/Standardizer/style.css">
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script type="text/javascript" src="/bootstrap-5.3.0-alpha1-dist/Jquery/jquery-3.6.3.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="node_modules/move-js/move.min.js"></script>
+    <link href="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.css" rel="stylesheet">
+   <script src="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light  p-0" style="background-color: #EFEFF0;">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#"> <img src="./Assets/Standardizer_logo.jpg" style="height:50px" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse  navbar_list" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link nav-item  mx-3 fw-bolder active">COA</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center justify-content-between flex-row-reverse" style="height: 80px; width:200px;">
+                        <img src="./Assets/1.jpeg" class="rounded-circle" id="logo" height="40px" width="40px" alt="">
+            </div>
+        </div>
+    </nav>
     <div class="container-fluid mt-2">
                     <button type="button" class="btn btn-light">Assets</button>
                     <button type="button" class="btn btn-light">Liability</button>
@@ -108,8 +283,6 @@
         </div>
     </div>
     </div>
-
-
         <div class="section">
             <div class="container-fluid">
             <div class="row">
@@ -117,18 +290,8 @@
                     <h6>Source Account Structure</h6>
                     <ul class="list-group">
                         <li class="list-group-item border" style="background-color: #00A5E5;color: white;">Balance Sheet Accounts</li>
-                        <!-- <li class="list-group-item border">item2</li>
-                        <li class="list-group-item border">item3</li> -->
                     </ul>
 
-                        <!-- <div class="row">
-                        <div class="col-md-3">
-                    <table class="d-flex ">
-                        <tbody id="table-body-balancesheet">
-                        </tbody>
-                      </table>
-                      </div>
-                    </div> -->
                     <div class="row mt-3">
                         <div class="container-fluid">
                         <div class="col-md-3">
@@ -137,7 +300,6 @@
                       </div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="row">
                         <h6>Likely Destination Account</h6>
@@ -171,29 +333,6 @@
                             <li class="list-group-item border" style="background-color: #0D9D66;color: white;">Balance Sheet Accounts</li>
                         </ul>
 
-
-                        <!-- <div class="row">
-                            <div class="col-md-12">
-                                <ul class="list-group">
-                                    <li class="list-group-item border">
-                                        <div class="scrollmenu">
-                                            <a href="#" class="previous">&lt;</a>
-                                            <a href="javascript: void(0)">All</a>
-                                            <a href="javascript: void(0)">Assets</a>
-                                            <a href="javascript: void(0)">Liability</a>
-                                            <a href="javascript: void(0)">Equity/Capital</a>
-                                            <a href="javascript: void(0)">Revenue</a>
-                                            <a href="javascript: void(0)">CoGS</a>
-                                            <a href="javascript: void(0)">G&A Expenses</a>  
-                                            <a href="javascript: void(0)">Other Revenue & Expense</a>
-                                            <a href="#" class="next">&gt;</a>
-                                           
-                                          </div>
-                                    </li>
-                                </ul> 
-                                </div>
-                                </div> -->
-
                                 <ul class="list-group">
                                     <li class="list-group-item border" >
                                 <nav id="menu-container" class="arrow">
@@ -214,52 +353,12 @@
                                         <a class="menu-item" href="#">CoGS</a>
                                         <a class="menu-item" href="#">G&A Expenses</a>
                                         <a class="menu-item" href="#">Other Revenue & Expense</a>
-                                    
-                                        <!-- <a class="menu-item last-item" href="#">Menu 11</a> -->
                                       </div>
                                     </div>
                                   </nav>
                                 </li>
                             </ul>
-                        <!-- <div class="scroller scroller-left float-start mt-2"><i class="bi bi-caret-left-fill"></i></div>
-                        <div class="scroller scroller-right float-end mt-2"><i class="bi bi-caret-right-fill"></i></div>
-                        <div class="wrapper-nav">
-                            <nav class="nav nav-tabs list mt-2 justify-content-end" id="myTab" role="tablist">
-                                <a class="nav-item nav-link pointer active" data-bs-toggle="tab" data-bs-target="#tab1" role="tab" aria-controls="public" aria-selected="true">All</a>
-                                <a class="nav-item nav-link pointer" data-bs-target="#tab2" role="tab" data-bs-toggle="tab">Assets</a>
-                                <a class="nav-item nav-link pointer" data-bs-target="#tab3" role="tab" data-bs-toggle="tab">Liability</a>
-                                <a class="nav-item nav-link pointer" data-bs-target="#tab4" role="tab" data-bs-toggle="tab">Equity/Capital</a>
-                                <a class="nav-item nav-link pointer" data-bs-target="#tab5" role="tab" data-bs-toggle="tab">Revenue</a>
-                            </nav>
-                        </div>
-                        <div class="tab-content d-flex justify-content-end p-3" id="myTabContent">
-                            <div role="tabpanel" class="tab-pane fade active show mt-2" id="tab1" aria-labelledby="public-tab" >
-                                This is the content of Tab 1...
-                            </div>
-                            <div class="tab-pane fade mt-2" id="tab2" role="tabpanel" aria-labelledby="group-dropdown2-tab" >
-                                This is the content of Tab 2...
-                            </div>
-                            <div class="tab-pane fade mt-2" id="tab3" role="tabpanel" aria-labelledby="group-dropdown2-tab" >
-                                This is the content of Tab 3...
-                            </div>
-                            <div class="tab-pane fade mt-2" id="tab4" role="tabpanel" aria-labelledby="group-dropdown2-tab" >
-                                This is the content of Tab 4...
-                            </div>
-                            <div class="tab-pane fade mt-2" id="tab5" role="tabpanel" aria-labelledby="group-dropdown2-tab" >
-                                This is the content of Tab 5...
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="row mt-3">
-                        <div class="col-md-3">
-                    <table class="d-flex justify-content-end ">
-                        <tbody id="table-body">
-                        </tbody>
-                      </table>
-                      </div>
-                    </div> -->
-                    
+                        
                     <div class="row mt-3">
                         <div class="container-fluid">
                         <div class="col-md-3">
@@ -267,46 +366,12 @@
                         </div>
                       </div>
                     </div>
-
-                    
-                    
                 </div>
-                
             </div>
         </div>
-      
-          <!-- HTML file, included Bootstrap -->
- <!-- <div class="row">
-    <div class="col-sm-6">
-     <div class="card card1">
-       <div class="card-body">
-         <div id="container1">
-         <h5 class="card-title">Container 1</h5>
-         <p class="card-text">VHS brunch ugh kale chips.</p>
-         <button class="btn btn-primary">pickled craft beer</button>
-           <button class="btn btn-primary">mustache crucifix </button>
-           <button class="btn btn-primary"> organic fanny pack</button>
-       </div>
-     </div>
-   </div>
-     </div>
-   <div class="col-sm-6">
-     <div class="card card2">
-       <div class="card-body">
-         <div id="container2">
-         <h5 class="card-title">Container 2</h5>
-         <p class="card-text">Venmo squid sriracha cred brooklyn.</p>
-         <button class="btn btn-primary">vinegar master cleanse</button>
-           <button class="btn btn-primary">polaroid cardigan</button>
-           <button class="btn btn-primary">four loko letterpress</button>
-       </div>
-     </div>
-   </div>
-     </div>
- </div> -->
     <script src="./Standardizer.js"></script>
     <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
     <script src="/bootstrap-5.3.0-alpha1-dist/Jquery/jquery-3.6.3.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js"></script>
 </body>
-</html>
+</html> -->

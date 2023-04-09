@@ -1,0 +1,202 @@
+#standardizernavbar {
+    margin-left:100px;
+}
+.navbar a.active{
+    border-bottom: 3px solid #51b7e7;
+    color: #51b7e7!important;
+   
+  }
+  /* .navbar{
+    background-color:#eff1f1;
+    
+  } */
+  .d-flex{
+    margin-right:70px;
+  }
+ #secondcontainer{
+    margin-top:20px;
+ }
+ /* #assetbutton{
+    background-color:#51b7e7;
+    color:white !important;
+ } */
+ .btn{
+    background-color:#f2f2f2;
+    color:#928c8c !important;
+    margin-right:7px;
+ }
+ .radio{
+    width:25px;
+    height:15px
+ }
+ input[type=radio]{
+    border-radius: 50%;
+    border: 2px solid orange !important;
+ }
+#balancesheets{
+    background-color:#51b7e7 ;
+    border:1 px solid black;
+    color: white !important;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+}
+
+#mostlikely{
+    background-color:#53c1cd ;
+    border:1 px solid black;
+    color: white !important;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+}
+#likely{
+    background-color:#58cdd7 ;
+    border:1 px solid black;
+    color: white !important;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+}
+#Possible{
+  background-color: #7fdfe6 ;
+  border:1 px solid black;
+  color: white !important;
+  height: 35px;
+  padding-top: 5px;
+  padding-left: 20px;
+  border-radius:5px;
+}
+.balanceaccount{
+ background-color:#56a979 ;
+ border:1 px solid black;
+ color: white !important;
+ height: 35px;
+ padding-top: 5px;
+ padding-left: 20px;
+ border-radius:5px;
+}
+
+  #submit{
+    background-color:#39961f ;
+    margin-left:700px;
+    color:white !important;
+  }
+  .btn.active{
+    background-color:#51b7e7;
+    color:white !important;
+  }
+  
+  .standardcofadata
+  {
+    border:1px solid lightgray;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+    overflow:hidden;
+  }
+  .row{
+    margin-top:15px;
+  }
+#balanceaccount{
+  border:1px solid lightgray;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+    overflow:hidden;
+    background-color: #fdfdfd;
+  padding-bottom :41px;
+}
+  /* source accountnav */
+ 
+  li.horizontalDesBtn{
+    border-bottom:  1px solid green;
+      color:#39961f !important;
+  }
+  #Desbuttonslist{
+    overflow-x: auto;
+    display: flex;
+    height: 20px;
+}
+/* #forwordbtn{
+    position: absolute;
+    right: 25.5%;
+    top: 26.7%;
+} */
+#Desbuttonslist::-webkit-scrollbar {
+    display: none;
+  }
+button#forwordbtn {
+    padding-top: 5px;
+}
+button#backwordbtn {
+    padding-top: 6px;
+}
+.Destinationbtns #forwordbtn{
+ position: absolute;
+ }
+ .horizontalDesBtn{
+    padding-left: 10px;
+ }
+ .horizontalDesBtn,#forwordbtn,#backwordbtn{
+    background-color: white;
+    border: none;
+    font-weight: bold;
+ }
+ .Destinationbtns{
+    border: 1px rgb(187, 184, 184) solid;
+    position: relative;
+    padding-top:5px;
+ }
+ .Destinationbtns #forwordbtn,.Destinationbtns #backwordbtn {
+    position:absolute;
+ }
+ #backwordbtn {
+    right: 0px;
+    top: 0;
+}
+#Desbuttonslist li{
+  list-style: none;
+}
+/* #masterdata
+  {
+    border:1px solid lightgray;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+  } */
+  .masterdata
+  {
+    border:1px solid lightgray;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+    overflow:hidden;
+  }
+  #search{
+    border:1px solid lightgray;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius:5px;
+    margin-bottom:5px;
+
+  }
+  .circle{
+    border:1px solid orange;
+    height: 14px;
+    width: 17px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .bg-light {
+    background-color:#eff1f1 !important;
+}

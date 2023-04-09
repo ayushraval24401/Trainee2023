@@ -1,0 +1,196 @@
+/* nav color*/
+.navColor {
+    background-color: #EFEFF0;
+}
+
+/* btn font size */
+.filterbtn {
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #F2F2F2;
+    color:  #b1b0b0;;
+}
+
+.btn-active {
+    background-color: #3CB7E7;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+}
+
+.navbar-nav .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 33%;
+    height: 2px;
+    bottom: -45px;
+    left: 12px;
+    background-color: #3CB7E7;
+    color: #3CB7E7;
+    visibility: hidden;
+    transform: scaleX(0);
+    /* transition: all 0.3s ease-in-out 0s; */
+
+}
+
+.navbar-nav .nav-link.active::before {
+    visibility: visible;
+    transform: scaleX(1);
+
+}
+
+.masterMenu
+{
+    height:100%;
+    padding: 25px;
+    color: black;
+    display:inline;
+    margin:0 auto;
+    line-height:38px;
+    text-decoration:none;
+    text-align:center;
+    white-space:no-wrap;
+    background-color: #FFF;
+}
+
+.navbarOption {
+    color: #3CB7E7 !important;
+    text-decoration: none;
+}
+
+.imgIcon {
+    width: 54px;
+    border-radius: 50%;
+}
+
+.submitBtn {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* Balance sheet account */
+.SourceAccountDiv {
+    width: 37%;
+
+}
+
+.BalanceSheet {
+    color: white;
+    background-color: #3CB7E7;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* DestinationDiv */
+.DestinationDiv{
+    width: 24%;
+}
+.DestinationAcc {
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.MostLikelyHeading {
+    background-color: #00C0CD;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.LikelyHeading {
+    background-color: #33CDD7;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+
+}
+
+.PossibleHeading {
+    background-color: #7FDFE6;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.MostLikelycontainer {
+    margin-left: -3%;
+}
+
+.MostLikely {
+    width: 103%;
+}
+
+/* Navbar scroll destination acc */
+div.scrollmenu {
+    background-color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.scroll {
+    height: 0px;
+}
+
+#scroll-Left-btn {
+    position: relative;
+    margin-left: 90%;
+    border: none;
+    top: 19px;
+    background-color: white;
+    font-weight: bold;
+
+}
+
+#scroll-right-btn {
+    position: relative;
+    border: none;
+    top: 19px;
+    background-color: white;
+    margin-left: 0.3%;
+    font-weight: bold;
+}
+
+.masterMenu {
+    font-size: 12px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+.searchIcon{
+  position: absolute; 
+  right: 18rem;
+  font-size: 13px;
+  top: 21.9rem;  
+}
+
+.searchInput{
+    font-size: 13px;
+}
+
+.SubmitUpdate{
+    font-size: 10px; 
+    margin-left: -7rem;
+} 
+
+.dynamicDiv{
+    border: 1px solid rgb(212, 211, 211);
+    font-size: small;
+}
+
+.icons{
+    justify-self: flex-end;
+    color:#3CB7E7;
+}

@@ -1,6 +1,6 @@
-body {
+/* body {
     overflow-x: hidden;
-}
+} */
 
 strong {
     font-size: 14px;
@@ -14,7 +14,22 @@ strong {
 .navbarCoA {
     background-color: rgb(239 239 239);
     padding: 2px 0;
-    /* height: 65px; */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.upperbuttons{
+    background-color: white;
+    position: sticky;
+    top: 66px;
+    height: 75px;
+    z-index: 100;
+    padding-top: 1%;
+}
+.stickyheader{
+    position: sticky;
+    top: 178px;
+    z-index: 99;
 }
 
 #Standardizer_logo {
@@ -26,108 +41,10 @@ strong {
     font-weight: bold;
     color: #3cb7e7;
     margin-top: 7px;
-}
-
-/* .btn{
-    background-color: #f2f2f2;
-    
-}
-.btn:focus{
-   
-    background-color: #3cb7e7;
-} */
-#header_button1 {
-    height: 32px;
-    width: 93px;
-    padding-top: 5px;
-    color: white;
-    background-color: #3cb7e7;
-    font-size: 13px;
-}
-
-#header_button2, #header_button4, #header_button5 {
-    height: 32px;
-    width: 93px;
-    padding-top: 5px;
-    color: grey;
-    font-size: 13px;
-    background-color: rgb(239 239 239);
-}
-
-#header_button3, #header_button6 {
-    height: 32px;
-    width: 110px;
-    padding-top: 5px;
-    color: grey;
-    font-size: 13px;
-    background-color: rgb(239 239 239);
-}
-
-#header_button7 {
-    height: 32px;
-    width: 185px;
-    padding-top: 5px;
-    color: grey;
-    font-size: 13px;
-    background-color: rgb(239 239 239);
-}
-/* Style the buttons */
-.btn {
-    background-color: grey;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
     cursor: pointer;
-  }
-  
-  /* Style the active button */
-  .btn.active {
-    background-color: blue;
-  }
-  
-
-.submit {
-    background-color: #00961f;
-    color: white;
-    font-size: 14px;
 }
 
-.human {
-    color: rgb(255, 123, 0);
-    font-size: 14px;
-}
-
-.destination {
-    height: 500px;
-    width: 310px;
-    overflow: scroll;
-}
-
-.search{
-    border-radius: 0px;
-    margin-top: -18px;
-    font-size: 12px;
-}
-
-/* .destination1{
-    margin-left: 900px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-} */
-li.list-group-item.border {
-    padding: 3px;
-    padding-left: 14px;
-    font-size: 13px;
-    border-radius: 1px;
-}
-
-.list-group-item {
-    margin-bottom: 10px;
-}
-
-
+/* navbar underline */
 .navbar-nav .nav-link {
     position: relative;
 }
@@ -150,29 +67,156 @@ li.list-group-item.border {
     transform: scaleX(1);
 }
 
+
+/* header 7 button  */
+.header-button {
+    height: 32px;
+    width: auto;
+    padding: 5px 18px;
+    color: grey;
+    font-size: 13px;
+    background-color: rgb(239, 239, 239);
+    border: none;
+    margin-right: 5px;
+    border-radius: 5px;
+
+}
+
+.header-button.active {
+    background-color: #3cb7e7;
+    color: white;
+}
+
+/* submit button */
+.submit {
+    height: 32px;
+    color: white;
+    font-size: 14px;
+    background-color: #00961f;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.submit.active {
+    background-color: #00961f;
+    color: white;
+}
+
+.submittxt {
+    font-size: xx-small;
+    color: grey;
+}
+
+
+.human {
+    color: rgb(255, 123, 0);
+    font-size: 14px;
+    /* margin-top: 0px; */
+    margin-left: 9px;
+}
+
+.destination {
+    height: 500px;
+    /* width: 304px; */
+    overflow-x: hidden;
+}
+
+.destination::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.destination::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.destination::-webkit-scrollbar-thumb {
+    background-color: #33a3ff;
+    height: 50px;
+    border-radius: 10px;
+    /* background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.5) 25%,transparent 25%,transparent 50%,rgba(255, 255, 255, 0.5) 50%,rgba(255, 255, 255, 0.5) 75%,transparent 75%,transparent) */
+}
+
+
+.search {
+    border-radius: 0px;
+    margin-top: -20.5px;
+    font-size: 10px;
+    padding: 9px;
+}
+
+input[type="search"]:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+
+
+/* .destination1{
+    margin-left: 900px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+} */
+
+/* destination account structure master file data  */
+#SourceAccount .list-group-item,
+#DestinationAccount .list-group-item,
+#mostlikely .list-group-item,
+#likely .list-group-item,
+#possible .list-group-item {
+    padding: 7px;
+    padding-left: 14px;
+    height: 20px;
+    margin-top: 9px;
+    font-size: 13px;
+    padding-bottom: 27px;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important; 
+    border: 1px solid rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+
+
+
+/* .list-group-item {
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    width: 100%;
+} */
+
+
 .balancesheetaccount {
     background-color: #00a5e5;
     border-radius: 2.2px;
     padding-left: 8px;
     color: white;
+    margin-top: 9px;
 }
-
 .likelydestination {
     color: white;
 }
-
 .mostlikely {
-    background-color: #00c0cd;
+    background-color: #02d2e0;
     border-radius: 2.2px;
     padding-left: 8px;
     color: white;
+    margin-top: 9px;
 }
 
-.Likely {
-    background-color: #33cdd7;
+.likely {
+    background-color: #43d3dd;
     border-radius: 2.2px;
     padding-left: 8px;
     color: white;
+    margin-top: 9px;
 }
 
 .possible {
@@ -180,6 +224,7 @@ li.list-group-item.border {
     border-radius: 2.2px;
     padding-left: 8px;
     color: white;
+    margin-top: 9px;
 }
 
 .balancedestination {
@@ -187,6 +232,7 @@ li.list-group-item.border {
     border-radius: 2.2px;
     padding-left: 8px;
     color: white;
+    margin-top: 9px;
 }
 
 .scroll {
@@ -204,10 +250,14 @@ li.list-group-item.border {
     padding: 8px;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
+.material-icons {
+    font-size: 1.1em;
+}
+
 
 
 
@@ -225,8 +275,8 @@ nav#menu-container {
     font-size: 12px;
     position: absolute;
     left: 0px;
-    padding: 6px 0px;
-    /* background: #8f9a9d; */
+    padding: 7px 9px;
+    /* background-color: white; */
     fill: #FFF;
 }
 
@@ -238,16 +288,16 @@ nav#menu-container {
     position: absolute;
     right: 5px;
     padding: 7px 5px;
-    /* background: #8f9a9d; */
+    background: white;
     fill: #FFF;
 }
 
 .menu-inner-box {
     width: 100%;
     white-space: nowrap;
-    margin: 0 auto;
+    margin: 0px -21px;
     overflow: hidden;
-    padding: 0px 9px;
+    padding: 0px 28px;
     box-sizing: border-box;
     font-size: 10.3px;
     color: black;
@@ -268,12 +318,11 @@ nav#menu-container {
     color: #fff;
     display: inline;
     margin: 0 auto;
-    line-height: 57px;
+    line-height: 15px;
     text-decoration: none;
     text-align: center;
     white-space: no-wrap;
 }
-
 .menu-item:hover {
     text-decoration: underline;
 }
@@ -286,6 +335,82 @@ nav#menu-container {
 
 
 
+/* underline in menuitem */
+.menu-inner-box a.active {
+    color: #0d9d66;
+}
+
+.menu-inner-box a {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 4px;
+}
+
+.menu-inner-box a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0d9d66;
+    transform: scaleX(0);
+    transform-origin: bottom;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-inner-box a.active {
+    color: #0d9d66;
+}
+
+.menu-inner-box a.active:after {
+    transform: scaleX(1);
+}
+
+
+
+.destinations:has(li) li{
+    border: none !important;
+    display: block !important;
+    margin: 0px !important;
+    top: -8px;
+    left: -15px;
+}
+
+
+
+/* .border {
+  
+} */
+ /* li.new-class {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    border: 1px solid rgb(230, 230, 230);
+    padding: 16px;
+    border-radius: 0px;
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    font-size: 13px;
+    border-radius: 1px;
+}  */
+
+/* .dragged-item {
+    position: absolute;
+    z-index: 1000;
+  }
+  .dragged-item {
+    display: none;
+  }
+     */
+
+
 @media (max-width: 994px) {
     .btn {
         font-size: 12px;
@@ -293,3 +418,5 @@ nav#menu-container {
         margin: 10px;
     }
 }
+
+
