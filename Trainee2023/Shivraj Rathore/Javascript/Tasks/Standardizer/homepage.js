@@ -20,74 +20,34 @@ $.get('./Files/Standard CofA (1).csv', function(csvData) {
   // Convert to JSON
   var SourceData = csvJSON(csvData);
   
-     // Get the scrollable div element for the data
-     var SourceDiv = $("#SourceAccountStructure");
-     SourceDiv.empty(); // clear any previous data
-     
-     // Loop through the data array
-     for (var i = 0; i < SourceData.length; i++) {
-       var data = SourceData[i];
-       
-       // Check if the 'type' field matches the button value
-       if (data.hasOwnProperty('Number') && data.Number !== '' && 
-           data.hasOwnProperty('Name') && data.Name !== '') {
-         // create a new <div> element with the desired text
-         var text = data.Number + "  " + data.Name;
-         var iconTick = $("<i>").addClass("material-icons").text("done_all").css("margin-left","2px");
-         var iconhistory = $("<i>").addClass("material-icons").text("history").css("margin-left","2px");
-         var iconsContainer = $("<div>").append(iconTick).append(iconhistory);
-         var Sourcelist = $("<div>").addClass("Masterclass").css("display", "flex").css("justify-content", "space-between");
-         var textContainer = $("<div>").text(text);
-         Sourcelist.append(textContainer).append(iconsContainer);
-         
-         // Append the new <div> element to the scrollable div
-         SourceDiv.append(Sourcelist);
-       }
-     }
-});
-
-  $('.navbar-nav .nav-item .btn').click(function() { 
-    debugger
-    $('.navbar-nav .nav-item .btn').removeClass('active');
-    $(this).addClass('active');
-    var buttonValue = $('.navbar-nav .nav-item .btn.active').val();
-
-
+  
+  // Get the scrollable div element for the data
+  var SourceDiv = $("#SourceAccountStructure");
+  
+  // Loop through the data array
+  for (var i = 0; i < SourceData.length; i++) {
+    var data = SourceData[i];
     
-
-// Load the CSV data
-$.get('./Files/Standard CofA (1).csv', function(csvData) {
-  // Convert to JSON
-  var SourceData = csvJSON(csvData);
-
-     // Get the scrollable div element for the data
-     var SourceDiv = $("#SourceAccountStructure");
-     SourceDiv.empty(); // clear any previous data
-     
-     // Loop through the data array
-     for (var i = 0; i < SourceData.length; i++) {
-       var data = SourceData[i];
-       
-       // Check if the 'type' field matches the button value
-       if (data.hasOwnProperty('Type') && data.Type === buttonValue && 
-           data.hasOwnProperty('Number') && data.Number !== '' && 
-           data.hasOwnProperty('Name') && data.Name !== '') {
-         // create a new <div> element with the desired text
-         var text = data.Number + "  " + data.Name;
-         var iconTick = $("<i>").addClass("material-icons").text("done_all").css("margin-left","2px");
-         var iconhistory = $("<i>").addClass("material-icons").text("history").css("margin-left","2px");
-         var iconsContainer = $("<div>").append(iconTick).append(iconhistory);
-         var Sourcelist = $("<div>").addClass("Masterclass").css("display", "flex").css("justify-content", "space-between");
-         var textContainer = $("<div>").text(text);
-         Sourcelist.append(textContainer).append(iconsContainer);
-         
-         // Append the new <div> element to the scrollable div
-         SourceDiv.append(Sourcelist);
-       }
-     }
+    // Check if the 'Number' and 'Name' fields exist and are not empty
+    if (data.hasOwnProperty('Number') && data.Number !== '' && 
+        data.hasOwnProperty('Name') && data.Name !== '') {
+      
+      // create a new <div> element with the desired text and icons
+      var text = data.Number + "  " + data.Name;
+      var iconTick = $("<i>").addClass("material-icons").text("done_all").css("margin-left","2px");
+      var iconhistory = $("<i>").addClass("material-icons").text("history").css("margin-left","2px");
+      var iconsContainer = $("<div>").append(iconTick).append(iconhistory);
+      var Sourcelist = $("<div>").addClass("Masterclass").css("display", "flex").css("justify-content", "space-between");
+      var textContainer = $("<div>").text(text);
+      Sourcelist.append(textContainer).append(iconsContainer);
+      
+      // Append the new <div> element to the scrollable div
+      SourceDiv.append(Sourcelist);
+    }
+  }
+  
+ 
 });
-
-  });
 
   
   // Load the CSV data

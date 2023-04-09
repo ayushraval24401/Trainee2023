@@ -1,0 +1,36 @@
+[
+  {
+    "employeeID": 123456,
+    "employeeName": "Shivraj",
+    "dateOfBirth": "01-Feb-2003",
+    "Gender": "Female",
+    "designation": "gjhg",
+    "city": "jpr",
+    "state": "raj",
+    "postCode": 321546,
+    "phoneNumber": 8978456512,
+    "email": "ki@h.com",
+    "dateOfJoining": "02-Mar-2006",
+    "totalExperience": 17.0,
+    "remarks": "saddasasd",
+    "department": "SEO",
+    "salary": 564213
+  },
+  {
+    "employeeID": 123546,
+    "employeeName": "k",
+    "dateOfBirth": "01-Jan-2002",
+    "Gender": "Male",
+    "designation": "mm",
+    "city": "mmmm",
+    "state": "mmmmm",
+    "postCode": 132546,
+    "phoneNumber": 8987456512,
+    "email": "ssdfds@asd.com",
+    "dateOfJoining": "02-Mar-2006",
+    "totalExperience": 17.0,
+    "remarks": "asdd",
+    "department": "SEO",
+    "salary": 1354
+  }
+]
