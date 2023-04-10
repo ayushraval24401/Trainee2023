@@ -2,7 +2,7 @@
 $(document).ready(function () {
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
 
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -225,5 +225,5 @@ $(document).ready(function () {
 
 $("#logout").click(function () {
   localStorage.removeItem("loggedInUser");
-  location.replace("login.html");
+  location.replace("index.html");
 });
