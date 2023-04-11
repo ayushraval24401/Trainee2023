@@ -8,11 +8,16 @@
     <title>Employee_Data</title>
 
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <!-- /<link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css"
         integrity="sha512-yU7+yXTc4VUanLSjkZq+buQN3afNA4j2ap/mxvdr440P5aW9np9vIr2JMZ2E5DuYeC9bAoH9CuCR7SJlXAa4pg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
@@ -23,6 +28,11 @@
         <div class="container mt-4 employeList">
             <p class="text-center p-3 "><b>Employee List</b> </p>
         </div>
+    </div>
+    <div class="D_search mt-3">
+
+        <input type="search" class="form-control search" placeholder="&#xF002; Search Here..." aria-label="Search"
+            id="txtSearch" style="font-family:Arial, FontAwesome; font-size: 14px;">
     </div>
     <div class="container table-responsive dashboardTableDiv mt-2">
         <table id="EmployeDatatable" class=" table border">
@@ -44,16 +54,37 @@
                     <h5 class="modal-title text-center" id="staticBackdropLabel">Employee Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  <span>Name : <span id="name"></span></span><br><hr>
-                  <span>Email : <span id="email"></span></span><br><hr>
-                  <span>DOB : <span id="dob"></span></span><br><hr>
-                  <span>Gender : <span id="gender"></span></span><br><hr>
-                  <span>Designation : <span id="designation"></span></span><br><hr>
-                  <span>State : <span id="state"></span></span><br><hr>
+                <div class="modal-body modalColor">
+                    <span><b> Name </b>:<span id="name"></span></span><br>
+                    <hr>
+                    <span><b> Email </b>: <span id="email"></span></span><br>
+                    <hr>
+                    <span><b> DOB </b>: <span id="dob"></span></span><br>
+                    <hr>
+                    <span><b> Gender </b>: <span id="gender"></span></span><br>
+                    <hr>
+                    <span><b> Designation</b> : <span id="designation"></span></span><br>
+                    <hr>
+                    <span><b> State </b>: <span id="state"></span></span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    <span class="mx-5"><b> City </b>: <span id="city"></span></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    &nbsp; &nbsp; <span><b> Postcode </b>: <span id="postcode"></span></span><br>
+                    <hr>
+                    <span><b> Phone </b>: <span id="phone"></span></span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    <span class="mx-5"><b> Department </b>: <span id="department"></span></span>&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; <span><b> Monthly Salary </b>: <span id="salary"></span></span>
+                    <hr>
 
+                    <span><b> Date Of Joining </b>: <span id="dateOfJoining"></span></span><span class="mx-5"><b> Total
+                            Experience </b>: <span id="experience"> Years</span></span><br>
+                    <hr>
+
+                    <span><b> Remarks </b>: <span id="remarks"></span></span>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -62,13 +93,14 @@
 
 
 <script src="jquery/jquery.js"></script>
+<script src="index.js"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
-<script src="index.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
-<script src="//cdn.datatables.net/plug-ins/1.13.2/sorting/absolute.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.13.2/sorting/absolute.js"></script> -->
 
 </html>

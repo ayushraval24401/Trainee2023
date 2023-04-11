@@ -43,7 +43,7 @@ $(document).ready(function () {
         // "bFilter": true,
         // " bAutoWidth": false,
 
-        // order: [],
+        order: [],
         // dom: "rtip",
         language: {
             paginate: {
@@ -52,14 +52,14 @@ $(document).ready(function () {
             },
         },
 
-        columnDefs: [
-            { orderable: true, targets: 3 },
-            //  { orderable: false, targets: 3 },
-        ],
+        // columnDefs: [
+        //     { orderable: true, targets: 3 },
+        //     //  { orderable: false, targets: 3 },
+        // ],
 
         columns: [
             {
-                title: "#", data: null,
+                orderable: false, title: "#", data: null,
                 render: function (data, type, row, meta) {
                     // Render the row number
                     return meta.row + 1;
@@ -67,7 +67,7 @@ $(document).ready(function () {
             },
             {
                 data: "FullName",
-                title: " Name"
+                title: " Name",
             },
             {
                 data: "Department",
@@ -91,6 +91,9 @@ $(document).ready(function () {
                     if (data === "SEO") {
                         return '<span class=" " style="color: #fe00ef;">' + data + '</span>';
                     }
+                    if (data === "Marketing") {
+                        return '<span class=" " style="color: #005400;">' + data + '</span>';
+                    }
                 }
 
             },
@@ -105,18 +108,18 @@ $(document).ready(function () {
 
             ,
             {
-                data: "PhoneNumber", title: "PhoneNumber", class: "text-center",
+                data: "PhoneNumber", title: "PhoneNumber", class: "text-center", orderable: false,
                 render: function (data, type, row) {
                     return '<a href="tel:' + data + '" style=" text-decoration: none">' + data + '</a>';
                 }
             },
             {
-                data: "Gender", title: "Gender", class: "text-center", render: function (data, type, row) {
+                data: "Gender", title: "Gender", class: "text-center", orderable: false, render: function (data, type, row) {
                     return data.toUpperCase();
                 }
             },
             {
-                data: null, title: "View", class: "text-center", render: function (data, type, row) {
+                data: null, title: "View", class: "text-center", orderable: false, render: function (data, type, row) {
                     return '<i class="bi bi-eye-fill viewDetails" title="View details"></i>';
                 }
             },
@@ -125,29 +128,7 @@ $(document).ready(function () {
 
 
 
-    // $('.viewDetails').click(function () {
-    //     // code to run when the element is clicked
-    //     //var data = table.row(this).data();
 
-    //     // Populate the modal fields with the data
-
-    //     var table ;
-    //     $('#staticBackdrop').modal('show');
-    //     var data = table.row(this).data();
-    //     console.log(data)
-    //     $("name").html(dataSet.FullName);
-    // });
-    // $('#EmployeDatatable tbody').on('click', 'tr', function() {
-    //     // Get the data for the clicked row
-    //     var data = table.row(this).data();
-
-    //     // Populate the modal fields with the data
-    //     $('#modalTitle').text(data['Title']);
-    //     $('#modalBody').text(data['Body']);
-
-    //     // Show the modal
-    //     $('#myModal').modal('show');
-    //   });
 
     $('#EmployeDatatable tbody').on('click', '.viewDetails', function () {
         $('#staticBackdrop').modal('show');
@@ -157,11 +138,22 @@ $(document).ready(function () {
         // Log the data to the console for testing
         $('#name').text(data.FullName);
         $('#email').text(data.EmailAddress);
-        $('#dob').text(data.DateOfJoining);
+        $('#dob').text(data.DateOfBirth);
         $('#gender').text(data.Gender);
         $('#designation').text(data.Designation);
         $('#state').text(data.State);
+        $('#city').text(data.City);
+        $('#postcode').text(data.Postalcode);
 
+        $('#phone').text(data.PhoneNumber);
+        $('#department').text(data.Department);
+        $('#salary').text(data.Salary);
+
+
+        $('#experience').text(data.Experience);
+
+        $('#dateOfJoining').text(data.DateOfJoining);
+        $('#remarks').text(data.Remarks);
         console.log(data.FullName);
 
     });
