@@ -1,0 +1,34 @@
+[
+  {
+    "FullName": "a",
+    "Gender": "m",
+    "EmailAddress": "a@gmail.com",
+    "PhoneNumber": "1111111111",
+    "Department": "QA",
+    "Designation": "jr",
+    "Salary": 100000,
+    "State": "mp",
+    "City": "aa",
+    "Postalcode": "123456",
+    "DateOfJoining": "11-Nov-1991",
+    "Experience": 31,
+    "Remarks": "asdasa",
+    "EmployeeID": 1
+  },
+  {
+    "FullName": "asas",
+    "Gender": "m",
+    "EmailAddress": "a@gmail.com",
+    "PhoneNumber": "1111111111",
+    "Department": "SEO",
+    "Designation": "jr",
+    "Salary": 100000,
+    "State": "aaa",
+    "City": "asa",
+    "Postalcode": "123456",
+    "DateOfJoining": "11-Nov-1998",
+    "Experience": 24,
+    "Remarks": "adgsdkas",
+    "EmployeeID": 3
+  }
+]
