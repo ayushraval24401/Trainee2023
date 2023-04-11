@@ -1,22 +1,3 @@
-// var dataSet = [
-//     ["Stock Location", "", "", "On Water", "On Water", "In production"],
-//     ["ETA Date", "", "", "10/08/2021", "10/08/2021", "10/08/2021"],
-//     ["BW-01-S-M", "1", "0", "<button class='dataColor border-0 bg-light' data-bs-toggle='popover' id='popover'>3</button>", "0", "0"],
-//     [
-//       "BW-03-XL-G",
-//       "1",
-//       "1",
-//       // '<button type="button" class="" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">2</button>',
-//       '<div class= "dataColor ">3 </div>',
-//       "2",
-//       "1",
-//     ],
-//     ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], 
-//     ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"],
-//     //  ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"], ["BW-01-Q-M", "", "0", '<div class= "dataColor">3 </div>', "0", "1"],
-// ]
-//const url = "C:\Users\chint\source\repos\Exam\EmployeeData_TodayDate.json";
-
 var dataSet;
 $.ajax({
     url: 'EmployeeData_TodayDate.json',
@@ -36,13 +17,7 @@ $.ajax({
 var table;
 $(document).ready(function () {
     table = $("#EmployeDatatable").DataTable({
-        // order: [[3, 'desc']],
         data: dataSet,
-
-        // " bLengthChange": false,
-        // "bFilter": true,
-        // " bAutoWidth": false,
-
         order: [],
         // dom: "rtip",
         language: {
@@ -52,16 +27,10 @@ $(document).ready(function () {
             },
         },
 
-        // columnDefs: [
-        //     { orderable: true, targets: 3 },
-        //     //  { orderable: false, targets: 3 },
-        // ],
-
         columns: [
             {
                 orderable: false, title: "#", data: null,
                 render: function (data, type, row, meta) {
-                    // Render the row number
                     return meta.row + 1;
                 }
             },
@@ -119,12 +88,24 @@ $(document).ready(function () {
                 }
             },
             {
-                data: null, title: "View", class: "text-center", orderable: false, render: function (data, type, row) {
-                    return '<i class="bi bi-eye-fill viewDetails" title="View details"></i>';
+                data: null, title: "View", class: "text-start", orderable: false, render: function (data, type, row) {
+                    return '<i class="bi bi-eye-fill viewDetails"><span class="ttip dflex" style= "width:100px;">View details</span></i>';
                 }
             },
         ],
     });
+
+    // // JavaScript code
+    $('.viewDetails').hover(
+        function () {
+            // executed when the mouse enters the element
+            $(this).find('.ttip').css('display', 'block');
+        },
+        function () {
+            // executed when the mouse leaves the element
+            $(this).find('.ttip').css('display', 'none');
+        }
+    );
 
 
 
@@ -157,4 +138,9 @@ $(document).ready(function () {
         console.log(data.FullName);
 
     });
+
+    $("#textSearch").on("keyup", function () {
+        table.search(this.value).draw();
+    });
+
 });

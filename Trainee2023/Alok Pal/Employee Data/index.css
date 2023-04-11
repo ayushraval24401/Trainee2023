@@ -1,6 +1,9 @@
+body{
+    font-family: 'Mulish', sans-serif;
+}
 .employeList {
     padding-top: 10px;
-    width: 100vw;
+    width: 1274px;
     height: 80px;
     background-color: #ebebeb;
 }
@@ -62,9 +65,8 @@ table {
     border-collapse: collapse;
 }
 
+
 /* 
-table,
-th,
 td {
     border: 1px solid rgb(103, 103, 103);
     border-width: 0.5px; 
@@ -137,15 +139,7 @@ td {
     height: 30px;
 }
 
-/* .searchicon {
 
-    position: absolute;
-    right: 317px;
-    font-size: 12px;
-    top: 125px;
-
-
-} */
 .form-control {
     display: block;
     width: 66%;
@@ -161,5 +155,29 @@ td {
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.viewDetails {
+    cursor: pointer;
+}
+
+.tooltip {
+    background-color: #000;
+    color: #fff;
+}
+
+#EmployeDatatable_paginate{
+    margin-top: 10px;
+}
+
+.ttip{
+    border: 1px solid black;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    position: absolute;
+    display: none;
 }
