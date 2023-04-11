@@ -1,0 +1,28 @@
+.employeList {
+    padding-top: 10px;
+    width: 100vw;
+    height: 80px;
+    background-color: #cfcfcf;
+}
+
+.employeList p {
+    font-size: 22px;
+}
+
+.specific-department {
+    color: #0000ff;
+}
+
+#EmployeDatatable_length{
+    display: none;
+}
+
+.modal-content{
+    width: 48rem;
+    margin-left: -91px;
+}
+
+#staticBackdropLabel{
+    margin-left: 280px;
+    color: rgb(6, 113, 179);
+}
