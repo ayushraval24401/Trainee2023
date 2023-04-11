@@ -131,7 +131,8 @@ $(document).ready(function () {
         $('#salary').text(data.Salary);
 
 
-        $('#experience').text(data.Experience);
+        $('#experience').text(data.Experience + ' years');
+
 
         $('#dateOfJoining').text(data.DateOfJoining);
         $('#remarks').text(data.Remarks);

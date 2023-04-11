@@ -2,9 +2,9 @@ body{
     font-family: 'Mulish', sans-serif;
 }
 .employeList {
-    padding-top: 10px;
-    width: 1274px;
-    height: 80px;
+    /* padding-top: 10px; */
+    /* width: 1274px;
+    height: 80px; */
     background-color: #ebebeb;
 }
 
@@ -66,12 +66,15 @@ table {
 }
 
 
-/* 
+/* th,
 td {
     border: 1px solid rgb(103, 103, 103);
     border-width: 0.5px; 
     
 } */
+thead{
+    background-color: lightgray;
+}
 
 #EmployeDatatable {
     margin-top: 10px;
@@ -134,11 +137,16 @@ td {
     display: none;
 }
 
-.D_search {
+/* .D_search {
     margin-left: 1175px;
     height: 30px;
+} */
+.search{
+    width: 15rem;
+    height: 2rem;
+    outline: none;
+    border-radius: 7px;
 }
-
 
 .form-control {
     display: block;
