@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>Krinal</Name>
-  <Age>23</Age>
-  <City>
-    <Name>Unjha</Name>
-    <Population>5000000</Population>
-  </City>
-</Person>
