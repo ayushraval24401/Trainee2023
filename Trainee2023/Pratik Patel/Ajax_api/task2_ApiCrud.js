@@ -1,6 +1,12 @@
 $(document).ready(function () {
   $(".Loader").hide()
-  displayapilisttable();
+  
+ // displayapilisttable();
+ // $("#pagenumber1").trigger('click'); 
+
+  window.onload=function(){
+    document.getElementById("pagenumber1").click();
+  };
 
   $(document).on("click", "#AddApiData", function () {
     $("#ApiModalLabel").html("Add Api Modal");
@@ -291,13 +297,47 @@ $(document).ready(function () {
     var pagenumber = $(this).val();
     $(".pageindex").removeClass("activebtn");
     $(this).addClass("activebtn");
+    DisplayDataPageWise(pagenumber)
+    // var apiData;
+    // $.ajax({
+    //   type: "GET",
+    //   url:
+    //     "https://demosatva.azurewebsites.net/v1/api/Events?page=" +pagenumber +"&itemsPerPage=5",
+    //   dataType: "json",
+    //   async: false,
+    //   success: function (data) {
+    //     if (data.document == null) {
+    //       $("#apilisttable").html(
+    //         "<thead class='text-center'><th>EventTitle</th><th>startDate</th><th>EntDate</th><th>EventDescription</th><th>EventPriority</th><th>Action</th></thead><tr><td>No Data is Present<td></tr>"
+    //       );
+    //     } else {
+    //       apiData = data.document.records;
+    //       displayDataInTable(apiData);
+    //     }
+    //   },
+    // });
+  });
+   
+  $(document).on("click", "#previousPage", function () {
+
+   
+    var pagenumber=($(".activebtn").val())-1
+    if(pagenumber>0){
+    $(".pageindex").removeClass("activebtn");
+    $("[data-page=" + pagenumber + "]")
+              .addClass("activebtn")
+    // $(".pageindex").removeClass("activebtn");
+    // $(this).addClass("activebtn");
+    DisplayDataPageWise(pagenumber)
+    }
+  })
+
+  function DisplayDataPageWise(pagenumber){
     var apiData;
     $.ajax({
       type: "GET",
       url:
-        "https://demosatva.azurewebsites.net/v1/api/Events?page=" +
-        pagenumber +
-        "&itemsPerPage=5",
+        "https://demosatva.azurewebsites.net/v1/api/Events?page=" +pagenumber +"&itemsPerPage=5",
       dataType: "json",
       async: false,
       success: function (data) {
@@ -311,7 +351,7 @@ $(document).ready(function () {
         }
       },
     });
-  });
+  }
 
   $(document).on("keyup", "#searchData", function () {
     if ($("#searchData").val().trim().length >= 3) {

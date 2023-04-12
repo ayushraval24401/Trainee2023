@@ -4,7 +4,7 @@ $(document).ready(function () {
   // checking user
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
   //setting username 
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -54,9 +54,9 @@ $(document).ready(function () {
     },
     messages: {
       part_num:
-        { required: "Enter Part Number"},
+        { required: "Enter Part Number" },
       ordered:
-        { required: "Enter no. of Orders"}
+        { required: "Enter no. of Orders" }
     }
 
   })
@@ -118,31 +118,31 @@ $(document).ready(function () {
 
   // Handle click on Save Part Number button
   $("#save_part").click(function () {
-    if ( $("#PartNumberForm").valid()==true){
-    // Get form data
-    part_num = $("#part_num").val();
-    invoice_num = 1500012;
-    ordered = $("#ordered").val();
-    notes = $("#notes").val();
-    var obj = {
-      part_num: part_num,
-      ordered: ordered,
-      notes: notes
-    };
-    // Push object into array
-    partdata.push(obj);
-    // Append data to table
-    $("#table2body").append("<tr><td>" + part_num + "</td><td>"
-      + invoice_num + "</td><td>" + ordered + "</td><td>"
-      + notes + "</td><td><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
-    $("#AddPartModal").modal("hide");
+    if ($("#PartNumberForm").valid() == true) {
+      // Get form data
+      part_num = $("#part_num").val();
+      invoice_num = 1500012;
+      ordered = $("#ordered").val();
+      notes = $("#notes").val();
+      var obj = {
+        part_num: part_num,
+        ordered: ordered,
+        notes: notes
+      };
+      // Push object into array
+      partdata.push(obj);
+      // Append data to table
+      $("#table2body").append("<tr><td>" + part_num + "</td><td>"
+        + invoice_num + "</td><td>" + ordered + "</td><td>"
+        + notes + "</td><td><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
+      $("#AddPartModal").modal("hide");
 
-    // Delete Function
-    $(document).on("click", ".delete-row", function () {
-      var partindex = $(this).closest("tr").index();
-      partdata.splice(partindex, 1);
-      $(this).closest("tr").remove();
-    });
+      // Delete Function
+      $(document).on("click", ".delete-row", function () {
+        var partindex = $(this).closest("tr").index();
+        partdata.splice(partindex, 1);
+        $(this).closest("tr").remove();
+      });
     }
 
 
@@ -406,7 +406,7 @@ $(document).ready(function () {
   // -------------------------------------------------------------------------------------------------------------
   $("#logout").click(function () {
     localStorage.removeItem("loggedInUser");
-    location.replace("login.html");
+    location.replace("index.html");
   });
 });
 
