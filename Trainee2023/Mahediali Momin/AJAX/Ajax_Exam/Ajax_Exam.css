@@ -1,0 +1,170 @@
+.mainContent {
+    overflow-x: hidden;
+    font-family: 'Muli', sans-serif;
+}
+
+.employee_header {
+    background-color: rgb(220 216 220);
+    height: 70px;
+    padding-top: 15px;
+    font-size: 22px;
+    margin-bottom: 5.5%;
+}
+
+#Ajax_table_filter input[type=search] {
+    width: 300px;
+    height: 35px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+thead {
+    font-size: 18px;
+}
+
+.table th, .table td {
+    padding: 0.75em;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.no-underline:hover {
+    text-decoration: none;
+}
+
+i.modal_eye {
+    cursor: pointer;
+}
+
+/* .search{
+    margin-left: 200%;
+    margin-top: 5%;
+} */
+
+.search {
+    margin-left: 334%;
+}
+
+input[type="search"]:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+
+.eyeDetail {
+    position: relative;
+    display: inline-block;
+}
+
+.eyeDetail:hover::before {
+    content: 'View Details';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 7px 2px;
+    border-radius: 2px;
+    white-space: nowrap;
+    font-size: 9px;
+    opacity: 1;
+    text-transform: lowercase;
+}
+
+
+#Ajax_table_length, #Ajax_table_info, #Ajax_table_filter {
+    display: none;
+}
+
+#Ajax_table th.sorting.sorting_asc::before {
+
+    margin-right: 17%;
+}
+
+#Ajax_table th.sorting.sorting_asc::after {
+
+    margin-right: 17%;
+}
+
+#Ajax_table th.sorting.sorting_desc::after {
+
+    margin-right: 17%;
+}
+
+#Ajax_table th.sorting.sorting_desc::before {
+
+    margin-right: 17%;
+}
+
+#Ajax_table th.sorting::before {
+    margin-right: 17%;
+}
+
+#Ajax_table th.sorting::after {
+    margin-right: 17%;
+}
+
+/* .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: #132962 !important;
+    border: 1px solid #132962 !important;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #132962 !important;
+    border: 1px solid #132962 !important;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+    margin-left: 10px;
+    margin-right: 10px;
+} */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    min-width: 1.5em !important;
+    padding: 0.5em 1em !important;
+    margin-left: 2px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    color: #132962 !important;
+    border: 1px solid #132962 !important;
+    border-radius: 5px !important;
+    background: white !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 13px;
+
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+    margin-top: 33px !important;
+
+}
+
+/* .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    color: #132962 !important;
+    border: 1px solid #132962 !important;
+    border-radius: 5px !important;
+    background: linear-gradient(to bottom, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: #132962 !important;
+    border: 1px solid #132962 !important;
+    background: transparent;
+    box-shadow: none;
+} */
