@@ -1,0 +1,8 @@
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\bin\Debug\Day4TaskCalc.exe.config
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\bin\Debug\Day4TaskCalc.exe
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\bin\Debug\Day4TaskCalc.pdb
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\obj\Debug\Day4TaskCalc.csproj.AssemblyReference.cache
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\obj\Debug\Day4TaskCalc.csproj.SuggestedBindingRedirects.cache
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\obj\Debug\Day4TaskCalc.csproj.CoreCompileInputs.cache
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\obj\Debug\Day4TaskCalc.exe
+D:\Krinal\Day4TaskCalc\Day4TaskCalc\obj\Debug\Day4TaskCalc.pdb

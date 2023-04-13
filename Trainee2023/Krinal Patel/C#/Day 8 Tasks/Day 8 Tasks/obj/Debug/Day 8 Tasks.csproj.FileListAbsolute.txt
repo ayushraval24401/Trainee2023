@@ -1,0 +1,11 @@
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\bin\Debug\Day 8 Tasks.exe.config
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\bin\Debug\Day 8 Tasks.exe
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\bin\Debug\Day 8 Tasks.pdb
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\bin\Debug\Newtonsoft.Json.dll
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\bin\Debug\Newtonsoft.Json.xml
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.csproj.CopyComplete
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.exe
+D:\C# Krinal Patel\Day 8 Tasks\Day 8 Tasks\obj\Debug\Day 8 Tasks.pdb
