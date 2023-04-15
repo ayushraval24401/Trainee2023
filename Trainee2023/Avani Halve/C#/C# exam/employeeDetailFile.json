@@ -1,0 +1,53 @@
+[
+  {
+    "FirstName": "alex",
+    "Gender": "m",
+    "city": "banglore",
+    "state": "karnatak",
+    "postCode": "232323",
+    "DOJ": "04/12/2020",
+    "department": "SEO",
+    "remark": "alex entry",
+    "Email": "alex@gmail.com",
+    "EncryptedPhone": "1234567890",
+    "Designation": "developer",
+    "DOB": "06/12/1997",
+    "salary": "27000",
+    "Id": 2,
+    "exiprence": "2 years, 12 months, 4 days"
+  },
+  {
+    "FirstName": "sfdsdf",
+    "Gender": "m",
+    "city": "mds",
+    "state": "mp",
+    "postCode": "343434",
+    "DOJ": "03/23/2020",
+    "department": "Marketing",
+    "remark": "adfdsfsfg",
+    "Email": "av@gmail.com",
+    "EncryptedPhone": "1234567890",
+    "Designation": "sdfsd",
+    "DOB": "03/23/2000",
+    "salary": "20000",
+    "Id": 4,
+    "exiprence": "3 years, 0 months, 19 days"
+  },
+  {
+    "FirstName": "avani",
+    "Gender": "m",
+    "city": "mds",
+    "state": "mp",
+    "postCode": "232323",
+    "DOJ": "04/23/1995",
+    "department": "QA",
+    "remark": "hellllooo",
+    "Email": "av@gmail.com",
+    "EncryptedPhone": "1234567890",
+    "Designation": "developer",
+    "DOB": "03/23/2000",
+    "salary": "10000",
+    "Id": 3,
+    "exiprence": "27 years, 12 months, 0 days"
+  }
+]
