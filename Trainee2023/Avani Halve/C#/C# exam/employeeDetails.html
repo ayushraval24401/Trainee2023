@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Data Table Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="employeeDetail.css">
+</head>
+<body>
+  <div class="bg-light p-3 text-center">
+    <h3>Employee Details</h3>
+  </div>
+ 
+  <table id="employeeDataTable" class="table table-bordered mt-6" style="width:100%">
+    <thead class="bg-light">
+       <tr>
+        <th class="text-center">#</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Department</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">phone</th>
+          <th class="text-center">Gender</th>
+          <th class="text-center">Details</th>
+       </tr>
+    </thead>
+    <tbody ></tbody>
+ </table>
+
+  <div class="modal fade" id="employeeDetailModal" tabindex="-1" aria-labelledby="employeeDetailModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="color: #405b6c;">
+          <div class="modal-header">
+              <h5 class="modal-title w-100 text-center" style="color: #06559a;" id="employeeDetailModalLabel">Employee Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom px-3 pb-3 color">
+                      <strong>Name :</strong> <span id="name"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom p-3 color">
+                    <strong> Email :</strong> <span id="email"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom p-3 color">
+                  <strong> DOB :</strong> <span id="dob"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom p-3 color">
+                  <strong> Gender :</strong> <span id="gender"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom p-3 color">
+                  <strong>Designation : </strong> <span id="designation"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1 border-bottom color">
+                  <div class="col-4 p-3">
+                    <strong> State : </strong> <span id="state"></span>
+                  </div>
+                  <div class="col-4 p-3">
+                  </strong>  City : </strong><span id="city"></span>
+                  </div>
+                  <div class="col-4 p-3">
+                  <strong> Postcode : </strong> <span id="empPostcode"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1 border-bottom color">
+                  <div class="col-4 p-3">
+                    <strong> Phone : </strong><span id="phone"></span>
+                  </div>
+                  <div class="col-4 p-3">
+                  <strong> Department : </strong><span id="empDepartment"></span>
+                  </div>
+                  <div class="col-4 p-3">
+                  <strong>  Monthly Salary : </strong><span id="salary"></span>
+                  </div>
+              </div>
+
+              <div class="row mx-1 border-bottom color">
+                  <div class="col-4 p-3">
+                  <strong> Date of Joining : </strong><span id="doj"></span>
+                  </div>
+                  <div class="col-6 p-3">
+                  <strong> Total Experience : </strong><span id="expeirence"></span>
+                  </div>
+
+              </div>
+
+              <div class="row mx-1">
+                  <div class="col-12 border-bottom p-3 color">
+                    <strong> Remarks : </strong><span id="remark"></span>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+  <script src="employeeDetail.js"></script>
+   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+       crossorigin="anonymous"></script>
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

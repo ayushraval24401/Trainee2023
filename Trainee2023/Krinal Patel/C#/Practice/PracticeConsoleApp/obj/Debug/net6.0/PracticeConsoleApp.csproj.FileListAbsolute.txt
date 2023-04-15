@@ -1,0 +1,15 @@
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\bin\Debug\net6.0\PracticeConsoleApp.exe
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\bin\Debug\net6.0\PracticeConsoleApp.deps.json
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\bin\Debug\net6.0\PracticeConsoleApp.runtimeconfig.json
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\bin\Debug\net6.0\PracticeConsoleApp.dll
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\bin\Debug\net6.0\PracticeConsoleApp.pdb
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.csproj.AssemblyReference.cache
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.AssemblyInfoInputs.cache
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.AssemblyInfo.cs
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.csproj.CoreCompileInputs.cache
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.dll
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\refint\PracticeConsoleApp.dll
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.pdb
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\PracticeConsoleApp.genruntimeconfig.cache
+D:\Krinal\PracticeConsoleApp\PracticeConsoleApp\obj\Debug\net6.0\ref\PracticeConsoleApp.dll

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStudent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Student>
+    <Id>1</Id>
+    <FirstName>K</FirstName>
+    <LastName>P</LastName>
+    <Gender>Male</Gender>
+    <Email>k@123.com</Email>
+    <PhoneNumber>8889994445</PhoneNumber>
+    <Address>Unjha</Address>
+  </Student>
+</ArrayOfStudent>

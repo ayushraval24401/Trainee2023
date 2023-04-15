@@ -1,0 +1,8 @@
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\obj\Debug\Office_Management_System.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\obj\Debug\Office_Management_System.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\obj\Debug\Office_Management_System.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\bin\Debug\Office_Management_System.exe.config
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\bin\Debug\Office_Management_System.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\bin\Debug\Office_Management_System.pdb
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\obj\Debug\Office_Management_System.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Office Management System\Office_Management_System\Office_Management_System\obj\Debug\Office_Management_System.pdb
