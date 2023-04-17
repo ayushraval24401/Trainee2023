@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "soham",
+    "DateOfBirth": "12-May-2020",
+    "Gender": "Male",
+    "Designation": "a",
+    "City": "s",
+    "State": "c",
+    "Postcode": "122333eeee",
+    "PhoneNumber": 1223334444,
+    "EmailAddress": "gt@gmail.com",
+    "DateOfJoining": "12-May-2021",
+    "TotalExperience": "1 years and 11 months",
+    "Remarks": "g",
+    "Department": "QA",
+    "MonthlySalary": 45000.0
+  }
+]

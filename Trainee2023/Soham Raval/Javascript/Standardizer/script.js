@@ -30,7 +30,7 @@ $(document).ready(function () {
         }
         result.forEach((columndata) => {
             if (columndata.Number != "") {
-                $("#Balancesheet_list").append("<li id='number_" + columndata.Number + "' class='list-group-item'>" + columndata.Number + "  " + columndata.Name + "<i class='material-icons float-end'>done_all history</i></li>");
+                $("#Balancesheet_list").append("<li id='number_" + columndata.Number + "' class='list-group-item mostlike m'>" + '<p class="inner">' + columndata.Number + "  " + columndata.Name + '</p>' + "<i class='material-icons float-end'>done_all history</i></li>");
                 $("#mostlikelys").append("<li id='mostlikely_" + columndata.Number + "' class='list-group-item mostlike  mostlikedrag'>");
                 $("#likelys").append("<li id='likely_" + columndata.Number + "' class='list-group-item mostlike likelydrag'>");
                 $("#possible").append("<li id='possible_" + columndata.Number + "' class='list-group-item mostlike possibledrag'>");
@@ -256,6 +256,7 @@ $(document).ready(function () {
             }
         });
         $('#all_data').click(function () {
+            $("#mastersheet_list").html('');
             getvalueofmasterdata.forEach((columndata) => {
                 console.log(columndata.AccountName);
                 if (columndata.Number != "") {
@@ -280,17 +281,7 @@ $(document).ready(function () {
     $('#btn-nav-next').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
     });
-    $(".search").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $(".destination_account_structure ul li").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-    $('.search').on('search', function () {
-        if ($(this).val() === '') {
-            $('#mastersheet_list li').show();
-        }
-    });
+
 
     $('.menu-item.navbar_btn').click(function () {
         // remove the active class from all links
@@ -300,27 +291,27 @@ $(document).ready(function () {
     });
     var dataget = getvalueofmasterdata;  //Done
     var storedData = localStorage.getItem("Data");
-    let storearray = JSON.parse(storedData);  
-    console.log("LIKELY Data",storearray);
-    console.log("Destination data",dataget);;
+    let storearray = JSON.parse(storedData);
+    console.log("LIKELY Data", storearray);
+    console.log("Destination data", dataget);;
     console.log(dataget.AccountCode)
-    
+
 
     dataget.forEach((list) => {
 
-    //   console.log(list.AccountCode)
+        //   console.log(list.AccountCode)
     })
-    storearray.forEach(() =>{
+    storearray.forEach(() => {
         // console.log(list.ID)
-        var dataValuesmostlikely = $('#mostlikely li.list-group-item').map(function() {
+        var dataValuesmostlikely = $('#mostlikely li.list-group-item').map(function () {
             return $(this).data('value');
-          }).get();
-          console.log(dataValuesmostlikely)
+        }).get();
+        console.log(dataValuesmostlikely)
 
 
     });
 
-      
+
     // if()
 
 
@@ -401,9 +392,10 @@ buttons.forEach((button) => {
 });
 
 function submit() {
+    location.reload()
     debugger
     var array = new Array;
-   
+
 
     result.forEach((li) => {
 
@@ -437,17 +429,20 @@ function showdata() {
             // console.log("ytryutyu",mostlike)
 
             $(`#mostlikely_${li.ID}`).html(li.mostlikelys);
-                $(`#likely_${li.ID}`).html(li.likelys);
-                $(`#possible_${li.ID}`).html(li.possible);
+            $(`#likely_${li.ID}`).html(li.likelys);
+            $(`#possible_${li.ID}`).html(li.possible);
 
 
         })
     }
 
 }
+
+
 var currentDateTime = new Date();
 var formattedDateTime = currentDateTime.toLocaleString();
 document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
+
 // window.addEventListener("load", (event) => {
 //     console.log("page is fully loaded");
 //     // Retrieve the data from localStorage
@@ -461,3 +456,27 @@ document.getElementById("date_and_time_show").innerHTML = "Last updated on " + f
 
 //   });
 
+    // $(".search").on("keyup", function () {
+    //     var value = $(this).val().toLowerCase();
+    //     $(".destination_account_structure ul li").filter(function () {
+    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //     });
+    // });
+    $('.search').on('keyup search',function(){
+        var value=$(this).val().toLowerCase();
+        $('.destination_account li').each(function(){
+            var text=$(this).text().toLowerCase();
+            if(text.indexOf(value)===-1)
+            {
+                $(this).hide();
+            }
+            else{
+                $(this).show();
+            }
+        });
+    });
+    $('.search').on('search', function () {
+        if ($(this).val() === '') {
+            $('.destination_account li').show();
+        }
+    });
