@@ -18,9 +18,17 @@ strong {
     top: 0;
     z-index: 999;
 }
+.upperbuttons{
+    background-color: white;
+    position: sticky;
+    top: 66px;
+    height: 75px;
+    z-index: 100;
+    padding-top: 1%;
+}
 .stickyheader{
     position: sticky;
-    top: 65px;
+    top: 178px;
     z-index: 99;
 }
 
@@ -33,6 +41,7 @@ strong {
     font-weight: bold;
     color: #3cb7e7;
     margin-top: 7px;
+    cursor: pointer;
 }
 
 /* navbar underline */
@@ -169,6 +178,7 @@ input[type="search"]:focus {
     text-overflow: ellipsis !important;
     white-space: nowrap !important; 
     border: 1px solid rgb(230, 230, 230);
+    cursor: pointer;
 }
 
 

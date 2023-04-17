@@ -1,0 +1,22 @@
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\bin\Debug\InheritanceTask1.exe.config
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\bin\Debug\InheritanceTask1.exe
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\bin\Debug\InheritanceTask1.pdb
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.csproj.AssemblyReference.cache
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.csproj.SuggestedBindingRedirects.cache
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.csproj.CoreCompileInputs.cache
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.exe
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.pdb
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\bin\Debug\Newtonsoft.Json.dll
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\bin\Debug\Newtonsoft.Json.xml
+D:\C# Training\Day 5 Tasks\InheritanceTask1\InheritanceTask1\obj\Debug\InheritanceTask1.csproj.CopyComplete
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\bin\Debug\InheritanceTask1.exe.config
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\bin\Debug\InheritanceTask1.exe
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\bin\Debug\InheritanceTask1.pdb
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\bin\Debug\Newtonsoft.Json.dll
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\bin\Debug\Newtonsoft.Json.xml
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.csproj.CopyComplete
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.exe
+D:\C# Krinal Patel\Day 5 Tasks\Task\Serialization\obj\Debug\InheritanceTask1.pdb

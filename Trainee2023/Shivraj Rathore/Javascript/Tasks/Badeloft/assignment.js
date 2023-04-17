@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
   $("#activeuser").html(activeuser.username);

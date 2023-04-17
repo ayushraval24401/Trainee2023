@@ -1,5 +1,15 @@
 $(document).ready(function () {
   draggable();
+    // var ml = $("#mostlikely").textContent;
+  //  var ml= document.getElementsByClassName('destinations');
+  let lis = document.getElementById('mostlikely').innerHTML;
+
+  var currentDateTime = new Date();
+  var formattedDateTime = currentDateTime.toLocaleString();
+  document.getElementById("lastupdated").innerHTML = "Last Updated on " + formattedDateTime;
+  //  var test = ml(li)
+  // console.log(lis.
+  //   );
 });
 
 // Filter mapping
@@ -20,7 +30,7 @@ buttons.forEach(button => {
         if (link.classList.contains('active')) {
           link.click();
           link.scrollIntoView({
-            behavior: "smooth",
+            // behavior: "smooth",
             block: "end",
             inline: "end"
           });
@@ -106,8 +116,9 @@ sourcedata.forEach((item) => {
 
   if (item.Number != "") {
 
-    $("#source").append("<li id='number_" + item.Number + "' class='list-group-item'>" + item.Number + " -- " + item.Name + "<i class='material-icons float-end'>done_all history</i></li>");
+    $("#source").append("<li id='number_" + item.Number + "' class='list-group-item'>" +'<span class="alignSource">' +item.Number + " -- " + item.Name + '</span>'+"<i class='material-icons float-end'>done_all history</i></li>");
 
+    
     $("#mostlikely").append("<li id='mostlikely_" + item.Number + "'<li class='list-group-item destinations mostlikely_list'</li>");
     $("#likely").append("<li id='likely_" + item.Number + "' class='list-group-item  destinations likely_list'>");
     $("#possible").append("<li id='possible_" + item.Number + "' class='list-group-item  destinations possible_list'>");
@@ -200,6 +211,8 @@ function draggable() {
     new Sortable(this, {
       group: "shared",
       animation: 150,
+      
+      
     });
   });
 
@@ -221,6 +234,8 @@ function draggable() {
       put: false,
       animation: 150,
       onAdd: function (evt) {
+
+        console.log(evt);
         evt.item.classList = "sort";
         var master = evt.item.parentNode;
         if (master.children.length > 1) {
@@ -314,10 +329,17 @@ function draggable() {
       });
   });
 
+
+
 }
 
 //Submit Functionality
 function submit() {
+  swal(
+    'Submitted Success',
+    'All Account details submitted successfully!',
+    'success'
+  )
   var AccountDetails = new Array;
   var currentDateTime = new Date();
   var formattedDateTime = currentDateTime.toLocaleString();
@@ -331,10 +353,11 @@ standardcofData.forEach((li) => {
       likely: $(`#likely_${li.Number}`).html(),
       possible: $(`#possible_${li.Number}`).html(),
 
-      standardcofData: standardcofData
+      // standardcofData: standardcofData
     };
     AccountDetails.push(AccountData);
     localStorage.setItem("AccountDetails", JSON.stringify(AccountDetails));
+   
 
   })
 }
@@ -343,7 +366,7 @@ function getAccountData(){
 
   var getAccountData = localStorage.getItem("AccountDetails");
   let getAccountDetails = JSON.parse(getAccountData);
-  if(getAccountDetails){
+  if(getAccountDetails != ""){
     getAccountDetails.forEach(li =>{
               
         $(`#mostlikely_${li.Id}`).html(li.mostlikely);

@@ -150,7 +150,7 @@ $(document).ready(function () {
                     html += "</tr>"
                 });
                 document.getElementById("partstable").innerHTML = html;
-                document.getElementById("saveassignment").style.backgroundColor="#07678d";
+                document.getElementById("saveassignment").style.backgroundColor = "#07678d";
                 // }
             }
 

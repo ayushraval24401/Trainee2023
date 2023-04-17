@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee_Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-12 container employeList ">
+                <p class="text-center p-3 "><b>Employee List</b> </p>
+            </div>
+        </div>
+    </div>
+    <div class="container D_search justify-content-end align-items-end d-flex mt-3">
+        <input type="" class=" search align-items-end pe-2" placeholder="&#xF002; Search Here..." aria-label="Search"id="textSearch" style="font-family:Arial, FontAwesome; font-size: 14px;">
+    </div>
+    <div class="container table-responsive dashboardTableDiv mt-2">
+        <table id="EmployeDatatable" class=" table border">
+            <thead class=" theadTable "></thead>
+    </div>
+
+
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="staticBackdropLabel">Employee Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modalColor">
+                    <span><b> Name </b>:<span id="name"></span></span><br>
+                    <hr>
+                    <span><b> Email </b>: <span id="email"></span></span><br>
+                    <hr>
+                    <span><b> DOB </b>: <span id="dob"></span></span><br>
+                    <hr>
+                    <span><b> Gender </b>: <span id="gender"></span></span><br>
+                    <hr>
+                    <span><b> Designation</b> : <span id="designation"></span></span><br>
+                    <hr>
+                    <span><b> State </b>: <span id="state"></span></span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    <span class="mx-5"><b> City </b>: <span id="city"></span></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    &nbsp; &nbsp; <span><b> Postcode </b>: <span id="postcode"></span></span><br>
+                    <hr>
+                    <span><b> Phone </b>: <span id="phone"></span></span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp;
+                    <span class="mx-5"><b> Department </b>: <span id="department"></span></span>&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; <span><b> Monthly Salary </b>: <span id="salary"></span></span>
+                    <hr>
+
+                    <span><b> Date Of Joining </b>: <span id="dateOfJoining"></span></span><span class="mx-5"><b> Total
+                            Experience </b>: <span id="experience"> Years</span></span><br>
+                    <hr>
+
+                    <span><b> Remarks </b>: <span id="remarks"></span></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<script src="jquery/jquery.js"></script>
+<script src="index.js"></script>
+<!-- <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+</html>
