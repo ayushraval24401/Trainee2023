@@ -1,0 +1,10 @@
+D:\avani_html\C# exam\exam\obj\Debug\exam.csproj.AssemblyReference.cache
+D:\avani_html\C# exam\exam\obj\Debug\exam.csproj.CoreCompileInputs.cache
+D:\avani_html\C# exam\exam\bin\Debug\exam.exe.config
+D:\avani_html\C# exam\exam\bin\Debug\exam.exe
+D:\avani_html\C# exam\exam\bin\Debug\exam.pdb
+D:\avani_html\C# exam\exam\bin\Debug\Newtonsoft.Json.dll
+D:\avani_html\C# exam\exam\bin\Debug\Newtonsoft.Json.xml
+D:\avani_html\C# exam\exam\obj\Debug\exam.csproj.CopyComplete
+D:\avani_html\C# exam\exam\obj\Debug\exam.exe
+D:\avani_html\C# exam\exam\obj\Debug\exam.pdb

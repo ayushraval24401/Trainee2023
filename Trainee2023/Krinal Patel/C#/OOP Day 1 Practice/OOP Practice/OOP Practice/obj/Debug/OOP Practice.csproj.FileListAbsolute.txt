@@ -1,0 +1,8 @@
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\bin\Debug\OOP Practice.exe.config
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\bin\Debug\OOP Practice.exe
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\bin\Debug\OOP Practice.pdb
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\obj\Debug\OOP Practice.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\obj\Debug\OOP Practice.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\obj\Debug\OOP Practice.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\obj\Debug\OOP Practice.exe
+D:\C# Krinal Patel\OOP Practice\OOP Practice\OOP Practice\obj\Debug\OOP Practice.pdb

@@ -1,0 +1,32 @@
+#addnewdata{
+    position: relative;
+    width: 129px;
+    height: 38px;
+    left: 582px;
+}
+.searchbar{
+    position: relative;
+    left: 544px;
+    top: -52px;
+    padding-left: 28px !important;
+    width: 328px !important;
+}
+.searchicon{
+    position: relative;
+    top: -83px;
+    left: 551px;
+    color: rgb(13, 239, 255);
+}
+.heading{
+    text-align: center;
+    background-color: lightgray ;
+    height: 56px;
+}
+
+#editdata{
+    display: none;
+}
+
+label.error {
+    color: red;
+}

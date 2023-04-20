@@ -1,8 +1,11 @@
+body{
+    font-family: 'Mulish', sans-serif;
+}
 .employeList {
-    padding-top: 10px;
-    width: 100vw;
-    height: 80px;
-    background-color: #cfcfcf;
+    /* padding-top: 10px; */
+    /* width: 1274px;
+    height: 80px; */
+    background-color: #ebebeb;
 }
 
 .employeList p {
@@ -13,16 +16,176 @@
     color: #0000ff;
 }
 
-#EmployeDatatable_length{
+#EmployeDatatable_length {
     display: none;
 }
 
-.modal-content{
+.modal-content {
     width: 48rem;
     margin-left: -91px;
 }
 
-#staticBackdropLabel{
+#staticBackdropLabel {
     margin-left: 280px;
     color: rgb(6, 113, 179);
+}
+
+.modalColor span {
+    color: rgb(3, 89, 143);
+    ;
+}
+
+#EmployeDatatable_info {
+    display: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: -26px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: inherit !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #322f2f;
+    /* background-color: #0d6efd; */
+    /* border-color: #0d6efd; */
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+/* th,
+td {
+    border: 1px solid rgb(103, 103, 103);
+    border-width: 0.5px; 
+    
+} */
+thead{
+    background-color: lightgray;
+}
+
+#EmployeDatatable {
+    margin-top: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: #008080 !important;
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+    margin-right: 32px;
+    border: 1px solid rgb(158, 157, 157);
+    font-weight: 600;
+    padding-top: 6px;
+}
+
+.paginate_button.previous.disabled {
+    margin-right: 31px !important;
+    border-radius: 7px;
+    height: 40px;
+
+}
+
+.paginate_button.next.disabled {
+    margin-right: -2px !important;
+    border-radius: 7px;
+    height: 40px;
+
+    /* other styles you want to apply */
+}
+
+.paginate_button.current {
+    margin-right: 31px !important;
+    border-radius: 7px !important;
+    height: 40px;
+
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 6px 1em;
+    margin-left: -26px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    /* color: inherit; */
+    color: #008080 !important;
+
+}
+
+#EmployeDatatable_filter {
+    display: none;
+}
+
+/* .D_search {
+    margin-left: 1175px;
+    height: 30px;
+} */
+.search{
+    width: 15rem;
+    height: 2rem;
+    outline: none;
+    border-radius: 7px;
+}
+
+.form-control {
+    display: block;
+    width: 66%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.viewDetails {
+    cursor: pointer;
+}
+
+.tooltip {
+    background-color: #000;
+    color: #fff;
+}
+
+#EmployeDatatable_paginate{
+    margin-top: 10px;
+}
+
+.ttip{
+    border: 1px solid black;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    position: absolute;
+    display: none;
 }

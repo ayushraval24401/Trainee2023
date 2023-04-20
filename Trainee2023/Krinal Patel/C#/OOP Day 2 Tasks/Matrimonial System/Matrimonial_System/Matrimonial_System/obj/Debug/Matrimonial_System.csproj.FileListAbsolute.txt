@@ -1,0 +1,8 @@
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\bin\Debug\Matrimonial_System.exe.config
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\bin\Debug\Matrimonial_System.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\bin\Debug\Matrimonial_System.pdb
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\obj\Debug\Matrimonial_System.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\obj\Debug\Matrimonial_System.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\obj\Debug\Matrimonial_System.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\obj\Debug\Matrimonial_System.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Matrimonial System\Matrimonial_System\Matrimonial_System\obj\Debug\Matrimonial_System.pdb

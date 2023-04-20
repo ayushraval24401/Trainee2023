@@ -1,0 +1,7 @@
+D:\avani_html\C#\day6\bin\Debug\day6.exe.config
+D:\avani_html\C#\day6\bin\Debug\day6.exe
+D:\avani_html\C#\day6\bin\Debug\day6.pdb
+D:\avani_html\C#\day6\obj\Debug\day6.csproj.AssemblyReference.cache
+D:\avani_html\C#\day6\obj\Debug\day6.csproj.CoreCompileInputs.cache
+D:\avani_html\C#\day6\obj\Debug\day6.exe
+D:\avani_html\C#\day6\obj\Debug\day6.pdb

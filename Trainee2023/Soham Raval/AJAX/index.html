@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    
+    <script type="text/javascript" src="/bootstrap-5.3.0-alpha1-dist/Jquery/jquery-3.6.3.js"></script>
+</head>
+<body>
+    <div class="container">
+            <div class="row mt-3 border-3 bg-light">
+                <div class="col text-center">
+                    <h4><b>API Crud Operation</b></h4>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5>Start Date:</h5>
+                    <input type="date" class="form-control" placeholder="mm/dd/yyyy" aria-label="date" >
+
+                </div>
+                <div class="col-md-6">
+                    <h5>End Date:</h5>
+                    <input type="date" class="form-control" placeholder="mm/dd/yyyy" aria-label="date" >
+
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="com-md-12">
+                    <button type="button" class="btn btn-primary" onclick="getdata()" id="get_data">Get Data</button>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <h4><b>Event Details</b></h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6"></div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                    <div class="col-md-9">
+                        <input type="search" class="form-control" id="searchInput" placeholder="Search account here" aria-label="search" >
+                        <ul id="searchResults"></ul>
+                    </div>
+                    
+                    <div class="col-md-3" id="add_btn">
+                        <button type="button" class="btn btn-success" id="addmodal" data-bs-toggle="modal" data-bs-target="#adddatamodal">Add New Data</button>
+                    </div>
+
+
+                </div>
+
+                </div>
+            </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="adddatamodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Api Data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form type="POST">
+            <div class="row">
+                <div class="col-md-12">
+            <h6>Event Title:</h6>
+            <input type="text" class="form-control" id="eventtitle" placeholder="Enter Event Title" aria-label="title" >
+        </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <h6>Start Date:</h6>
+                <input type="date" class="form-control" id="Startdate"  >
+
+            </div>
+            <div class="col-md-6">
+                <h6>End Date:</h6>
+                <input type="date" class="form-control" id="Enddate" >
+
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+        <h6>Enter Event Description:</h6>
+        <input type="text" class="form-control" id="eventdescription" placeholder="Enter Event description" aria-label="eventdescription" >
+    </div>
+
+    <div class="col-md-6">
+        <h6>Event Priority:</h6>
+        <input type="text" class="form-control" id="eventpriority" placeholder="Enter Event priority" aria-label="eventpriority" >
+    </div>
+
+    </div>
+<form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="adddata()" id="add-event-btn" data-bs-dismiss="modal">Add Event</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary edits"  id="edit-event-btn" data-bs-dismiss="modal">update Event</button>
+
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead class="bg-dark text-light">
+                          <tr>
+                            <th scope="col">EventTitle</th>
+                            <th scope="col">StartDate</th>
+                            <th scope="col">EndDate</th>
+                            <th scope="col">EventDescription</th>
+                            <th scope="col">EventPriority</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tablbody">
+                         
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+
+
+
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
