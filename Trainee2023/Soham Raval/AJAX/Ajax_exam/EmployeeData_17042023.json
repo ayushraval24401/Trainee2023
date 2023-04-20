@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "name": "ttt",
+    "DateOfBirth": "12-May-2012",
+    "Gender": "Female",
+    "Designation": "f",
+    "City": "g",
+    "State": "t",
+    "Postcode": "6666555555",
+    "PhoneNumber": 6666555555,
+    "EmailAddress": "uu@gmail.com",
+    "DateOfJoining": "12-May-2017",
+    "TotalExperience": "5 years and 11 months",
+    "Remarks": "g",
+    "Department": "Development",
+    "MonthlySalary": 89000.0
+  },
+  {
+    "id": 2,
+    "name": "soham",
+    "DateOfBirth": "12-Mar-2010",
+    "Gender": "Male",
+    "Designation": "a",
+    "City": "s",
+    "State": "d",
+    "Postcode": "vvvv444444",
+    "PhoneNumber": 9999999999,
+    "EmailAddress": "hy@gmail.com",
+    "DateOfJoining": "12-Mar-2016",
+    "TotalExperience": "7 years and 1 months",
+    "Remarks": "t",
+    "Department": "Development",
+    "MonthlySalary": 67000.0
+  }
+]

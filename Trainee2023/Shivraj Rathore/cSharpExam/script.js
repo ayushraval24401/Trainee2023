@@ -13,59 +13,63 @@ $(document).ready(function () {
                     search: "_INPUT_",
                     searchPlaceholder: 'Search...'
                 },
-                data : data,
+                data: data,
                 columns: [
                     { data: "index", className: 'text-center', orderable: false },
                     { data: "employeeName", className: 'text-center' },
-                    { data: "department", className: 'text-center', 
-                      render: function(data, type, row) {
-                        switch(data) {
-                            case 'Sales':
-                                return '<span class="text-sales">' + data + '</span>';
-                            case 'Marketing':
-                                return '<span class="text-Marketing">' + data + '</span>';
-                            case 'Developer':
-                                return '<span class="text-Developer">' + data + '</span>';
-                            case 'QA':
-                                return '<span class="text-QA">' + data + '</span>';
-                            case 'HR':
-                                return '<span class="text-HR ">' + data + '</span>';
-                            case 'SEO':
-                                return '<span class="text-SEO">' + data + '</span>';
-                            default:
-                                return data;
+                    {
+                        data: "department", className: 'text-center',
+                        render: function (data, type, row) {
+                            switch (data) {
+                                case 'Sales':
+                                    return '<span class="text-sales">' + data + '</span>';
+                                case 'Marketing':
+                                    return '<span class="text-Marketing">' + data + '</span>';
+                                case 'Developer':
+                                    return '<span class="text-Developer">' + data + '</span>';
+                                case 'QA':
+                                    return '<span class="text-QA">' + data + '</span>';
+                                case 'HR':
+                                    return '<span class="text-HR ">' + data + '</span>';
+                                case 'SEO':
+                                    return '<span class="text-SEO">' + data + '</span>';
+                                default:
+                                    return data;
+                            }
                         }
-                    }},
-                    { 
-                        data: "email", 
+                    },
+                    {
+                        data: "email",
                         className: 'text-center',
                         render: function (data, type, row) {
                             return '<a href="mailto:' + data + '">' + data + '</a>';
                         }
                     },
-                    { 
-                        data: "phoneNumber", 
+                    {
+                        data: "phoneNumber",
                         className: 'text-center',
+                        orderable: false,
                         render: function (data, type, row) {
                             return '<a href="tel:' + data + '">' + data + '</a>';
                         }
                     },
-                    { data: "Gender", className: 'text-center' },
+                    { data: "Gender", className: 'text-center',  orderable: false },
                     {
                         data: null,
                         className: 'text-center',
                         orderable: false,
                         render: function (data, type, row) {
-                            return (
-                                '<button type="button" class="btn btn-sm viewdetails" view-id="' + row.employeeID + '"><i class="fa fa-eye"></i></button>'
-                            );
+                            return '<button type="button" class="btn btn-sm viewdetails" view-id="' + row.employeeID + '" data-toggle="tooltip" data-placement="top" title="View Details"><i class="fa fa-eye"></i></button>';
                         },
                     },
                 ]
-                ,
-
             });
-            
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+
+
             $(document).on('click', '.viewdetails', function () {
                 var row = employeeDataTable.row($(this).closest('tr')).data();
                 $('#empName').text(row.employeeName);
@@ -84,6 +88,7 @@ $(document).ready(function () {
                 $('#empRemarks').text(row.remarks);
                 $('#employeeDetailModal').modal('show');
             });
+
         },
         error: function () {
             alert('Error retrieving data!');
