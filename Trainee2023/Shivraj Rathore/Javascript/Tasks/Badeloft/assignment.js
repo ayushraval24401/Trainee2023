@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
   $("#activeuser").html(activeuser.username);
@@ -49,11 +49,10 @@ $(document).ready(function () {
       partSelect.prop('disabled', true);
     }
   });
-  // ----------------------------------------------------------------------------------------------------------
-  var stockassign = [];
+
   function checkInvoiceExists(invoice) {
     var stockassignment = JSON.parse(localStorage.getItem("stockassigned"));
-    if (stockassignment != null){ 
+    if (stockassignment != null) {
       for (var i = 0; i < stockassignment.length; i++) {
         if (stockassignment[i].invoice == invoice) {
           return true;
@@ -62,17 +61,24 @@ $(document).ready(function () {
       return false;
     }
   }
+
+  // ----------------------------------------------------------------------------------------------------------
+
+  var stockassign = [];
+
   $("#addassign").click(function () {
     var customer = $("#user-select").val();
     var invoice = $("#invoice_num").val();
     var stock_name = $("#stock-select").val();
     var part_name = $("#part-select").val();
-   part_name = part_name.toString().replaceAll(",", " | ");
+    part_name = part_name.toString().replaceAll(",", " | ");
+
     // Check if invoice number already exists
     if (checkInvoiceExists(invoice)) {
       alert("Invoice number already exists!");
       return;
     }
+
     // Create object with properties and add to array
     var obj = {
       customer: customer,
@@ -98,7 +104,7 @@ $(document).ready(function () {
       });
     });
   });
-  
+
   $("#save").click(function () {
     // Get existing data from localStorage
     var stockassigned = JSON.parse(localStorage.getItem("stockassigned")) || [];
@@ -134,29 +140,31 @@ $(document).ready(function () {
       created_by: created_by,
       created_date: created_date
     };
-    // Check if invoice number already exists
-    if (checkInvoiceExists(invoice)) {
-      alert("Invoice number already exists!");
-      return;
-    }
+
     stockassigned.push(obj);
     // Save the updated array back to localStorage
     localStorage.setItem("stockassigned", JSON.stringify(stockassigned));
     // Hide the modal
     $('#assignmodal').modal('hide');
-  }); 
+
+    table.clear().rows.add(stockassigned).draw();
+  });
   var stockassignment = JSON.parse(localStorage.getItem("stockassigned"));
-  var table =  $('#example').DataTable({
+  var table = $('#example').DataTable({
     data: stockassignment,
+    "ordering": false,
+    "columnDefs": [
+      { "width": "35%", "targets": 0 },{ "width": "35%", "targets": 1 }
+    ],
     columns: [
-      { data: 'invoice', className: 'text-start dt-control' },
-      { data: 'customer' },
-      { data: 'created_by' },
-      { data: 'created_date' },
+      { data: 'invoice', className: 'text-start dt-control' , },
+      { data: 'customer',  className: 'text-start' },
+      { data: 'created_by',  className: 'text-start' },
+      { data: 'created_date',  className: 'text-start' },
       {
-        data: null,
+        data: null,className: 'text-start',
         render: function (data, type, row) {
-          return '<button type="button" class="btn btn-sm edit"><i class="fa fa-pencil"></i></button>';
+          return '<button type="button" class="btn btn-sm edit"><i class="fa fa-pencil"></i></button>' + '<button type="button" class="btn btn-sm cancelinvoice"><i class="fa fa-trash"></i></button>';
         }
       }
     ],
@@ -179,13 +187,24 @@ $(document).ready(function () {
       const stock = d.stock_parts[i];
       // Loop through the part_names array of each stock and add a row for each part
       for (let j = 0; j < stock.part_names.length; j++) {
-        childRowHTML += '<tr><td>' + (i + 1) + '</td><td>' + stock.stock_name + '</td><td>' + stock.part_names[j] + '</td><td> <button type="button" class="btn-close cancelpart" aria-label="Close"></button></td></tr>';
+        childRowHTML += '<tr><td>' + (i + 1) + '</td><td>' + stock.stock_name + '</td><td>' + stock.part_names[j] + `</td><td> <button type="button" data-invoice=${d.invoice} data-stock="${d.stock_name}" data-part-index="${i}" class="btn-close cancelpart" aria-label="Close"></button></td></tr>`;
       }
     }
     childRowHTML += '</tbody>';
     childRowHTML += '</table>';
     return childRowHTML;
   }
+
+  $(document).on("click", ".cancelpart", function () {
+    let index = $(this).attr("data-part-index");
+    let invoice = $(this).attr("data-invoice");
+    var StockData = JSON.parse(localStorage.getItem("stockassigned")) || [];
+    var currentStockAssigned = StockData.find((x) => x.invoice == invoice);
+    currentStockAssigned.stock_parts.splice(index, 1);
+    localStorage.setItem("stockassigned", JSON.stringify(StockData));
+    $(this).closest("tr").remove();
+
+  });
   // Add event listener for opening and closing details
   $('#example tbody').on('click', 'td.dt-control', function () {
     debugger
@@ -203,71 +222,82 @@ $(document).ready(function () {
   });
 
   // Edit Function
-$(document).on("click", ".edit", function () {
+  $(document).on("click", ".edit", function () {
 
-  var rowData = table.row($(this).parents('tr')).data();
-  var index = table.row($(this).parents('tr')).index();
-  // Populate data in modal
-  $("#user-select").val(rowData.customer);
-  $("#invoice_num").val(rowData.invoice);
-  $('#invoice_num').prop('disabled', true);
-  $('#user-select').prop('disabled', true);
-  $("#AssignmentInnerTable").empty();
+    var rowIndex = table.row($(this).parents('tr')).index();
+    var index = table.row($(this).parents('tr')).index();
+    var rowData = table.row(rowIndex).data();
+    var stock_parts = rowData.stock_parts;
 
-  
-  $.each(rowData.stock_parts, function (index, value) {
-    var stock_name = value.stock_name;
-    var part_name = value.part_names.join(" | ");
-    $("#AssignmentInnerTable").append("<tr><td class='text-center'>" + (index + 1) + "</td><td class='text-center'>"
-      + stock_name + "</td><td class='text-center'>"
-      + part_name + "</td><td class='text-center'><button type='button' class='btn btn-sm btn-danger delete-row class='text-center''>Delete</button></td></tr>");
+    // Populate data in modal
+    $("#user-select").val(rowData.customer);
+    $("#invoice_num").val(rowData.invoice);
+    $('#invoice_num').prop('disabled', true);
+    $('#user-select').prop('disabled', true);
+
+    if (rowData.stock_parts && rowData.stock_parts.length > 0) {
+      $.each(rowData.stock_parts, function (index, value) {
+        var stock_name = value.stock_name;
+        var part_name = value.part_names.join(" | ");
+        $("#AssignmentInnerTable").append("<tr><td class='text-center'>" + (index + 1) + "</td><td class='text-center'>"
+          + stock_name + "</td><td class='text-center'>"
+          + part_name + "</td><td class='text-center'><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
+      });
+
+      $("#AssignmentInnerTable").on("click", ".delete-row", function () {
+        var partindex = $(this).closest("tr").index();
+        stock_parts.splice(partindex, 1);
+        $(this).closest("tr").remove();
+      });
+    }
+
+
+    // Show the modal
+    $('#assignmodal').modal('show');
+
+    $("#addassign").off("click").on("click", function () {
+      debugger
+      var stock_name = $("#stock-select").val();
+      var part_name = $("#part-select").val();
+      part_name = part_name.toString().replaceAll(",", " | ");
+      stock_parts.push({
+        stock_name: stock_name,
+        part_names: [part_name]
+      });
+      var index = stock_parts.length;
+      $("#AssignmentInnerTable").append("<tr><td class='text-center'>" + (index) + "</td><td class='text-center'>"
+        + stock_name + "</td><td class='text-center'>"
+        + part_name + "</td><td class='text-center'><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
+      $("#stock_name").val("");
+      $("#part_name").val("");
+    });
+
+    $("#save").off("click").on("click", function () {
+      // Get existing data from localStorage
+      var stockassigned = JSON.parse(localStorage.getItem("stockassigned")) || [];
+      // Find the index of the row to be edited
+
+      // Create object with properties and replace at the specified index
+      var obj = {
+        customer: $("#user-select").val(),
+        invoice: $("#invoice_num").val(),
+        stock_parts: stock_parts,
+        created_by: activeuser.username,
+        created_date: new Date().toLocaleDateString()
+      };
+      stockassigned[index] = obj;
+      // Save the updated array back to localStorage
+      localStorage.setItem("stockassigned", JSON.stringify(stockassigned));
+      // Hide the modal
+      $('#assignmodal').modal('hide');
+      // Reload the table
+      table.clear().rows.add(stockassigned).draw();
+    });
+
   });
- 
-  
-  // Show the modal
-  $('#assignmodal').modal('show');
-  // Add an event listener to the save button in the modal to save the edited data
-
-  // $("#addassign").off("click").on("click", function (){
-  //   var stockassigned = JSON.parse(localStorage.getItem("stockassigned")) || [];
-    
-
-
-  // })
 
 
 
-
-  $("#save").off("click").on("click", function () {
-    // Get existing data from localStorage
-    var stockassigned = JSON.parse(localStorage.getItem("stockassigned")) || [];
-    // Find the index of the row to be edited
-   
-    // Create object with properties and replace at the specified index
-    var obj = {
-      customer: $("#user-select").val(),
-      invoice: $("#invoice_num").val(),
-      stock_parts: stock_parts,
-      created_by: activeuser.username,
-      created_date: new Date().toLocaleDateString()
-    };
-    stockassigned[index] = obj;
-    // Save the updated array back to localStorage
-    localStorage.setItem("stockassigned", JSON.stringify(stockassigned));
-    // Hide the modal
-    $('#assignmodal').modal('hide');
-    // Reload the table
-    table.clear().rows.add(stockassigned).draw();
-  });
-
-});
-
- // Delete Function
- $(document).on("click", ".delete-row", function () {
-  var partindex = $(this).closest("tr").index();
-  stock_parts.splice(partindex, 1);
-  $(this).closest("tr").remove();
-});
 
 
 });

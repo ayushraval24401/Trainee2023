@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous"
+      />
+      <!-- font awsome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+      <link rel="stylesheet" href="apiCRUD.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="border mt-4 text-center bg-light">
+            <h3>API CRUD Operation</h3>
+         </div>
+         <div class="row">
+            <div class="col-6">
+               <label>Start Date:</label>
+               <input type="date" class="form-control" id="filterStartDate"/>
+            </div>
+
+            <div class="col-6">
+               <label>End Date:</label>
+               <input type="date" class="form-control" id="filterEndDate"/>
+            </div>
+         </div>
+         <br />
+         <div class="row">
+            <div class="col-2">
+               <button class="btn btn-primary" type="button" onclick="getData()">Get Data</button>
+            </div>
+         </div>
+         <br />
+         <h4 class="text-center mt-5">Event Details</h4>
+         <div class="row">
+            <div class="col-6"></div>
+            <div class="col-4">
+               <input type="text" class="form-control" id="search" placeholder="Search here by Event Title.."/>
+            </div>
+            <div class="col-2">
+               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Data</button>
+            </div>
+         </div>
+
+         <table class="table mt-5 table-bordered" style="width: 100%">
+            <thead class="table-dark">
+               <tr>
+                  <th class="text-center">SNo.</th>
+                  <th class="text-center">EventTitle</th>
+                  <th class="text-center">StartDate</th>
+                  <th class="text-center">EndDate</th>
+                  <th class="text-center">EventDescription</th>
+                  <th class="text-center">EventPriority</th>
+                  <th class="text-center">Action</th>
+               </tr>
+            </thead>
+            <tbody id="CRUDtable"></tbody>
+         </table>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">API Add Data</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-12">
+                        <label>Event Title:</label>
+                        <input type="text" class="form-control" placeholder="Enter event title" id="title" />
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-6">
+                        <label>StartDate</label>
+                        <input type="date" class="form-control" id="startDate" />
+                     </div>
+                     <div class="col-6">
+                        <label>EndDate</label>
+                        <input type="date" class="form-control" id="endDate" />
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-6">
+                        <label>Event Description</label>
+                        <input type="text" class="form-control" placeholder="Enter event description" id="description" />
+                     </div>
+                     <div class="col-6">
+                        <label>Event Priority</label>
+                        <input type="text" class="form-control" placeholder="Enter event Priority" id="priority" />
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" id="addEvent" onclick="addData()">Add Event</button>
+                  <button type="button" class="btn btn-outline-primary" id="saveBtn">Save Event</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="apiCRUD.js"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+         integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+         crossorigin="anonymous"
+      ></script>
+   </body>
+</html>

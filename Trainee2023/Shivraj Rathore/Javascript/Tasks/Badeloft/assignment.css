@@ -24,9 +24,6 @@
   border-bottom-left-radius: 10px;
 }
 
-.navbar-nav .nav-item .nav-link.active {
-  border-bottom: 2px solid black !important;
-}
 
 #example td:nth-child(2),
 td:nth-child(3),
@@ -60,15 +57,7 @@ td:nth-child(6) {
     border: none !important;
   }
 
-  
-  .navbar-nav .nav-item .nav-link.active {
-    border-bottom: 2px solid black !important;
-    padding-bottom: 20px;
-  }
 
-  .navdiv{
-    height: 52px;
-  }
 
   .dataTables_wrapper .dataTables_info {
     clear: both;
@@ -118,4 +107,31 @@ table.dataTable td.dt-control:before {
  
   width: 355px;
   height: 69px;
+}
+
+
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 33%;
+  height: 2px;
+  bottom: -15px;
+  left:27px !important;
+  background-color: #000;
+  visibility: hidden;
+  transform: scaleX(0);
+}
+
+.navbar-nav .nav-link.active::before
+{
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navdiv{
+  height: 52px;
 }

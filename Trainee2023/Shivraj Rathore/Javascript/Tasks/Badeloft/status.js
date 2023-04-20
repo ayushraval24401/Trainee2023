@@ -2,7 +2,7 @@
 $(document).ready(function () {
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
 
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -46,7 +46,7 @@ $(document).ready(function () {
       qb_invoice: "150000",
       name: "Kenneth Woodward",
       qb_shipdate: "09/08/2001",
-      qb_pay_status: '<button class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "asasxc",
       called: '<input type="checkbox" ></input>',
@@ -56,7 +56,7 @@ $(document).ready(function () {
       qb_invoice: "150001",
       name: "James Fenske",
       qb_shipdate: "09/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "618-234-6400",
       called: '<input type="checkbox"></input>',
@@ -66,7 +66,7 @@ $(document).ready(function () {
       qb_invoice: "150002",
       name: "Kelly McCrory",
       qb_shipdate: "02/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'STD',
       qb_delievery_phone: "630-367-8448",
       called: '<input type="checkbox"></input>',
@@ -76,7 +76,7 @@ $(document).ready(function () {
       qb_invoice: "150003",
       name: "Linda Englund",
       qb_shipdate: "03/08/2001",
-      qb_pay_status: '<button class="btn-sm alert alert-danger p-1"><i class="fa fa-close"></i>&nbsp;Unpaid</button>',
+      qb_pay_status: '<button class="btn-sm alert alert-danger  p-0"><i class="fa fa-close"></i>&nbsp;Unpaid</button>',
       status: 'Shipped',
       qb_delievery_phone: "203-963-9428",
       called: '<input type="checkbox"></input>',
@@ -86,7 +86,7 @@ $(document).ready(function () {
       qb_invoice: "150004",
       name: "Frances Badger",
       qb_shipdate: "04/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'STD',
       qb_delievery_phone: "508-206-0722",
       called: '<input type="checkbox"></input>',
@@ -96,7 +96,7 @@ $(document).ready(function () {
       qb_invoice: "150005",
       name: "Tasha Tapia",
       qb_shipdate: "05/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-warning p-1"><i class="fa fa-exclamation-circle"></i>&nbsp;Pending Approval</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-warning  p-0"><i class="fa fa-exclamation-circle"></i>&nbsp;Pending Approval</button>',
       status: 'Shipped',
       qb_delievery_phone: "201-905-4664",
       called: '<input type="checkbox"></input>',
@@ -106,7 +106,7 @@ $(document).ready(function () {
       qb_invoice: "150006",
       name: "Samantha Southard",
       qb_shipdate: "06/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "707-271-9412",
       called: '<input type="checkbox"></input>',
@@ -116,7 +116,7 @@ $(document).ready(function () {
       qb_invoice: "150007",
       name: "James Fenske",
       qb_shipdate: "07/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "618-234-6400",
       called: '<input type="checkbox"></input>',
@@ -126,7 +126,7 @@ $(document).ready(function () {
       qb_invoice: "150008",
       name: "Kelly McCrory",
       qb_shipdate: "08/08/2001",
-      qb_pay_status: '<button class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'STD',
       qb_delievery_phone: "630-367-8448",
       called: '<input type="checkbox"></input>',
@@ -136,7 +136,7 @@ $(document).ready(function () {
       qb_invoice: "150009",
       name: "Linda Englund",
       qb_shipdate: "09/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-danger p-1"><i class="fa fa-close"></i>&nbsp;Unpaid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-danger  p-0"><i class="fa fa-close"></i>&nbsp;Unpaid</button>',
       status: 'Shipped',
       qb_delievery_phone: "203-963-9428",
       called: '<input type="checkbox"></input>',
@@ -146,7 +146,7 @@ $(document).ready(function () {
       qb_invoice: "150010",
       name: "Frances Badger",
       qb_shipdate: "10/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "508-206-0722",
       called: '<input type="checkbox"></input>',
@@ -156,7 +156,7 @@ $(document).ready(function () {
       qb_invoice: "150011",
       name: "Tasha Tapia",
       qb_shipdate: "11/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-warning p-1"><i class="fa fa-exclamation-circle"></i>&nbsp;Pending Approval</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-warning  p-0"><i class="fa fa-exclamation-circle"></i>&nbsp;Pending Approval</button>',
       status: 'STD',
       qb_delievery_phone: "201-905-4664",
       called: '<input type="checkbox"></input>',
@@ -166,7 +166,7 @@ $(document).ready(function () {
       qb_invoice: "150012",
       name: "Samantha Southard",
       qb_shipdate: "12/08/2001",
-      qb_pay_status: '<button  class="btn-sm alert alert-success p-1"><i class="fa fa-check"></i>&nbsp;Paid</button>',
+      qb_pay_status: '<button  class="btn-sm alert alert-success  p-0"><i class="fa fa-check"></i>&nbsp;Paid</button>',
       status: 'Shipped',
       qb_delievery_phone: "707-271-9412",
       called: '<input type="checkbox"></input>',
@@ -225,5 +225,5 @@ $(document).ready(function () {
 
 $("#logout").click(function () {
   localStorage.removeItem("loggedInUser");
-  location.replace("login.html");
+  location.replace("index.html");
 });

@@ -4,7 +4,7 @@ $(document).ready(function () {
   // checking user
   const checkuser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (checkuser == null) {
-    location.replace("./login.html");
+    location.replace("./index.html");
   }
   //setting username 
   var activeuser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -43,6 +43,24 @@ $(document).ready(function () {
 
     }
   })
+
+
+  $('#PartNumberForm').validate({
+    rules: {
+      part_num:
+        { required: true },
+      ordered:
+        { required: true }
+    },
+    messages: {
+      part_num:
+        { required: "Enter Part Number" },
+      ordered:
+        { required: "Enter no. of Orders" }
+    }
+
+  })
+
 
 
 
@@ -100,30 +118,33 @@ $(document).ready(function () {
 
   // Handle click on Save Part Number button
   $("#save_part").click(function () {
-    // Get form data
-    part_num = $("#part_num").val();
-    invoice_num = 1500012;
-    ordered = $("#ordered").val();
-    notes = $("#notes").val();
-    var obj = {
-      part_num: part_num,
-      ordered: ordered,
-      notes: notes
-    };
-    // Push object into array
-    partdata.push(obj);
-    // Append data to table
-    $("#table2body").append("<tr><td>" + part_num + "</td><td>"
-      + invoice_num + "</td><td>" + ordered + "</td><td>"
-      + notes + "</td><td><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
-    $("#AddPartModal").modal("hide");
+    if ($("#PartNumberForm").valid() == true) {
+      // Get form data
+      part_num = $("#part_num").val();
+      invoice_num = 1500012;
+      ordered = $("#ordered").val();
+      notes = $("#notes").val();
+      var obj = {
+        part_num: part_num,
+        ordered: ordered,
+        notes: notes
+      };
+      // Push object into array
+      partdata.push(obj);
+      // Append data to table
+      $("#table2body").append("<tr><td>" + part_num + "</td><td>"
+        + invoice_num + "</td><td>" + ordered + "</td><td>"
+        + notes + "</td><td><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
+      $("#AddPartModal").modal("hide");
 
-    // Delete Function
-    $(document).on("click", ".delete-row", function () {
-      var partindex = $(this).closest("tr").index();
-      partdata.splice(partindex, 1);
-      $(this).closest("tr").remove();
-    });
+      // Delete Function
+      $(document).on("click", ".delete-row", function () {
+        var partindex = $(this).closest("tr").index();
+        partdata.splice(partindex, 1);
+        $(this).closest("tr").remove();
+      });
+    }
+
 
   });
 
@@ -138,7 +159,7 @@ $(document).ready(function () {
   $("#save_changes").click(function () {
     if ($("#StockForm").valid() == true) {
 
-      if (partdata.length > 0) {
+      if (partdata.length > 0 || partdata.notes == "") {
         var StockNotes = partdata[partdata.length - 1].notes;
       }
       // Get form data
@@ -237,13 +258,13 @@ $(document).ready(function () {
         className: 'text-center',
         orderable: false,
         render: function (data, type, row) {
-            // create a select element with options
-            var select = '<select class="statusdropdown"><option value="Change">Change </option><option value="In Warehouse">In Warehouse</option><option value="On Water">On Water</option><option value="On Production">On Production</option></select>';
-            // return the select element as the cell content
-            return select + data;
+          // create a select element with options
+          var select = '<select class="statusdropdown"><option value="Change">Change </option><option value="In Warehouse">In Warehouse</option><option value="On Water">On Water</option><option value="On Production">On Production</option></select>';
+          // return the select element as the cell content
+          return select + data;
         }
       }
-    ,
+      ,
       { data: 'createdby', className: 'text-center', orderable: false },
       { data: 'createddate', className: 'text-center', orderable: false },
       { data: 'StockNotes', className: 'text-center', orderable: false },
@@ -271,14 +292,14 @@ $(document).ready(function () {
     // update the local storage
     var data = JSON.parse(localStorage.getItem('StockData'));
     var index = data.findIndex(function (item) {
-        return item.stockName === rowData.stockName;
+      return item.stockName === rowData.stockName;
     });
     if (index !== -1) {
-        data[index].selectedStockstatus = newValue;
-        localStorage.setItem('StockData', JSON.stringify(data));
+      data[index].selectedStockstatus = newValue;
+      localStorage.setItem('StockData', JSON.stringify(data));
     }
     location.reload(true)
-});
+  });
 
 
   $('#Stockable tbody').on('click', '.edit', function () {
@@ -296,6 +317,14 @@ $(document).ready(function () {
           + partData.notes + "</td><td><button type='button' class='btn btn-sm btn-danger delete-row'>Delete</button></td></tr>");
       });
     }
+
+    // Delete Function
+    $(document).on("click", ".delete-row", function () {
+      var partindex = $(this).closest("tr").index();
+      partdata.splice(partindex, 1);
+      $(this).closest("tr").remove();
+    });
+
     partdata = data.partData;
     // Show AddStockModal
     $('#AddStockModal').modal('show');
@@ -315,6 +344,12 @@ $(document).ready(function () {
       var createddate = "08/25/2000";
       var StockNotes = StockNotes;
       var action = "";
+
+      // Check if at least one part is present
+      if (partdata.length === 0) {
+        alert("Please add at least one part.");
+        return;
+      }
 
 
       // Update object at the specified index in the array
@@ -339,7 +374,6 @@ $(document).ready(function () {
   $(document).on("click", ".cancelpart", function () {
     var index;
     var currentStockName = $(this).attr("data-stock");
-    debugger
     // Remove the corresponding data from local storage
     var StockData = JSON.parse(localStorage.getItem("StockData")) || [];
     var stockIndex = StockData.findIndex(x => x.stockName == currentStockName);
@@ -372,7 +406,7 @@ $(document).ready(function () {
   // -------------------------------------------------------------------------------------------------------------
   $("#logout").click(function () {
     localStorage.removeItem("loggedInUser");
-    location.replace("login.html");
+    location.replace("index.html");
   });
 });
 

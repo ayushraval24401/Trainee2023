@@ -3,22 +3,27 @@
     width: 100%;
 }
 .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
-    color: #51B7E7;
+    color: hwb(199 32% 9%);
     font-weight: bold;
     margin-left: 80px;
 }
 /* img style */
-img
+#standardizerlogoid
 {
-    border-radius: 50px;
-   
-    height: 40px;
-    margin-left: px;
+ height: 60px;
+ width: 160px;
 }
-.logo
+#adminimage
 {
-    width: 50px;
+  height: 50px;
+  width: 50px;
+  margin-left: 950px;
 }
+.navbar{
+  padding: 0%;
+  margin: 0%;
+}
+
 /* btn style */
 .btn {
     background-color: #F2F2F2;
@@ -31,7 +36,7 @@ img
   }
   .btngroup
   {
-    margin-left: 50px;
+    margin-left: 10px;
     margin-top: 20px;
   }
   /* 5grid style */
@@ -48,6 +53,7 @@ img
     padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
+    color: white;
   }
   .mostlikely
   {
@@ -55,6 +61,7 @@ img
     padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
+    color: white;
   }
   .likely
   {
@@ -62,6 +69,7 @@ img
     padding: 5px;
     border-radius: 5px;
     margin-top: 28px;
+    color: white;
   }
   .possible
   {
@@ -69,6 +77,7 @@ img
     padding: 5px;
     border-radius: 5px;
     margin-top: 28px;
+    color: white;
   }
   .BSAA
   {
@@ -76,6 +85,7 @@ img
     padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
+    color: white;
   }
   /* underline */
   .navbar-nav .nav-link {
@@ -85,9 +95,9 @@ img
   .navbar-nav .nav-link::before {
     content: "";
     position: absolute;
-    width: 35%;
+    width: 37%;
     height: 2px;
-    bottom: -10px;
+    bottom: -13px;
     left: 17px;
     background-color: #51B7E7;
     visibility: hidden;
@@ -99,3 +109,74 @@ img
     visibility: visible;
     transform: scaleX(1);
   }
+  /* search style */
+  #searchid
+  {
+    width: 312px;
+    height: 35px;
+    border-radius: 5px; 
+    border: 1px solid gray;
+    
+  }
+.divclass
+{
+  border: 1px solid gray;
+  margin: 2px;
+  padding: 5px;
+  
+}
+.mostlikelyclass,.likelyclass,.Possibleclass
+{
+  border: 1px solid gray;
+  margin: 2px;
+  padding: 17px;
+  
+}
+.material-icons
+{
+  font-size: 15px;
+}
+
+/* human updated */
+.ovel
+{
+  height: 10px;
+  width: 10px;
+  color: orange;
+}
+/* navbar for Master account details */
+.o-hidden {
+  overflow:hidden;
+
+}
+
+.nav {
+  transition: transform 0.10s;
+  transform: translateX(30%);
+  left: -50%;
+
+}
+
+.nav.justify-content-end {
+  transform: translateX(0);
+  left: 0;  
+  
+}
+
+
+
+/* submit button */
+#submit
+{
+  background-color: #3E9D66;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-left: 325px;
+}
+.content
+{
+  font-size: small;
+  color: gray;
+  margin-left: 160px;
+}

@@ -105,3 +105,6 @@ table.dataTable tr.dt-hasChild td.dt-control:before{
 .openhistory{
   cursor:pointer;
 }
+.dataTables_filter{
+  margin-top:-4% !important;
+}

@@ -118,3 +118,14 @@ table.dataTable td.dt-control:before {
     background-color: white !important;
     margin-right: 10px;
 }
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box !important;
+    margin: 3px 3px 3px 4px !important;
+    padding: initial;
+    border: initial;
+}
+

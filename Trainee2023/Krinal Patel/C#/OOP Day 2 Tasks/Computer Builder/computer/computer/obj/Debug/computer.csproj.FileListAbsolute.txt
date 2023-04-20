@@ -1,0 +1,8 @@
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\bin\Debug\computer.exe.config
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\bin\Debug\computer.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\bin\Debug\computer.pdb
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\obj\Debug\computer.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\obj\Debug\computer.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\obj\Debug\computer.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\obj\Debug\computer.exe
+D:\C# Krinal Patel\OOP Day 2 Tasks\Computer Builder\computer\computer\obj\Debug\computer.pdb

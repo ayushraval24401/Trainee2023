@@ -1,0 +1,19 @@
+[
+  {
+    "id": 2,
+    "name": "aaa",
+    "DateOfBirth": "12-Mar-2018",
+    "Gender": "Female",
+    "Designation": "a",
+    "City": "s",
+    "State": "as",
+    "Postcode": "1111111111",
+    "PhoneNumber": 1111111111,
+    "EmailAddress": "tt@gmail.com",
+    "DateOfJoining": "12-Feb-2019",
+    "TotalExperience": "4 years and 2 months",
+    "Remarks": "h",
+    "Department": "Development",
+    "MonthlySalary": 56000.0
+  }
+]

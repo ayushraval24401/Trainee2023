@@ -28,9 +28,7 @@
 #Stockable tr:last-of-type td:first-child {
     border-bottom-left-radius: 10px;
 }
-.navbar-nav .nav-item .nav-link.active {
-    border-bottom: 2px solid black !important;
-}
+
 #Stockable td:nth-child(2),
 td:nth-child(3),
 td:nth-child(4),
@@ -137,21 +135,7 @@ tbody {
 
   }
 
-  li.paginate_button.page-item.active {
-    background: none !important;
-    border: none !important;
-  }
-
-  li.paginate_button.page-item:hover {
-    background: none !important;
-    border: none !important;
-  }
-
   
-  .navbar-nav .nav-item .nav-link.active {
-    border-bottom: 2px solid black !important;
-    padding-bottom: 20px;
-  }
 
   .navdiv{
     height: 52px;
@@ -182,4 +166,31 @@ table.dataTable td.dt-control:before {
   content: "+";
   background-color: white !important;
   margin-right: 10px;
+}
+
+
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 33%;
+  height: 2px;
+  bottom: -15px;
+  left: 19px !important;
+  background-color: #000;
+  visibility: hidden;
+  transform: scaleX(0);
+}
+
+.navbar-nav .nav-link.active::before
+{
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+label.error{
+  color: red;
 }

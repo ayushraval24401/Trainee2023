@@ -4,7 +4,7 @@ $(document).ready(function () {
 
   const hello = JSON.parse(localStorage.getItem("loggedInUser"));
         if (hello == null) {
-            location.replace("./login.html");
+            location.replace("./index.html");
         }
 
 
@@ -64,7 +64,7 @@ $("#activeuser").html(activeuser.username);
 
 $("#logout").click(function () {
 localStorage.removeItem("loggedInUser");
-location.replace("login.html");
+location.replace("index.html");
 });
 
 $('[data-bs-toggle="popover"]').popover({
@@ -75,6 +75,10 @@ $('[data-bs-toggle="popover"]').popover({
   content: function() {
         return $('#popover-form').html();
   }
+});
+
+$(document).on('click', '.btn-close', function() {
+  $('[data-bs-toggle="popover"]').popover('hide');
 });
 
 });

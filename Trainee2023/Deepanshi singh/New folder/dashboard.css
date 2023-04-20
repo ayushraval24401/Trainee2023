@@ -160,3 +160,6 @@
 #p1{
     color:gray;
 }
+.dataTables_filter{
+    margin-top:-4% !important;
+}

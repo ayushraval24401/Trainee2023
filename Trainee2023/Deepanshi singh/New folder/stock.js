@@ -67,7 +67,7 @@ function format(d) {
 
 
   d.partdetails.forEach((element) => {
-    html += '<tr data-id="'+ element.partid+'"><td>' +
+    html += '<tr data-stockid="'+ d.stockid+'" data-partid="'+element.partid+'"><td>' +
       element.partid +
       '</td><td>' + element.partnumber + '</td><td>' + element.ordered + '</td><td>' + "5" + '</td><td><button type="button" class="part-delete btn-close" aria-label="Close"></button></tr></td>';
     // html += '</table>';
@@ -80,8 +80,8 @@ var stockname = document.getElementById("stockname").value;
 var etadate = document.getElementById("etadate").value;
 var stock = JSON.parse(localStorage.getItem("arr"));
 var uname = JSON.parse(localStorage.getItem("loggedInUser"));
-var a = JSON.parse(uname);
-var createdby = a.name1;
+var username = JSON.parse(uname);
+var createdby = username.name1;
 
 //   var btnradio = document.getElementsByName("btnradio").value;
 //  var btnradio2=document.getElementById("btnradio2").value;
@@ -91,12 +91,19 @@ var data = [];
 var table = null;
 
 $(document).ready(function () {
+
   $(document).on("click", ".part-delete", function(){
-   debugger
+   
     var row=$(this).closest("tr");
-  var rowid=row.attr("data-id");
-  console.log(rowid);
-  
+  var stockid=row.data("stockid");
+  var partid=row.data("partid");
+  //console.log(rowid);
+  var detail =arr[ parseInt(stockid)-1];
+debugger
+detail.partdetails.splice(parseInt(partid),1);
+arr[parseInt(stockid)-1] = detail;
+  $(this).closest('tr').remove();
+  //detail.partdetails
 var getstock=JSON.parse(localStorage.getItem("arr"));
 
 
@@ -246,7 +253,7 @@ function showdata() {
     arr = [];
   }
   else {
-    arr = JSON.parse(localStorage.getItem("arr"));
+    arr= JSON.parse(localStorage.getItem("arr"));
   }
 
 
@@ -289,7 +296,7 @@ function adddata() {
     arr = [];
   }
   else {
-    arr = JSON.parse(localStorage.getItem("arr"));
+    arr= JSON.parse(localStorage.getItem("arr"));
   }
   var note=partdetails[0].notes;
 

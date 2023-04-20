@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoA</title>
+    <link rel="stylesheet" href="/CSS AND BOOTSTRAP/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
+    <link rel="stylesheet" href="./StandardizerCOA.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbarCoA">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand mx-2" href="#"> <img
+                        src="/JAVASCRIPT/JAVASCRIPT_EXAM/Standardizer/Assets/Standardizer_logo.jpg"
+                        id="Standardizer_logo" class=" mt-1 mx-4" alt=""></a>
+                <ul class="navbar-nav me-auto mb-2 mx-5 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="StandardizerCOA.html" class="nav-link active" aria-current="page" id="coa_text">CoA</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <img src="/JAVASCRIPT/JAVASCRIPT_EXAM/Assets/images.jfif" id="img" class="rounded-circle mt-1 mx-4"
+                        alt="">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid px-5">
+        <div class="row upperbuttons ">
+            <div class="col-md-10 upperbuttons mt-4">
+                <button type="button"  class="header-button active" data-link-value="ASSETS" data-btn-type="Assets">Assets</button>
+                <button type="button"  class="header-button" data-link-value="LIABILITIES" data-btn-type="Liabilities">Liability</button>
+                <button type="button"  class="header-button" data-link-value="EQUITY/CAPITAL" data-btn-type="Equity">Equity/Capital</button>
+                <button type="button"  class="header-button" data-link-value="Revenue" data-btn-type="Revenue">Revenue</button>
+                <button type="button"  class="header-button" data-link-value="Costs" data-btn-type="COGS">CoGS</button>
+                <button type="button"  class="header-button" data-link-value="Expense" data-btn-type="Expense">G&A Expenses</button>
+                <button type="button"  class="header-button" data-btn-type="Other Rev & Exp">Other Revenue &
+                    Expenses</button>
+            </div>
+            
+
+            <div class="col-md-2 upperbuttons mt-4">
+                <button class="pb-1 pt-1 w-50 text-sm-center float-end submit" onClick="showDateTime()">Submit</button>
+                <br>
+                <p class="submittxt mt-2 text-end" id="updatetxt"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3 ">
+                <i class="fa-sharp fa-regular fa-circle human"></i><span class="human">Human Updated</span>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-3">
+                <span><Strong>Source Account Structure</Strong></span>
+                <div class="balancesheetaccount stickyheader p-1">Balance Sheet Accounts</div>
+                <ul class="list-group" id="SourceAccount">
+
+                </ul>
+            </div>
+
+            <div class="col-md-6 stickyheader">
+                <span><Strong>Likely Destination Account</Strong></span>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mostlikely stickyheader p-1">Most Likely</div>
+                        <ul class="list-group MostLikely d1" id="mostlikely">
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="likely stickyheader p-1">Likely</div>
+                        <ul class="list-group Likely" id="likely">
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="possible stickyheader p-1">Possible</div>
+                        <ul class="list-group Possible" id="possible">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 stickyheader">
+                <span><Strong>Destination Account Structure</Strong></span>
+                <div class="balancedestination stickyheader p-1">Balance Sheet Accounts</div>
+                <nav id="menu-container">
+                    <div class="scroll mt-2" id="container">
+                        <div id="btn-nav-previous">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div id="btn-nav-next">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="menu-inner-box mb-0">
+                            <a href="javascript:void(0)" class="all active" id="all">All</a>
+                            <a href="javascript:void(0)" class="Assets" data-link-value="ASSETS"  data-btn-type="Assets">Assets</a>
+                            <a href="javascript:void(0)" class="Liability" data-link-value="LIABILITIES" data-btn-type="Liabilities">Liability</a>
+                            <a href="javascript:void(0)" class="EquityCapital" data-link-value="EQUITY/CAPITAL" data-btn-type="Equity">Equity/Capital</a>
+                            <a href="javascript:void(0)" class="Revenue" data-link-value="Revenue" data-btn-type="Revenue">Revenue</a>
+                            <a href="javascript:void(0)" class="CoGS" data-link-value="Costs" data-btn-type="COGS">CoGS</a>
+                            <a href="javascript:void(0)" class="GAExpenses" data-link-value="Expense" data-btn-type="Expense">G&A Expenses</a>
+                            <a href="javascript:void(0)" class="OtherRE"  data-btn-type="Other Rev & Exp">Other Revenue & Expense</a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="search" class="form-control search" placeholder="&#xF002; Search Account Here..."
+                            aria-label="Search" id="txtSearch" style="font-family:Arial, FontAwesome; font-size: 11px;">
+                    </div>
+                </div>
+                <ul class="list-group destination" id="DestinationAccount">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="/CSS AND BOOTSTRAP/bootstrap-5.3.0-alpha1-dist/jQuery/jQuery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.js"></script> -->
+    <script src="/CSS AND BOOTSTRAP/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+    integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <script src="StandardizerCOA.js"></script>
+</body>
+
+</html>

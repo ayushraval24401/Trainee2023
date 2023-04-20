@@ -115,10 +115,10 @@ display:none;
 .sorting_1{
    color:#1188FF;
 }
-.DataTable_filter
+/* .DataTable_filter
 {
    margin-top:50px;
-}
+} */
 
 .row{
    margin-bottom: 25px;
@@ -134,4 +134,7 @@ table.dataTable td.dt-control:before
 }
 input[type=checkbox]:checked {
    accent-color: green;
+}
+.dataTables_filter{
+   margin-top:-4% !important;
 }
