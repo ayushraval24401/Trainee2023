@@ -1,0 +1,8 @@
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\bin\Debug\Day6_Tasks.exe.config
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\bin\Debug\Day6_Tasks.exe
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\bin\Debug\Day6_Tasks.pdb
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\obj\Debug\Day6_Tasks.csproj.AssemblyReference.cache
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\obj\Debug\Day6_Tasks.csproj.SuggestedBindingRedirects.cache
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\obj\Debug\Day6_Tasks.csproj.CoreCompileInputs.cache
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\obj\Debug\Day6_Tasks.exe
+D:\C# Krinal Patel\Day 6 Tasks\Day6_Tasks\Day6_Tasks\obj\Debug\Day6_Tasks.pdb

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
+
+    <style>
+        .cell-border td,
+        .cell-border th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .text-sales {
+            color: red;
+        }
+
+        .text-Marketing {
+            color: green;
+        }
+
+        .text-Developer {
+            color: black;
+        }
+
+        .text-QA {
+            color: blue;
+        }
+
+        .text-HR {
+            color: orange;
+        }
+
+        .text-SEO {
+            color: pink;
+        }
+    </style>
+
+</head>
+  
+<body>
+    <div class="container-fluid">
+        <div class="row mt-2 mx-1 p-3 rounded-1 border-1" style="background-color:gainsboro">
+            <p class="text-center fw-bolder" style="font-size: 22px;">
+                Employee List
+            </p>
+        </div>
+
+        <div class="row mt-4 mx-1 p-2 rounded-1 border border-2 ">
+            <table id="employeeDataTable" class="cell-border" style="width:100%">
+                <thead style="font-size: 18px; background-color: gainsboro; ">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Department</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone Number</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="employeeDetailModal" tabindex="-1" aria-labelledby="employeeDetailModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content" style="color: #405b6c;">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" id="employeeDetailModalLabel">Employee Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="row mx-1">
+                            <div class="col-12 border-bottom px-3 pb-3 fw-semibold">
+                                <label class="fw-bold"> Name : </label> <span id="empName"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mx-1">
+                            <div class="col-12 border-bottom p-3 fw-semibold">
+                                <label class="fw-bold">Email :</label> <span id="empEmail"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mx-1">
+                            <div class="col-12 border-bottom p-3 fw-semibold">
+                                <label class="fw-bold">DOB : </label> <span id="empDob"></span>
+                      
+                            </div>
+                        </div>
+
+                        <div class="row mx-1">
+                            <div class="col-12 border-bottom p-3 fw-semibold">
+                                <label class="fw-bold">Gender :</label> <span id="empgender"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mx-1">
+                            <div class="col-12 border-bottom p-3 fw-semibold">
+                                <label class="fw-bold">Designation : </label> <span id="empDesignation"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mx-1 border-bottom fw-semibold">
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">State :</label> <span id="empState"></span>
+                            </div>
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">City : </label> <span id="empCity"></span>
+                            </div>
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">Postcode :</label> <span id="empPostcode"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mx-1 border-bottom fw-semibold">
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">Phone : </label> <span id="empPhone"></span>
+                            </div>
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">Department : </label> <span id="empDepartment"></span>
+                            </div>
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">Monthly Salary : </label> <span id="empSalary"></span>
+                    
+                            </div>
+                        </div>
+
+                        <div class="row mx-1 border-bottom fw-semibold">
+                            <div class="col-4 p-3">
+                                <label class="fw-bold">Date of Joining : </label> <span id="empdateOfJoining"></span>
+                            </div>
+                            <div class="col-6 p-3">
+                                <label class="fw-bold">Total Experience : </label> <span id="empTotalexp"></span>
+                     
+                            </div>
+
+                        </div>
+
+                        <div class="row mx-1">
+                            <div class="col-12  p-3 fw-semibold">
+                                <label class="fw-bold">Remarks : </label> <span id="empRemarks"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+        <script src="./script.js"></script>
+
+</body>
+
+</html>

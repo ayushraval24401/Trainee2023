@@ -1,0 +1,8 @@
+D:\Krinal\Task 1\task 1\obj\Debug\Tasks.csproj.AssemblyReference.cache
+D:\Krinal\Task 1\task 1\obj\Debug\Tasks.csproj.SuggestedBindingRedirects.cache
+D:\Krinal\Task 1\task 1\obj\Debug\Tasks.csproj.CoreCompileInputs.cache
+D:\Krinal\Task 1\task 1\obj\Debug\task 1.exe
+D:\Krinal\Task 1\task 1\obj\Debug\task 1.pdb
+D:\Krinal\Task 1\task 1\bin\Debug\task 1.exe.config
+D:\Krinal\Task 1\task 1\bin\Debug\task 1.exe
+D:\Krinal\Task 1\task 1\bin\Debug\task 1.pdb
