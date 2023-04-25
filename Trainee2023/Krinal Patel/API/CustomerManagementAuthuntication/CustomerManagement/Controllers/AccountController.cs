@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using static DataAccess.Customer;
-using Microsoft.AspNetCore.Authorization;
-using Newtonsoft.Json;
 using CustomerManagement.Common;
 using Customers;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

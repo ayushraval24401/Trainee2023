@@ -1,0 +1,259 @@
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\appsettings.Development.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\appsettings.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\CustomerManagement.exe
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\CustomerManagement.deps.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\CustomerManagement.runtimeconfig.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.AssemblyReference.cache
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfoInputs.cache
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CoreCompileInputs.cache
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.CustomerManagement.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.build.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets.build.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\staticwebassets.development.json
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\scopedcss\bundle\CustomerManagement.styles.css
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CopyComplete
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\refint\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\CustomerManagement.genruntimeconfig.cache
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\obj\Debug\net6.0\ref\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Customer.dll
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Customer.pdb
+D:\Krinal Patel\API\CustomerManagement\CustomerManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.Development.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.exe
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.deps.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.runtimeconfig.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.pdb
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.AssemblyReference.cache
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfoInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CoreCompileInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.CustomerManagement.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.build.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.build.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.development.json
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\scopedcss\bundle\CustomerManagement.styles.css
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CopyComplete
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\refint\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.genruntimeconfig.cache
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\ref\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SlackAPI.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.Development.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.exe
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.deps.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.runtimeconfig.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.pdb
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.Core.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\DnsClient.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Bson.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SharpCompress.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SlackAPI.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Snappier.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\ZstdSharp.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.pdb
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.AssemblyReference.cache
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.GeneratedMSBuildEditorConfig.editorconfig
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfoInputs.cache
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfo.cs
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CoreCompileInputs.cache
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cs
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cache
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.CustomerManagement.Microsoft.AspNetCore.StaticWebAssets.props
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.build.CustomerManagement.props
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CustomerManagement.props
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CustomerManagement.props
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.pack.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.build.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.development.json
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\scopedcss\bundle\CustomerManagement.styles.css
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CopyComplete
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\refint\CustomerManagement.dll
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.pdb
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.genruntimeconfig.cache
+F:\BackEnd\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\ref\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.Development.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.exe
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.deps.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.runtimeconfig.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\DnsClient.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Bson.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SharpCompress.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SlackAPI.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Snappier.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\ZstdSharp.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Customer.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.AssemblyReference.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfoInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CoreCompileInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.CustomerManagement.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.build.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.build.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.development.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\scopedcss\bundle\CustomerManagement.styles.css
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CopyComplete
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\refint\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.genruntimeconfig.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDB\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\ref\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.AssemblyReference.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfoInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.AssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CoreCompileInputs.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\refint\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.Development.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\appsettings.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.exe
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.deps.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.runtimeconfig.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CustomerManagement.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\DnsClient.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Bson.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SharpCompress.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\SlackAPI.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Snappier.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\ZstdSharp.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\DataAccessLayer.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\DataAccessLayer.pdb
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.CustomerManagement.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.build.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CustomerManagement.props
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.build.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\staticwebassets.development.json
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\scopedcss\bundle\CustomerManagement.styles.css
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.csproj.CopyComplete
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\CustomerManagement.genruntimeconfig.cache
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\obj\Debug\net6.0\ref\CustomerManagement.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\System.Text.Json.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CommonLibrary.dll
+D:\Krinal Patel\API\CustomerManagementAuthunticationMongoDBRepoPattern\CustomerManagementAuthuntication\CustomerManagement\bin\Debug\net6.0\CommonLibrary.pdb
