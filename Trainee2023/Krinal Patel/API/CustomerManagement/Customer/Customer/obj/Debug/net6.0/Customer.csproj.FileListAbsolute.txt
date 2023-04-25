@@ -1,0 +1,12 @@
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\bin\Debug\net6.0\Customer.deps.json
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\bin\Debug\net6.0\Customer.dll
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\bin\Debug\net6.0\Customer.pdb
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.csproj.AssemblyReference.cache
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.AssemblyInfoInputs.cache
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.AssemblyInfo.cs
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.csproj.CoreCompileInputs.cache
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.dll
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\refint\Customer.dll
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\Customer.pdb
+D:\Krinal Patel\API\CustomerManagement\Customer\Customer\obj\Debug\net6.0\ref\Customer.dll
