@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emaployee Details</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="title mt-3 mb-5  text-center p-3">
+      <span id="tittle">Employee Details</span>
+    </div>
+    <div class="container">
+      <table id="Table"></table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="EmployeeDetailsModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="EmployeeDetailModalLabel"><b>Employee Details</b></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <label >Name : </label>
+                <p id="employeeName"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Email : </label>
+                <p id="employeeEmail"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >DOB : </label>
+                <p id="employeeDOB"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Gender : </label>
+                <p id="employeeGender"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Designation : </label>
+                <p id="employeeDesignation"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >State : </label>
+                <p id="employeeState"></p>
+              </div>
+              <div class="col">
+                <label >City : </label>
+                <p id="employeeCity"></p>
+              </div>
+              <div class="col">
+                <label >PostalCode : </label>
+                <p id="employeePostlCode"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Phone : </label>
+                <p id="employeePhone"></p>
+              </div>
+              <div class="col">
+                <label >Department : </label>
+                <p id="employeeDepartment"></p>
+              </div>
+              <div class="col">
+                <label >Monthly Salary : </label>
+                <p id="employeeSalary"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Date of joining : </label>
+                <p id="employeeDOJ"></p>
+              </div>
+              <div class="col">
+                <label >Toatl Experience : </label>
+                <p id="employeeExperience"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label >Remark : </label>
+                <p id="employeeRemark"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+  <script src="employeedetailsjs.js"></script>
+</body>
+
+</html>

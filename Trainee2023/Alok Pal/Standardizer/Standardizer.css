@@ -10,8 +10,9 @@
     background-color: #F2F2F2;
     color: #b1b0b0;
     border: 1px solid rgb(166, 166, 166);
-    border-radius: 4px;
+    border-radius: 3px;
     box-shadow: 1px 1px;
+    margin-right: 4px;
 }
 
 .btn-active {
@@ -53,8 +54,8 @@
 
 .imgIcon {
     width: 39px;
+    margin-left: 44%;
 }
-
 .submitBtn {
     font-size: 11px;
     font-weight: bold;
@@ -189,7 +190,7 @@ div.scrollmenu a {
     position: absolute;
     right: 18rem;
     font-size: 13px;
-    top: 318px;
+    top: 341px;
 }
 
 .searchInput {
@@ -310,4 +311,13 @@ div.scrollmenu a {
 
 .SourceAccDivs div{
     margin: 0px !important;
+}
+
+#LastSubmited{
+    height: 14px;
+}
+
+
+#assetBtn{
+    margin-left: 9px;
 }

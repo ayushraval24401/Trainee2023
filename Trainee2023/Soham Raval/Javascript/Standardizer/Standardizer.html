@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.css" /> -->
     <link href="node_modules/scrollable-tabs-bootstrap-5/dist/scrollable-tabs.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light  p-0" style="background-color: #EFEFF0;">
@@ -76,10 +77,10 @@
     <div>
     </div>
     </div> -->
-    <div class="container-fluid mt-2 freeze_buttons">
+    <div class="container-fluid mt-4 freeze_buttons">
         <div class="row">
             <div class="col-md-10">
-                    <button type="button" class="source_btn ASSETS px-3 py-1 mx-1 " value="ASSETS" data-value="Assets">Assets</button>
+                    <button type="button" class="source_btn ASSETS px-3 py-1 mx-1 active" value="ASSETS" data-value="Assets">Assets</button>
                     <button type="button" class="source_btn px-3 py-1 mx-1" value="LIABILITY" data-value="Liabilities">Liability</button>
                     <button type="button" class=" source_btn px-3 py-1 mx-1" value="EQUITY/CAPITAL" data-value="Equity">Equity/Capital</button>
                     <button type="button" class=" source_btn px-3 py-1 mx-1" value="REVENUE" data-value="Revenue">Revenue</button>
@@ -88,14 +89,16 @@
                     <button type="button" class=" source_btn px-3 py-1 mx-1" value="OTHER REVENUE& EXPENSE" data-value="Other Rev & Exp">Other Revenue &amp; Expense</button>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <button type="button" class="btn_submit border-0 px-3 py-1 rounded-2">Submit</button>
+                    <button type="button" class="btn_submit border-0 px-3 py-1 rounded-2" onclick="submit()">Submit</button>
                 </div>
+                <p id="date_and_time_show" class="d-flex justify-content-end"></p>
+
                 </div>
                 </div>
     <div class="container-fluid freeze_humanupdated">
     <div class="row p-3">
         <div class="col-sm-12 col-md-12 col-lg-12 p-0 mt-3">
-            <i class="fa fa-circle-o ">&nbsp;Human Updated</i>
+            <i class="fa fa-circle-o ">&nbsp;<b>Human Updated</b></i>
         </div>
     </div>
     </div>
@@ -176,6 +179,7 @@
                         <ul class="list-group">
                             <li class="list-group-item border" style="background-color: #0D9D66;color: white;">Balance Sheet Accounts</li>
                         </ul>
+                        <div class="navbar_container">
                             <nav id="menu-container" class="arrow">
                                 <div id="btn-nav-previous">
                                     <i class="fa fa-chevron-left mx-2" aria-hidden="true"></i>
@@ -186,7 +190,7 @@
                                 <div class="menu-container">
                                 <div class="menu-inner-box">
                                 <a class="menu-item navbar_btn "  data-value="All" id="all_data" >All</a>  
-                                <a class="menu-item navbar_btn ASSETS "   id="" data-value="Assets">Assets</a>
+                                <a class="menu-item navbar_btn ASSETS active"   id="" data-value="Assets">Assets</a>
                                 <a class="menu-item navbar_btn"  id=""  data-value="Liabilities">Liability</a>
                                 <a class="menu-item navbar_btn"  id="" data-value="Equity">Equity/Capital</a>
                                 <a class="menu-item navbar_btn"  id="" data-value="Revenue">Revenue</a>
@@ -196,15 +200,16 @@
                                 </div>
                                 </div>
                               </nav>
+                            </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="search" class="form-control search" placeholder="&#xF002;     Search Account Here..." style="font-family: Arial,FontAwesome;">
+                                    <input type="search" class="form-control search" placeholder="&#xF002;     Search Account Here..." style="font-family: Arial,FontAwesome;font-size: 12px;">
                                 </div>
                             </div>
                     <div class="row mt-3">
-                        <div class="container-fluid">
+                        <div class="container-fluid d_a">
                         <div class="col-md-3 destination_account_structure">
-                            <ul class="list-group mt-2 destination_account " id="mastersheet_list" >
+                            <ul class="list-group mt-2 destination_account " id="mastersheet_list">
                             </ul>
                         </div>
                       </div>

@@ -11,12 +11,16 @@
     <script src="jquery/jquery.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" /> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+        integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
-<body >
+<body>
     <nav class="navbar navbar-expand-lg navbar-light navColor NavSticky ">
         <div class="container-fluid ps-4">
             <img src="images/Standardizer_logo.png">
@@ -47,32 +51,34 @@
 
     <div class="container-fluid d-flex mt-4 ps-3 btnSticky ">
         <div class="container-fluid p-0 buttonEvents">
-            <button type="button" class=" btnActive mx-2 p-1  px-2 btnFontSizeColor" id="assetBtn" data-link="#Assets"
+            <button type="button" class=" btnActive  p-1  px-3 btnFontSizeColor" id="assetBtn" data-link="#Assets"
                 onclick="getBtnAssetData()">Assets</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="Liability"
+            <button type="button" class="  btnActive  p-1 px-3  btnFontSizeColor" id="Liability"
                 data-link="#Liability" onclick="getBtnLiabilityData()">Liability</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="Equity" data-link="#Equity"
+            <button type="button" class="  btnActive p-1 px-3  btnFontSizeColor" id="Equity" data-link="#Equity"
                 onclick="getBtnEquityData()">Equity/Capital</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="Revenue" data-link="#Revenue"
-                onclick="">Revenue</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="CoGS"
-                data-link="#CoGS">CoGS</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="G&A" data-link="#G&A">G&A
+            <button type="button" class="  btnActive  p-1 px-3  btnFontSizeColor" id="Revenue" data-link="#Revenue"
+                onclick="getBtnRevenueData()">Revenue</button>
+            <button type="button" class="  btnActive  p-1 px-3  btnFontSizeColor" id="CoGS" data-link="#CoGS"
+                onclick="getBtnCogsData()">CoGS</button>
+            <button type="button" class="  btnActive  p-1 px-3  btnFontSizeColor" id="G&A" data-link="#GExpenses"
+                onclick="getBtnExpenseData()">G&A
                 Expenses</button>
-            <button type="button" class="  btnActive mx-2 p-1 px-2  btnFontSizeColor" id="OtherRevenue"
-                data-link="#OtherRevenue">Other Revenue & Expense</button>
+            <button type="button" class="  btnActive  p-1 px-3  btnFontSizeColor" id="OtherRevenue"
+                data-link="#OtherRevenue" onclick="getBtnOtherExpenseData()">Other Revenue & Expense</button>
         </div>
         <div class=" d-flex justify-content-end ">
-            <button type="submit" class="btn  mx-2 btn-success submitBtn" id="Submit" onclick="AddDataLocalStorage()">Submit</button>
+            <button type="submit" class="btn  mx-2 btn-success submitBtn" id="Submit"
+                onclick="AddDataLocalStorage()">Submit</button>
             <br>
         </div>
     </div>
-    
+
     <div id="LastSubmited" class=" submittext text-end mt-2"></div>
 
 
     <div class="container-fluid HumanUpdated ps-4 mt-5">
-        <p><i class="fa fa-circle-o"></i>&nbsp;<b>Human updated</b></p>
+        <p><i class="fa-regular fa-circle"></i></i>&nbsp;<b>Human updated</b></p>
     </div>
 
     <section>
@@ -122,15 +128,15 @@
                     <a class=" scrollItems" onclick="getAssetData()" id="Assets">Assets</a>
                     <a class=" scrollItems" onclick="getliabilityData()" id="Liability">Liability</a>
                     <a class=" scrollItems" onclick="getEquityData()" id="Equity">Equity/Capital</a>
-                    <a class=" scrollItems" onclick="" id="Revenue">Revenue</a>
-                    <a class=" scrollItems" onclick="" id="CoGS">CoGS</a>
-                    <a class=" scrollItems" onclick="" id="G&A">G&A Expenses</a>
-                    <a class=" scrollItems" onclick="" id="OtherRevenue">Other Revenue & Expense</a>
+                    <a class=" scrollItems" onclick="getRevenueData()" id="Revenue">Revenue</a>
+                    <a class=" scrollItems" onclick="CogsData()" id="CoGS">CoGS</a>
+                    <a class=" scrollItems" onclick="ExpensesData()" id="GExpenses">G&A Expenses</a>
+                    <a class=" scrollItems" onclick="OtherRevenueData()" id="OtherRevenue">Other Revenue & Expense</a>
 
                 </div>
                 <div>
                     <i class="bi-search searchIcon"></i>
-                    <input type="search" class="form-control ps-5 searchInput" id="searchinput" onclick="filter()"
+                    <input  class="form-control ps-5 searchInput" id="searchinput" onclick="filter()"
                         placeholder="Search Account Here...">
                 </div>
                 <div class="list-group destinationScroll" id="DestinationAccount">
@@ -146,7 +152,7 @@
 
 
 
-
+    <!-- <script src="js/bootstrap.bundle.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
     <script src="Standardizer.js"></script>
 </body>

@@ -1,0 +1,49 @@
+.mt-6{
+    margin-top: 10%;
+}
+#employeeDetail_wrapper{
+    margin-top: 5%;
+}
+
+.sales {
+    color: #ff0000;
+}
+
+.marketing {
+    color: #248c24;
+}
+
+.developer {
+    color: #000;
+}
+
+.qa {
+    color: #0000ff;
+}
+
+.hr {
+    color: #fe00ef;
+}
+
+.seo {
+    color: rgb(190, 203, 40);
+}
+
+.fade{
+    padding-left: 0px !important;
+    padding-right: 11rem !important;
+}
+.modal-content{
+    width: 45rem !important;
+}
+
+.color{
+    color: #06559a;
+}
+
+.aTag{
+    text-decoration: none;
+}
+#employeeDataTable_filter{
+    margin-top: 5%;
+}

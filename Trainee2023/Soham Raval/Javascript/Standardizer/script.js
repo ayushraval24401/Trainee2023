@@ -1,7 +1,11 @@
 
 var getvalueofcsv = [];
 var getvalueofmasterdata = [];
+let mostlikelysDroppedNumbers = [];
+var result = [];
+
 $(document).ready(function () {
+    // showdata();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -14,7 +18,7 @@ $(document).ready(function () {
     xhttp.send();
     function csvJSON(csv) {
         var lines = csv.split("\n");
-        var result = [];
+
         var headers = lines[0].split(",");
         for (var i = 1; i < lines.length; i++) {
             var obj = {};
@@ -26,53 +30,153 @@ $(document).ready(function () {
         }
         result.forEach((columndata) => {
             if (columndata.Number != "") {
-                $("#Balancesheet_list").append("<li class='list-group-item'>" + columndata.Number + "  " + columndata.Name + "<i class='material-icons float-end'>done_all history</i></li>");
-                $("#mostlikelys").append("<li class='list-group-item mostlike  ml'>")
-                $("#likelys").append("<li class='list-group-item mostlike'>")
-                $("#possible").append("<li class='list-group-item mostlike'>")
+                $("#Balancesheet_list").append("<li id='number_" + columndata.Number + "' class='list-group-item mostlike m'>" + '<p class="inner">' + columndata.Number + "  " + columndata.Name + '</p>' + "<i class='material-icons float-end'>done_all history</i></li>");
+                $("#mostlikelys").append("<li id='mostlikely_" + columndata.Number + "' class='list-group-item mostlike  mostlikedrag'>");
+                $("#likelys").append("<li id='likely_" + columndata.Number + "' class='list-group-item mostlike likelydrag'>");
+                $("#possible").append("<li id='possible_" + columndata.Number + "' class='list-group-item mostlike possibledrag'>");
             }
         });
+        // $('.mostlikedrag').each(function () {
 
-        $('.ml').each(function(){
-            debugger
+        //     new Sortable(this, {
+        //         group: 'shared',
+        //         animation: 150,
+        //     })
+        // })
+
+        $('.mostlikedrag').each(function () {
             new Sortable(this, {
                 group: 'shared',
                 animation: 150,
+                onAdd: function (evt) {
+                    console.log("evt", evt)
+                    debugger
+                    var mostlikelycontent = evt.item.parentNode;
+                    console.log(mostlikelycontent)
+                    // var firstChild = mostlikelycontent.children[0];
+                    // console.log(firstChild)
+                    // console.log(mostlikelycontent)
+                    if (mostlikelycontent.children.length > 1) {
+                        var firstChild = mostlikelycontent.children[0];
+                        var likely_shift = mostlikelycontent.children[1];
+                        console.log(firstChild.textContent.trim());
+                        console.log(mostlikelycontent.firstChild.textContent.trim())
+                        if (firstChild.textContent.trim() == likely_shift.textContent.trim()) {
+                            swal("same value does not exist!");
+                            // firstChild.children[0].remove();
+
+                        }
+                        // if (firstChild.textContent.trim() === likely_shift.textContent.trim()) 
+                        // {
+                        //     swal("same value does not exist!");                    
+                        // }
+                        else {
+                            var compareandget_id = mostlikelycontent.getAttribute('id').substring(mostlikelycontent.getAttribute('id').indexOf('_'));
+                            var possible = document.getElementById('possible' + compareandget_id);
+                            var likely = document.getElementById('likely' + compareandget_id);
+
+                            if (likely.children.length == 0) {
+                                likely.appendChild(likely_shift);
+                            }
+                            else if (likely.children.length == 1) {
+
+                                likely.appendChild(likely_shift);
+                                if (possible.children.length == 0) {
+                                    var secondlikelychild = likely.children[0];
+                                    possible.appendChild(secondlikelychild)
+                                }
+                                else if (possible.children.length == 1) {
+                                    possible.children[0].remove();
+                                    var secondlikelychild = likely.children[0];
+                                    possible.appendChild(secondlikelychild)
+                                }
+
+
+
+                            }
+                        }
+
+                    }
+
+                }
+            })
+        });
+        $('.likelydrag').each(function () {
+            new Sortable(this, {
+                group: 'shared',
+                animation: 150,
+                onAdd: function (evt) {
+
+                    var likelycontent = evt.item.parentNode;
+                    if (likelycontent.children.length > 1) {
+                        var firstChild = likelycontent.children[0];
+                        var possible_shift = likelycontent.children[1];
+                        if (firstChild.textContent.trim() == possible_shift.textContent.trim()) {
+                            swal("same value does not exist!");
+                        }
+                        else {
+                            var compareandget_id = likelycontent.getAttribute('id').substring(likelycontent.getAttribute('id').indexOf('_'));
+                            var possible = document.getElementById('possible' + compareandget_id);
+                            if (possible.children.length == 0) {
+                                possible.appendChild(possible_shift);
+                            }
+                            else if (possible.children.length == 1) {
+                                possible.appendChild(possible_shift);
+                                var possiblechild = possible.children[0];
+                                possiblechild.remove();
+                            }
+                        }
+                    }
+                }
+            })
+        })
+        $('.possibledrag').each(function () {
+            new Sortable(this, {
+                group: 'shared',
+                animation: 150,
+                onAdd: function (evt) {
+                    var possiblecontent = evt.item.parentNode;
+                    if (possiblecontent.children.length > 1) {
+                        possiblecontent.children[1].remove();
+                    }
+                }
             })
         })
 
+        let str = $("#mostlikelys").find("li").attr("id");
+        let mostlikelyValue = str.substring(str.indexOf("mostlikely_"));
+        console.log(mostlikelyValue);
 
-     
         debugger
         $(".source_btn").click(function () {
-            var mostlikelys = document.getElementById("mostlikelys");
-            mostlikelys.innerHTML='';
-            var likelys = document.getElementById("likelys");
-            likelys.innerHTML='';
-            var possible = document.getElementById("possible");
-            possible.innerHTML='';
             var type = $(this).data("value");
-            $("#Balancesheet_list").html('');
+            var mostlikelys = $("#mostlikelys");
+            var likelys = $("#likelys");
+            var possible = $("#possible");
+            // var type = $(this).data("value");
+
+            $("#Balancesheet_list li").hide();
+            mostlikelys.find("li").hide();
+            likelys.find("li").hide();
+            possible.find("li").hide();
             result.forEach((columndata) => {
                 if (columndata.Type == type) {
-                    console.log(columndata.Name);
                     if (columndata.Number != "") {
-                        $("#Balancesheet_list").append("<li class='list-group-item'>" + columndata.Number + "  " + columndata.Name + "<i class='material-icons float-end'>done_all history</i></li>");
-                        $("#mostlikelys").append("<li class='list-group-item mostlike'>")
-                        $("#likelys").append("<li class='list-group-item mostlike'>")
-                        $("#possible").append("<li class='list-group-item mostlike'>")
+                        $("#number_" + columndata.Number).show();
+                        $("#mostlikely_" + columndata.Number).show();
+                        $("#likely_" + columndata.Number).show();
+                        $("#possible_" + columndata.Number).show();
                     }
                 }
             });
-            
-            // let menu = document.getElementById('mostlikelys');
-            // menu.removeChild(menu.lastElementChild);
+            // $('.btndrag').each(function () {
+            //     debugger
+            //     new Sortable(this, {
+            //         group: 'shared',
+            //         animation: 150,
+            //     })
+            // })
 
-            // var length = $("#Balancesheet_list li").length;
-            // console.log(length)
-            // for(i=0;i<length;i++){
-            // $("#mostlikelys").append("<li class='list-group-item mostlike'>")}
-          
             const MasterDataMap = {
                 "Assets": "ASSETS",
                 "Liabilities": "LIABILITIES",
@@ -94,8 +198,8 @@ $(document).ready(function () {
                         $("#mastersheet_list").append("<li class='list-group-item'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
                     }
                 }
-            }) 
-            
+            })
+
         });
         return JSON.stringify(result);
     }
@@ -120,13 +224,11 @@ $(document).ready(function () {
             getvalueofmasterdata.push(obj);
         }
     }
-
     var html = '';
     getvalueofmasterdata.forEach((columndata) => {
         if (columndata.Number != "") {
-         // $("#mastersheet_list").append("<li class='list-group-item'>" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
-         html += "<li class='list-group-item'>" + "⠿" +columndata.AccountCode + "  " + columndata.AccountName + "</li>"
-                
+            // $("#mastersheet_list").append("<li class='list-group-item'>" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
+            html += "<li class='list-group-item' data-value='" + columndata.AccountCode + "'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>";
         }
         $("#mastersheet_list").html(html)
     });
@@ -143,24 +245,25 @@ $(document).ready(function () {
         };
         datamatchedofnavbar = MasternavbarMap[navbarvalue];
         $("#mastersheet_list").html('');
-    
+
         getvalueofmasterdata.forEach((columndata) => {
             if (columndata.AccountTypeName == datamatchedofnavbar) {
                 console.log(columndata.AccountName);
-                if (columndata.Number != "" ) {
+                if (columndata.Number != "") {
 
-                        $("#mastersheet_list").append("<li class='list-group-item'>" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
+                    $("#mastersheet_list").append("<li class='list-group-item'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
                 }
             }
         });
-          $('#all_data').click(function(){
-            getvalueofmasterdata.forEach((columndata) => {      
-                  console.log(columndata.AccountName);
-                  if(columndata.Number!=""){
-                    $("#mastersheet_list").append("<li class='list-group-item'>" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
-                }        
-               });
-          });
+        $('#all_data').click(function () {
+            $("#mastersheet_list").html('');
+            getvalueofmasterdata.forEach((columndata) => {
+                console.log(columndata.AccountName);
+                if (columndata.Number != "") {
+                    $("#mastersheet_list").append("<li class='list-group-item'>" + "⠿" + columndata.AccountCode + "  " + columndata.AccountName + "</li>");
+                }
+            });
+        });
     })
     const buttons = document.querySelectorAll('.source_btn');
     buttons.forEach(button => {
@@ -171,30 +274,48 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    showdata();
     $('#btn-nav-previous').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "-=100px" });
     });
     $('#btn-nav-next').click(function () {
         $(".menu-inner-box").animate({ scrollLeft: "+=100px" });
     });
-    $(".search").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $(".destination_account_structure ul li").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
+
+
+    $('.menu-item.navbar_btn').click(function () {
+        // remove the active class from all links
+        $('.menu-item.navbar_btn').removeClass('active');
+        // add the active class to the clicked link
+        $(this).addClass('active');
     });
-    $('.search').on('search', function () {
-        if ($(this).val() === '') {
-            $('#mastersheet_list li').show();
-        }
+    var dataget = getvalueofmasterdata;  //Done
+    var storedData = localStorage.getItem("Data");
+    let storearray = JSON.parse(storedData);
+    console.log("LIKELY Data", storearray);
+    console.log("Destination data", dataget);;
+    console.log(dataget.AccountCode)
+
+
+    dataget.forEach((list) => {
+
+        //   console.log(list.AccountCode)
+    })
+    storearray.forEach(() => {
+        // console.log(list.ID)
+        var dataValuesmostlikely = $('#mostlikely li.list-group-item').map(function () {
+            return $(this).data('value');
+        }).get();
+        console.log(dataValuesmostlikely)
+
+
     });
 
-        $('.menu-item.navbar_btn').click(function() {
-          // remove the active class from all links
-          $('.menu-item.navbar_btn').removeClass('active');
-          // add the active class to the clicked link
-          $(this).addClass('active');
-        }); 
+
+    // if()
+
+
+
 });
 // new Sortable(document.getElementById('mostlikelys'), {
 //     group: 'shared',
@@ -221,11 +342,12 @@ new Sortable(mastersheet_list, {
     group: {
         name: 'shared',
         pull: 'clone',
-        put: false 
+        put: false
     },
     animation: 150,
-    // sort: false 
+    sort: false
 });
+
 
 // new Sortable(document.getElementsByClassName('mostlikelys_list'), {
 //     group: 'shared',
@@ -255,16 +377,106 @@ new Sortable(mastersheet_list, {
 // initialize new Sortable instance on mastersheet_list
 const buttons = document.querySelectorAll('.source_btn');
 buttons.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    const value = event.target.getAttribute('data-value');
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach((menuItem) => {
-      if (menuItem.getAttribute('data-value') === value) {
-        menuItem.classList.add('active');
-        menuItem.scrollIntoView({behavior:"smooth",block:"nearest"});
-      } else {
-        menuItem.classList.remove('active');
-      }
+    button.addEventListener('click', (event) => {
+        const value = event.target.getAttribute('data-value');
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach((menuItem) => {
+            if (menuItem.getAttribute('data-value') === value) {
+                menuItem.classList.add('active');
+                menuItem.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+            } else {
+                menuItem.classList.remove('active');
+            }
+        });
     });
-  });
 });
+
+function submit() {
+    location.reload()
+    debugger
+    var array = new Array;
+
+
+    result.forEach((li) => {
+
+        //let Data = li.AccountCode
+        //   console.log(Data)
+        let datatostore = {
+            ID: li.Number,
+            mostlikelys: $(`#mostlikely_${li.Number}`).html(),
+            likelys: $(`#likely_${li.Number}`).html(),
+            possible: $(`#possible_${li.Number}`).html(),
+            //Data_store: Data
+        };
+        array.push(datatostore);
+        localStorage.setItem("Data", JSON.stringify(array));
+
+    })
+    // showdata();
+
+}
+function showdata() {
+    debugger
+    var storedData = localStorage.getItem("Data");
+    let storearray = JSON.parse(storedData);
+    console.log(storearray)
+    if (storearray) {
+        storearray.forEach(li => {
+            // var id = li.ID;
+            // var mostlike = li.mostlikelys;
+            // var likelys = li.likelys;
+            // var possible = li.possible;  
+            // console.log("ytryutyu",mostlike)
+
+            $(`#mostlikely_${li.ID}`).html(li.mostlikelys);
+            $(`#likely_${li.ID}`).html(li.likelys);
+            $(`#possible_${li.ID}`).html(li.possible);
+
+
+        })
+    }
+
+}
+
+
+var currentDateTime = new Date();
+var formattedDateTime = currentDateTime.toLocaleString();
+document.getElementById("date_and_time_show").innerHTML = "Last updated on " + formattedDateTime;
+
+// window.addEventListener("load", (event) => {
+//     console.log("page is fully loaded");
+//     // Retrieve the data from localStorage
+// let storedData = JSON.parse(localStorage.getItem("Data"));
+
+// // Use the data as needed
+// $("#mostlikelys").html(storedData.mostlikelys);
+// $("#likelys").html(storedData.likelys);
+// $("#possible").html(storedData.possible);
+// let getvalueofmasterdata = storedData.getvalueofmasterdata;
+
+//   });
+
+    // $(".search").on("keyup", function () {
+    //     var value = $(this).val().toLowerCase();
+    //     $(".destination_account_structure ul li").filter(function () {
+    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //     });
+    // });
+    $('.search').on('keyup search',function(){
+        var value=$(this).val().toLowerCase();
+        $('.destination_account li').each(function(){
+            var text=$(this).text().toLowerCase();
+            if(text.indexOf(value)===-1)
+            {
+                $(this).hide();
+            }
+            else{
+                $(this).show();
+            }
+        });
+    });
+    $('.search').on('search', function () {
+        if ($(this).val() === '') {
+            $('.destination_account li').show();
+        }
+    });

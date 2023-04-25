@@ -1,0 +1,20 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node practicle1.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "soham",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.12",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "color": "^4.2.3"
+  }
+}

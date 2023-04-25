@@ -33,13 +33,12 @@ xhr.onreadystatechange = function () {
     // Convert the JSON string to a JSON object
     masterChartAccountObject = JSON.parse(masterChartAccountDataString);
 
-    // console.log(masterChartAccountObject); // Log the JSON object to the console
   }
 };
 xhr.send();
 
 var destinationData = JSON.parse(masterChartAccountDataString);
-// console.log("Alok", destinationData);
+console.log("Alok", destinationData);
 
 //---------------------------------------------------------------------------------------------------------
 
@@ -48,23 +47,6 @@ var destinationData = JSON.parse(masterChartAccountDataString);
 // Global element
 var htmlD = "";
 $(document).ready(function () {
-  // console.log(destinationData);
-  destinationData.forEach((item) => {
-    htmlD +=
-      "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'  id='" +
-      item.AccountCode +
-      "' >" +
-      "⠿ " +
-      item.AccountCode +
-      "--" +
-      item.AccountName +
-      "</div>";
-  });
-
-  $("#DestinationAccount").html(htmlD);
-
-  // ------------------------------------------------------------------------------------------------------
-
   // btn color
   $(".btnActive").click(function () {
     // remove "active" class from all buttons
@@ -120,7 +102,7 @@ xhrs.onreadystatechange = function () {
     // Convert the JSON string to a JSON object .. It is used to only check the response
     StandardChartofAccountObject = JSON.parse(StandardChartofAccountDataString);
 
-    // console.log(StandardChartofAccountObject); // Log the JSON object to the console
+    console.log(StandardChartofAccountObject); // Log the JSON object to the console
   }
 };
 xhrs.send();
@@ -151,15 +133,14 @@ SourceData.forEach((Element, index) => {
       Element.Number +
       " " +
       Element.Name +
-      "<i class='fa-sharp fa-solid fa-clock-rotate-left float-end'></i> <i class='bi bi-check2-all text-end float-end ps-2'></i></div>";
+      "<i class='fa-sharp fa-solid fa-clock-rotate-left float-end'></i><i class='bi bi-check2-all text-end float-end ps-2' id='" + Element.Number + "i' ></i></div>";
     divhtml +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight MostLikely ps-2' id='" +
       Element.Number +
       "ML'></div>";
     likelyHtml +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight likely ps-2' id='" +
-      Element.Number +
-      "L'></div>";
+      Element.Number + "L'></div>";
     possible +=
       "<div class='SourceAccDivs mt-2 p-1 DynamicFontSize SourceDivHeight possible ps-2' id='" +
       Element.Number +
@@ -175,20 +156,21 @@ $("#Possible").html(possible);
 
 // --------------------------------------------------------------------------------------------------------
 
+// Navbar Scrollbar
 const scrollbar = document.getElementById("scrollbar");
 const scrollLeftBtn = document.getElementById("scroll-Left-btn");
 const scrollrightBtn = document.getElementById("scroll-right-btn");
 
 // Set up button click handlers
-scrollLeftBtn.addEventListener("click", scrollUp);
-scrollrightBtn.addEventListener("click", scrollDown);
+scrollLeftBtn.addEventListener("click", right);
+scrollrightBtn.addEventListener("click", left);
 
-function scrollUp() {
+function right() {
   // Scroll up by 50 pixels
   scrollbar.scrollLeft += 70;
 }
 
-function scrollDown() {
+function left() {
   // Scroll down by 50 pixels
   scrollbar.scrollLeft -= 70;
 }
@@ -206,7 +188,9 @@ function getAllData() {
   html1 = "";
   DestinationData.forEach((element, index) => {
     html1 +=
-      "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'>" +
+      "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+      element.AccountCode +
+      "' id='" + element.AccountCode + "d'>" +
       "⠿ " +
       element.AccountCode +
       "--" +
@@ -222,7 +206,9 @@ function getAssetData() {
   DestinationData.forEach((element, index) => {
     if (element.AccountTypeName == "ASSETS") {
       html +=
-        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'>" +
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "'  id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -239,7 +225,9 @@ function getliabilityData() {
   DestinationData.forEach((element, index) => {
     if (element.AccountTypeName == "LIABILITIES") {
       html +=
-        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'>" +
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -256,7 +244,9 @@ function getEquityData() {
   DestinationData.forEach((element, index) => {
     if (element.AccountTypeName == "EQUITY/CAPITAL") {
       html +=
-        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'>" +
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -271,9 +261,11 @@ function getEquityData() {
 function getRevenueData() {
   html = "";
   DestinationData.forEach((element, index) => {
-    if (element.AccountTypeName == "EQUITY/CAPITAL") {
+    if (element.AccountTypeName == "Professional Services Revenue") {
       html +=
-        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2'>" +
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
         "⠿ " +
         element.AccountCode +
         "--" +
@@ -284,6 +276,62 @@ function getRevenueData() {
   $("#DestinationAccount").html(html);
 }
 
+// For Cogs
+function CogsData() {
+  html = "";
+  DestinationData.forEach((element, index) => {
+    if (element.AccountTypeName == "Professional Services Costs") {
+      html +=
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
+        "⠿ " +
+        element.AccountCode +
+        "--" +
+        element.AccountName +
+        "</div>";
+    }
+  });
+  $("#DestinationAccount").html(html);
+}
+
+// For Expenses
+function ExpensesData() {
+  html = "";
+  DestinationData.forEach((element, index) => {
+    if (element.AccountTypeName == "Labor Expense") {
+      html +=
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
+        "⠿ " +
+        element.AccountCode +
+        "--" +
+        element.AccountName +
+        "</div>";
+    }
+  });
+  $("#DestinationAccount").html(html);
+}
+
+// Other Revenue & Expenses
+function OtherRevenueData() {
+  html = "";
+  DestinationData.forEach((element, index) => {
+    if (element.AccountTypeName == "Product Revenue") {
+      html +=
+        "<div class='list-group-item mt-2 border p-1 DestinationDynamicFontSize destinatonDrag ps-2' data-atr='" +
+        element.AccountCode +
+        "' id='" + element.AccountCode + "d'>" +
+        "⠿ " +
+        element.AccountCode +
+        "--" +
+        element.AccountName +
+        "</div>";
+    }
+  });
+  $("#DestinationAccount").html(html);
+}
 // --------------------------------------------------------------------------------------------------------
 
 // Source
@@ -352,6 +400,83 @@ function getBtnEquityData() {
   });
 }
 
+function getBtnRevenueData() {
+  $(".SourceAcc").each(function (index) {
+    // console.log(this.id);
+    var id = this.id;
+    $(`#${id}`).hide();
+    $(`#${id}ML`).hide();
+    $(`#${id}L`).hide();
+    $(`#${id}P`).hide();
+
+    var dataAttribute = $(this).attr("data-atr");
+    if (dataAttribute.trim() == "Revenue") {
+      var id = this.id;
+      $(`#${id}`).show();
+      $(`#${id}ML`).show();
+      $(`#${id}L`).show();
+      $(`#${id}P`).show();
+    }
+  });
+}
+function getBtnCogsData() {
+  $(".SourceAcc").each(function (index) {
+    // console.log(this.id);
+    var id = this.id;
+    $(`#${id}`).hide();
+    $(`#${id}ML`).hide();
+    $(`#${id}L`).hide();
+    $(`#${id}P`).hide();
+
+    var dataAttribute = $(this).attr("data-atr");
+    if (dataAttribute.trim() == "COGS") {
+      var id = this.id;
+      $(`#${id}`).show();
+      $(`#${id}ML`).show();
+      $(`#${id}L`).show();
+      $(`#${id}P`).show();
+    }
+  });
+}
+function getBtnExpenseData() {
+  $(".SourceAcc").each(function (index) {
+    // console.log(this.id);
+    var id = this.id;
+    $(`#${id}`).hide();
+    $(`#${id}ML`).hide();
+    $(`#${id}L`).hide();
+    $(`#${id}P`).hide();
+
+    var dataAttribute = $(this).attr("data-atr");
+    if (dataAttribute.trim() == "Expense") {
+      var id = this.id;
+      $(`#${id}`).show();
+      $(`#${id}ML`).show();
+      $(`#${id}L`).show();
+      $(`#${id}P`).show();
+    }
+  });
+}
+function getBtnOtherExpenseData() {
+  $(".SourceAcc").each(function (index) {
+    // console.log(this.id);
+    var id = this.id;
+    $(`#${id}`).hide();
+    $(`#${id}ML`).hide();
+    $(`#${id}L`).hide();
+    $(`#${id}P`).hide();
+
+    var dataAttribute = $(this).attr("data-atr");
+    if (dataAttribute.trim() == "Other Rev & Exp") {
+      var id = this.id;
+      $(`#${id}`).show();
+      $(`#${id}ML`).show();
+      $(`#${id}L`).show();
+      $(`#${id}P`).show();
+    }
+  });
+}
+
 // --------------------------------------------------------------------------------------------------------
 
 // Button click
@@ -375,22 +500,21 @@ dataBtn.forEach((btn) => {
 // -----------------------------------------------------------------------------------------------------------
 
 // Search
-var searchInput = document.getElementById('searchinput');
-var destinationAccountDiv = document.getElementById('DestinationAccount');
-var destinationAccountDivs = destinationAccountDiv.getElementsByTagName('div');
+var searchInput = document.getElementById("searchinput");
+var destinationAccountDiv = document.getElementById("DestinationAccount");
+var destinationAccountDivs = destinationAccountDiv.getElementsByTagName("div");
 
-searchInput.addEventListener('keyup', function () {
+searchInput.addEventListener("keyup", function () {
   var value = this.value.toLowerCase();
   for (var i = 0; i < destinationAccountDivs.length; i++) {
     var text = destinationAccountDivs[i].textContent.toLowerCase();
     if (text.indexOf(value) > -1) {
-      destinationAccountDivs[i].style.display = '';
+      destinationAccountDivs[i].style.display = "";
     } else {
-      destinationAccountDivs[i].style.display = 'none';
+      destinationAccountDivs[i].style.display = "none";
     }
   }
 });
-
 
 // --------------------------------------------------------------------------------------------------------
 
@@ -411,10 +535,6 @@ new Sortable(destinationAccount, {
     pull: "clone",
     put: false, // Do not allow items to be put into this list
   },
-  onStart: function (evt) {
-    var id = evt.item.id;
-    console.log(' id:', id);
-  },
 
   sort: false,
   animation: 150,
@@ -426,35 +546,121 @@ $(".MostLikely").each(function () {
     animation: 150,
 
     onAdd: function (evt) {
-      var mostLikelyItem = evt.to.children[0];
-   
-      var Mostid = this.el.id;
-      console.log(Mostid);
+      // it gives the id of the div in which data is dropped 
+      var Mostlikeid = this.el.id;
+      console.log("Mostlikeid", Mostlikeid)
 
-      var Likely = Mostid.replace("ML", "L");
-      var PossibledivID = Mostid.replace("ML", "P");
+
+      //  for double check color change
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Mostlikeid.replace("ML", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
+
+
+      // for destination color change
+      var destinationAtr = evt.to.children[0].getAttribute("data-atr")
+      console.log(destinationAtr)
+      var destinationColor=$('[data-atr="'+destinationAtr+'"]')
+      console.log($('[data-atr="'+destinationAtr+'"]'))
+
+      // destinationColor.style.color = "green"
+
+
+      var Likely = Mostlikeid.replace("ML", "L");
+      console.log("Likely", Likely)
+
+      var PossibledivID = Mostlikeid.replace("ML", "P");
+
+      var mostLikelyAttr1;
+      var mostLikelyAttr2;
+
+      // to get dropped class 
+
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "likely" || element === "possible" || element === "destinationScroll");
+      console.log("ee", Classfound)
+
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
 
       var LikelyDIV = document.getElementById(Likely);
+      console.log("likely", LikelyDIV)
+
       var PossibleDIV = document.getElementById(PossibledivID);
 
-      if (evt.to.children.length > 1) {
-        var oldMostLikelyitem = evt.to.children[1];
-        LikelyDIV.appendChild(oldMostLikelyitem);
-        console.log(LikelyDIV.children);
+      // when nothing is there
+      var emptyLikely = document.getElementById(Likely).children[0]
+      emptyLikely = $(emptyLikely).attr("data-atr")
+
+      var emptyPossible = document.getElementById(PossibledivID).children[0]
+      emptyPossible = $(emptyPossible).attr("data-atr")
+
+      var emptyMostlikely = $(evt.item).attr("data-atr")
+
+
+      if (Classfound != "destinationScroll") {
+        debugger
+        if (Classfound == "likely" || Classfound == "possible") {
+          if (evt.to.children.length > 1) {
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
+
       }
+      if (emptyLikely == emptyMostlikely || emptyMostlikely == emptyPossible) {
+        Swal.fire('Duplicate Data is Found')
+        evt.to.removeChild(evt.item)
+      }
+      else {
+        try {
+
+          if (evt.to.children.length > 1) {
+            mostLikelyAttr1 = evt.to.children[0].getAttribute("data-atr");
+            mostLikelyAttr2 = evt.to.children[1].getAttribute("data-atr");
+
+            console.log("P", mostLikelyAttr1)
+            console.log("P", mostLikelyAttr2)
+
+            if (mostLikelyAttr1 == mostLikelyAttr2) {
+              Swal.fire('Duplicate Data is Found')
+              evt.to.removeChild(evt.to.children[1]);
+            }
+            else {
+              LikelyDIV.appendChild(evt.to.children[1]);
+            }
+          }
+        }
+        catch (err) {
+          console.log("err")
+        }
+
+      }
+
       if (LikelyDIV.children.length > 1) {
         var oldLikelyitem = LikelyDIV.children[0];
-        console.log(oldLikelyitem);
         PossibleDIV.appendChild(oldLikelyitem);
       }
       if (PossibleDIV.children.length > 1) {
         PossibleDIV.removeChild(PossibleDIV.children[0]);
       }
 
+
     },
     ghostClass: "ghost",
   });
 });
+
+var likelyAtr1, likelyAtr2;
 
 $(".likely").each(function () {
   new Sortable(this, {
@@ -462,26 +668,86 @@ $(".likely").each(function () {
     animation: 150,
     onAdd: function (evt) {
       var LikelyItem = evt.to.children[0];
-   
-
 
       var Likeid = this.el.id;
-      // console.log(Likeid);
+      var MLikelyid = Likeid.replace("L", "ML");
+      var PossibledivID = Likeid.replace("L", "P");
+
+      var likelyAtr1;
+      var likelyAtr2;
+
+      // Color change in the double check
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Likeid.replace("L", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
+
+
+
+      // to get dropped class 
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "MostLikely" || element === "possible" || element === "destinationScroll");
+      console.log("ee", Classfound)
+
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
+
+      if (Classfound != "destinationScroll") {
+        if (Classfound == "MostLikely" || Classfound == "possible") {
+          if (evt.to.children.length > 1) {
+            debugger
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
+
+      }
+      // else {
+      // when nothing is there
+      var emptyMLikely = document.getElementById(MLikelyid).children[0]
+      emptyMLikely = $(emptyMLikely).attr("data-atr")
+
+      var EmptyPossible = document.getElementById(PossibledivID).children[0]
+      EmptyPossible = $(EmptyPossible).attr("data-atr")
+
+      var emptylikely = $(evt.item).attr("data-atr")
+
+      if (emptyMLikely == emptylikely || emptylikely == EmptyPossible) {
+        Swal.fire('Duplicate Data is Found')
+
+        evt.to.removeChild(evt.item)
+      } else {
+        if (evt.to.children.length > 1) {
+          likelyAtr1 = evt.to.children[0].getAttribute("data-atr");
+          likelyAtr2 = evt.to.children[1].getAttribute("data-atr");
+          if (likelyAtr1 == likelyAtr2) {
+            Swal.fire('Duplicate Data is Found')
+
+            evt.to.removeChild(evt.to.children[1]);
+          }
+        }
+      }
 
       var PossibledivID = Likeid.replace("L", "P");
 
       var PossibleDIV = document.getElementById(PossibledivID);
       if (evt.to.children.length > 1) {
-
-        var olditem = evt.to.children[1]
+        var olditem = evt.to.children[1];
         PossibleDIV.appendChild(olditem);
-
       }
       if (PossibleDIV.children.length > 1) {
         PossibleDIV.removeChild(PossibleDIV.children[0]);
-
-
       }
+      // }
+
     },
     ghostClass: "ghost",
   });
@@ -493,15 +759,81 @@ $(".possible").each(function () {
     animation: 150,
 
     onAdd: function (evt) {
-      var possible = evt.to.children[0];
-   
-      debugger;
-      console.log(evt.dragEl)
 
-      if (evt.to.children.length > 1) {
-        evt.to.removeChild(evt.to.children[1]);
+      var Possibleid = this.el.id;
+      var MostLikelyid = Possibleid.replace("P", "ML");
+      var LikelyID = Possibleid.replace("P", "L");
+
+      var PossibleAtr1;
+      var PossibleAtr2;
+
+      // Color change in the double check
+      if (evt.to.children.length >= 1) {
+        debugger
+        var colorchange = document.getElementById(Possibleid.replace("P", "i"))
+        colorchange.style.color = "#87CEEB"
+        console.log("colorchange", colorchange)
+      }
+
+      // to get dropped class 
+      var droppingDataClass = $(evt.from).attr("class").split(" ")
+      var Classfound = droppingDataClass.find(element => element === "MostLikely" || element === "likely" || element === "destinationScroll");
+      console.log("ee", Classfound)
+
+      var droppingDataIdDiv = document.getElementById($(evt.from)[0].id)
+      console.log("ee", droppingDataIdDiv)
+
+      if (Classfound != "destinationScroll") {
+        if (Classfound == "MostLikely" || Classfound == "likely") {
+          if (evt.to.children.length > 1) {
+            debugger
+            var oldMostLikelyitem = evt.to.children[1];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+          else {
+            var oldMostLikelyitem = evt.to.children[0];
+            droppingDataIdDiv.appendChild(oldMostLikelyitem);
+            Swal.fire('This is not allowed')
+          }
+        }
 
       }
+
+      // when nothing is there
+      var EmptyMLikely = document.getElementById(MostLikelyid).children[0]
+      EmptyMLikely = $(EmptyMLikely).attr("data-atr")
+
+      var EmptyLikely = document.getElementById(LikelyID).children[0]
+      EmptyLikely = $(EmptyLikely).attr("data-atr")
+
+      var emptyPoss = $(evt.item).attr("data-atr")
+
+      if (EmptyMLikely == emptyPoss || emptyPoss == EmptyLikely) {
+        Swal.fire('Duplicate Data is Found')
+
+        evt.to.removeChild(evt.item)
+      } else {
+        if (evt.to.children.length > 1) {
+          debugger
+          PossibleAtr1 = evt.to.children[0].getAttribute("data-atr");
+          PossibleAtr2 = evt.to.children[1].getAttribute("data-atr");
+
+          if (PossibleAtr1 == PossibleAtr2) {
+            Swal.fire('Duplicate Data is Found')
+
+            evt.to.removeChild(evt.to.children[1]);
+          } else {
+            debugger
+            evt.to.removeChild(evt.to.children[1]);
+
+          }
+
+        }
+      }
+
+      // }
+
     },
     ghostClass: "ghost",
   });
@@ -509,60 +841,49 @@ $(".possible").each(function () {
 
 // -------------------------------------------------------------------------------------------------------
 // locastorage
+window.addEventListener("load", function () {
+  var SourceJson = JSON.parse(localStorage.getItem("SourceAccount"));
+  if (SourceJson != null || SourceJson != undefined) {
+    document.onload = getLocalStorageData();
+  }
+});
 
-document.onload = getLocalStorageData();
-
-var SourceAccount = new Array();
 function AddDataLocalStorage() {
+  var SourceAccount = new Array();
   const mainDiv = document.getElementById("SourceAccount");
   const divs = mainDiv.querySelectorAll("div");
   var SourceID;
   divs.forEach(function (div) {
-    SourceID = div.id
-    console.log(SourceID)
-    debugger
-    if (localStorage.getItem("SourceAccount") == null) {
-      SourceAccount = [];
-      var sourceAccountObj = {
-        SourceId: SourceID,
-        MostLikely: $("#" + SourceID + "ML").html(),
-        Likely: $("#" + SourceID + "L").html(),
-        Possible: $("#" + SourceID + "P").html(),
-      };
-    }
-    else {
-      var sourceAccountObj = {
-        SourceId: SourceID,
-        MostLikely: $("#" + SourceID + "ML").html(),
-        Likely: $("#" + SourceID + "L").html(),
-        Possible: $("#" + SourceID + "P").html(),
-      };
-    }
+    SourceID = div.id;
+    var sourceAccountObj = {
+      LastUpdated: Time,
+      SourceId: SourceID,
+      MostLikely: $("#" + SourceID + "ML").html(),
+      Likely: $("#" + SourceID + "L").html(),
+      Possible: $("#" + SourceID + "P").html(),
+    };
 
     SourceAccount.push(sourceAccountObj);
 
-    // localStorage.setItem("SourceAccount", JSON.stringify(SourceAccount));
-  })
+  });
   localStorage.setItem("SourceAccount", JSON.stringify(SourceAccount));
 }
 
+// local storage variable
+var SourceDataJson
 function getLocalStorageData() {
-  debugger
-  var SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
+  SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
   console.log("Json", SourceDataJson);
 
   const mainDiv = document.getElementById("SourceAccount");
   const divs = mainDiv.querySelectorAll("div");
-  // divs.forEach(div => console.log(div.id));
   var getSourceid;
   divs.forEach(function (div, index) {
-    getSourceid = div.id
+    getSourceid = div.id;
     $("#" + getSourceid + "ML").html(SourceDataJson[index].MostLikely);
-    $("#" + getSourceid + "L").html(SourceDataJson[index].Likely)
-    $("#" + getSourceid + "P").html(SourceDataJson[index].Possible)
-
-  })
-
+    $("#" + getSourceid + "L").html(SourceDataJson[index].Likely);
+    $("#" + getSourceid + "P").html(SourceDataJson[index].Possible);
+  });
 }
 
 // --------------------------------------------------------------------------------------------------------
@@ -609,9 +930,24 @@ function padValue(value) {
 }
 
 var Time = formatDate(new Date());
-console.log(Time);
 
-var Lastupdate = document.getElementById('Submit');
-Lastupdate.addEventListener('click',function(){
-  document.getElementById('LastSubmited').innerHTML = "Last Updated On "+Time
-})
+var Lastupdate = document.getElementById("Submit");
+Lastupdate.addEventListener("click", function () {
+  Swal.fire({
+    // position: 'top-end',
+    icon: 'success',
+    title: 'Data is submitted',
+    showConfirmButton: false,
+    timer: 1500
+  })
+
+  SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
+  document.getElementById("LastSubmited").innerHTML = "Last Updated On " + SourceDataJson[0].LastUpdated;
+});
+
+window.onload = (event) => {
+  SourceDataJson = JSON.parse(localStorage.getItem("SourceAccount"));
+  (document.getElementById("LastSubmited").innerHTML = "Last Updated On " + SourceDataJson[0].LastUpdated);
+};
+
+// --------------------------------------------------------------------------------------------------------
