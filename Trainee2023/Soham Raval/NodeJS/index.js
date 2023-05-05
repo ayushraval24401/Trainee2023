@@ -11,7 +11,7 @@
 //         console.log("path",__filename);
 //         const fs=require('fs');
 //         fs.writeFileSync("code.txt","hello")
-const http=require('http')
+const http=require('http');
 
 http.createServer((req,res)=>{
 res.write("hiiii");

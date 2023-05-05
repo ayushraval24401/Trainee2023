@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model TrainList {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  Train_No    Int
+  destination String
+  seatsTotal  Int
+  trainName   String
+   stationList String  @db.ObjectId @unique
+   station StationList @relation(fields: [stationList],references: [id])
+   bookinglist BookingList[]
+
+  // StationList StationList
+}
+
+model StationList {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  stationCode Int
+  stationName String
+  trainlist TrainList?
+
+}
+
+model BookingList {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  passengerName   String
+  passengerAge    Int
+  passengerGender String
+  passengerList   String[] @db.ObjectId
+   passenger PassengerList[] @relation(fields: [passengerList],references: [id])
+   trainList String  @db.ObjectId
+   train TrainList  @relation(fields: [trainList],references: [id])
+
+}
+
+model PassengerList {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  username      String
+  password      String
+  email         String
+  BookingList String[] @db.ObjectId
+  booking BookingList[] @relation(fields: [BookingList],references: [id])
+  
+}
