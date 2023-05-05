@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "wyThH8fG9e46mkTWG2XXvjDIUUAq4ePEJ3kFUVI2ikVORHEsOf+n0glCJH3DP973vIGPxSR3ydfvkSUb7L9s7A==",
+  "success": true,
+  "projectFilePath": "D:\\Krinal Patel\\API\\CustomerManagement\\Customer\\Customer\\Customer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user15\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\user15\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\user15\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
